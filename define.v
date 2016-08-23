@@ -28,7 +28,7 @@
 
 // ALU op
 `define EXE_OR_OP				8'b00100101
-`eefine EXE_NOP_OP				8`b00000000
+`define EXE_NOP_OP				8'b00000000
 
 // ALU sel
 `define EXE_RES_LOGIC			3'b001

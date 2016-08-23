@@ -1,3 +1,4 @@
+`include "define.v"
 module pc_reg(
 	input wire clk,
 	input wire rst,
@@ -6,7 +7,7 @@ module pc_reg(
 	output reg ce
 );
 
-	always @ (postedge clk) begin
+	always @ (posedge clk) begin
 		if (rst == `RstEnable) begin
 			ce <= `ChipDisable;
 		end else begin
@@ -14,11 +15,11 @@ module pc_reg(
 		end
 	end
 
-	always @ (postedge clk) begin
+	always @ (posedge clk) begin
 		if (ce == `ChipEnable) begin
 			pc <= pc + 4'h4;
 		end else begin
-			pc <= 32'h0
+			pc <= 32'h0;
 		end
 	end
 
