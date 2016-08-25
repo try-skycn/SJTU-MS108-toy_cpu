@@ -1,12 +1,13 @@
 `include "define.v"
+
 module pc_reg(
 	input wire clk,
 	input wire rst,
 
-	output reg[`InstAddrBus] pc,
-	output reg ce
+	output reg[`InstAddrBus] pc = 32'h0,
+	output reg ce = 1'b1
 );
-
+	
 	always @ (posedge clk) begin
 		if (rst == `RstEnable) begin
 			ce <= `ChipDisable;
@@ -19,7 +20,7 @@ module pc_reg(
 		if (ce == `ChipEnable) begin
 			pc <= pc + 4'h4;
 		end else begin
-			pc <= 32'h0;
+			pc <= `ZeroWord;
 		end
 	end
 
