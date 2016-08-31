@@ -1,4 +1,4 @@
-FILE=PCReg
+FILE=IF_ID
 TB = $(FILE)_tb
 
 TESTDIR = ./test
