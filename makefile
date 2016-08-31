@@ -1,7 +1,10 @@
-FILE=pc_reg
+FILE=RegFile
 TB = $(FILE)_tb
 
 all: clean $(TB).vcd
+
+wave:
+	open $(TB).vcd -a Scansion
 
 $(TB).vcd: $(TB)
 	vvp $< -vcd
