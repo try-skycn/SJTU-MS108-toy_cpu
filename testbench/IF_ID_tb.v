@@ -20,7 +20,7 @@ module IF_ID_tb;
 
 		#2
 		ifPC <= 15;
-		ifInst <= 23;
+		ifInst <= 32'b10101010101010101010101010101010;
 	end
 
 	initial begin
