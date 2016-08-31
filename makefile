@@ -1,4 +1,4 @@
-FILE=TwoMux
+FILE=FourMux
 TB = $(FILE)_tb
 
 TESTDIR = ./test
