@@ -1,4 +1,4 @@
-FILE=IF_ID
+FILE=TwoMux
 TB = $(FILE)_tb
 
 TESTDIR = ./test

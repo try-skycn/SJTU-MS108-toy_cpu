@@ -15,6 +15,7 @@
 `define INST_BUS				`INST_WIDTH - 1 : 0
 
 `define WORD_WIDTH				32
+`define WORD_BUS				31 : 0
 
 `define REG_NUM					32
 `define REG_NUM_LOG				5
