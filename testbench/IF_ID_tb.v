@@ -5,8 +5,8 @@ module IF_ID_tb;
 	reg clk = 0;
 	reg rst = 1;
 
-	reg[`INST_ADDR_WIDTH - 1 : 0] ifPC = 0;
-	reg[`INST_WIDTH - 1 : 0] ifInst = 0;
+	reg[`INST_ADDR_BUS]		ifPC = 0;
+	reg[`INST_BUS]			ifInst = 0;
 
 	IF_ID IF_ID_test(.clk(clk), .rst(rst), .ifPC(ifPC), .ifInst(ifInst));
 
