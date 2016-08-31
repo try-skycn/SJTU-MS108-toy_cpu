@@ -1,16 +1,19 @@
-FILE=RegFile
+FILE=PCReg
 TB = $(FILE)_tb
 
-all: clean $(TB).vcd
+TESTDIR = ./test
 
-wave:
-	open $(TB).vcd -a Scansion
+all: clean dump.vcd
 
-$(TB).vcd: $(TB)
+wave: dump.vcd
+	open $< -a Scansion
+
+dump.vcd: $(TESTDIR)/$(TB)
 	vvp $< -vcd
 
-$(TB): ./testbench/$(TB).v
+$(TESTDIR)/$(TB): ./testbench/$(TB).v
 	iverilog -o $@ $^
 
 clean:
-	-rm $(TB) $(TB).vcd
+	-rm $(TESTDIR)/*
+	-rm *.vcd
