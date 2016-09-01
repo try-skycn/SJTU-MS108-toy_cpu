@@ -11,6 +11,7 @@ module IF_ID_tb;
 	IF_ID IF_ID_test(.clk(clk), .rst(rst), .ifPC(ifPC), .ifInst(ifInst));
 
 	initial begin
+		#1 clk = 1;
 		forever #2 clk = ~clk;
 	end
 
@@ -18,9 +19,9 @@ module IF_ID_tb;
 		#3
 		rst = 0;
 
-		#2
+		#3
 		ifPC <= 15;
-		ifInst <= 32'b10101010101010101010101010101010;
+		ifInst <= 32'b10101010101010100010101010101010;
 	end
 
 	initial begin

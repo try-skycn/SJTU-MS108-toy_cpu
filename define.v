@@ -17,6 +17,8 @@
 `define WORD_WIDTH				32
 `define WORD_BUS				31 : 0
 
+`define IMM_BUS					15 : 0
+
 `define REG_NUM					32
 `define REG_NUM_LOG				5
 `define REG_BUS					`REG_NUM_LOG - 1 : 0

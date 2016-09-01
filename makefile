@@ -1,4 +1,4 @@
-FILE=FourMux
+FILE=IF_ID
 TB = $(FILE)_tb
 
 TESTDIR = ./test

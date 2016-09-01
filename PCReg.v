@@ -8,7 +8,7 @@ module PCReg(clk, rst, pc, chipEnable);
 	output	reg	[`INST_ADDR_WIDTH - 1 : 0]	pc = 0;
 	output	reg								chipEnable;
 	
-	always @(clk) begin
+	always @(posedge clk) begin
 		if (rst) begin
 			chipEnable <= `DISABLE;
 		end else begin

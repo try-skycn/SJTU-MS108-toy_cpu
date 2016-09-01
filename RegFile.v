@@ -14,10 +14,10 @@ module RegFile(
 	input	wire[`WORD_WIDTH - 1 : 0]	writeValue;
 
 	input	wire[`REG_NUM_LOG - 1 : 0]	readAddr1;
-	output	reg	[`WORD_WIDTH - 1 : 0]	readValue1 = 0;
+	output	reg	[`WORD_WIDTH - 1 : 0]	readValue1;
 
 	input	wire[`REG_NUM_LOG - 1 : 0]	readAddr2;
-	output	reg	[`WORD_WIDTH - 1 : 0]	readValue2 = 0;
+	output	reg	[`WORD_WIDTH - 1 : 0]	readValue2;
 
 			reg	[`WORD_WIDTH - 1 : 0]	registers[`REG_NUM - 1 : 0];
 
