@@ -1,4 +1,4 @@
-FILE=IF_ID
+FILE=RegFile
 TB = $(FILE)_tb
 
 TESTDIR = ./test

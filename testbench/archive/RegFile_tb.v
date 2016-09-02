@@ -3,7 +3,6 @@
 module RegFile_tb;
 
 	reg							clk = 0;
-	reg							rst = 0;
 
 	reg							writeEnable = 0;
 	reg	[`REG_NUM_LOG - 1 : 0]	writeAddr = 0;
@@ -13,7 +12,7 @@ module RegFile_tb;
 
 	reg	[`REG_NUM_LOG - 1 : 0]	readAddr2 = 0;
 
-	RegFile regFileTest(.clk(clk), .rst(rst),
+	RegFile regFileTest(.clk(clk),
 						.writeEnable(writeEnable), .writeAddr(writeAddr), .writeValue(writeValue),
 						.readAddr1(readAddr1),
 						.readAddr2(readAddr2));
@@ -23,17 +22,14 @@ module RegFile_tb;
 	end
 
 	initial begin
+		$dumpfile("RegFile_tb.vcd");
 		$dumpvars;
 		#50 $finish;
 	end
 
 	initial begin
-		rst <= 1;
-
-		#15
-		rst <= 0;
-		readAddr1 <= 3;
-		readAddr2 <= 2;
+		readAddr1 = 3;
+		readAddr2 = 2;
 
 		#5
 		writeAddr <= 3;

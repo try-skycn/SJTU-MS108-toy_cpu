@@ -1,13 +1,14 @@
 `include "define.v"
 
 module RegFile(
-	clk,
+	clk, rst,
 	writeEnable, writeAddr, writeValue,
 	readAddr1, readValue1,
 	readAddr2, readValue2
 );
 
 	input	wire						clk;
+	input	wire						rst;
 
 	input	wire						writeEnable;
 	input	wire[`REG_NUM_LOG - 1 : 0]	writeAddr;
@@ -21,22 +22,38 @@ module RegFile(
 
 			reg	[`WORD_WIDTH - 1 : 0]	registers[`REG_NUM - 1 : 0];
 
-	initial begin
-		$readmemb("RegistersInit.bin", registers);
+			integer						i;
+
+	always @(posedge clk) begin
+		if (rst) begin
+			for (i = 0; i < `REG_NUM; i = i + 1) begin
+				registers[i] <= 0;
+			end
+		end
 	end
 
 	always @(negedge clk) begin
-		if (writeEnable && writeAddr != 0) begin
-			registers[writeAddr] <= writeValue;
+		if (~rst) begin
+			if (writeEnable && writeAddr != 0) begin
+				registers[writeAddr] <= writeValue;
+			end
 		end
 	end
 
 	always @(*) begin
-		readValue1 <= registers[readAddr1];
+		if (rst) begin
+			readValue1 <= 0;
+		end else begin
+			readValue1 <= registers[readAddr1];
+		end
 	end
 
 	always @(*) begin
-		readValue2 <= registers[readAddr2];
+		if (rst) begin
+			readValue2 <= 0;
+		end else begin
+			readValue2 <= registers[readAddr2];
+		end
 	end
 
 endmodule
