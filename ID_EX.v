@@ -1,33 +1,56 @@
 `include "define.v"
 
 module ID_EX(
-	clk, rst,
-	id_exOp, id_src1, id_src2, id_regDest, id_writeReg,
-	ex_exOp, ex_regDest, ex_writeReg
+	input	wire					clk,
+	input	wire					rst,
+
+	input	wire[`EX_OP_BUS]		id_exop,
+	input	wire[`WORD_BUS]			id_srcl,;
+
+	input	wire[`WORD_BUS]			id_srcr,
+	input	wire[`INST_IMM_BUS]		id_offset,
+	input	wire[`REG_ADDR_BUS]		id_dest,
+
+	output	reg	[`ALU_NUM]			ex_alusel,
+	output	reg	[`EX_OP_LOW_BUS]	ex_aluop,
+	output	reg	[`WORD_BUS]			ex_srcl,
+	output	reg	[`WORD_BUS]			ex_srcr,
+	output	reg	[`INST_IMM_BUS]		ex_offset,
+
+	output	reg	[`MEM_OP_BUS]		ex_memop,
+	output	reg	[`REG_ADDR_BUS]		ex_dest,
+	output	reg						ex_writeEnable,
+
 );
-	
-	input	wire					clk;
-	input	wire					rst;
-
-	input	wire[`ALU_OP_BUS]		id_exOp;
-	input	wire[`WORD_BUS]			id_src1;
-	input	wire[`WORD_BUS]			id_src2;
-	input	wire[`REG_BUS]			id_regDest;
-	input	wire					id_writeReg;
-
-	output	reg	[`ALU_OP_BUS]		ex_exOp;
-	output	reg	[`REG_BUS]			ex_regDest;
-	output	reg						ex_writeReg;
 
 	always @(posedge clk) begin
 		if (rst) begin
-			ex_exOp <= 0;
-			ex_regDest <= 0;
-			ex_writeReg <= 0;
+			ex_alusel <= `ALU_NOP;
+			ex_aluop <= `EX_SPECIAL_NOP;
+			ex_srcl <= `ZERO_WORD;
+			ex_srcr <= `ZERO_WORD;
+			ex_imm <= 16'b0;
+			ex_memop <= `MEM_OP_NOP;
+			ex_dest <= `REG_ZERO;
+			ex_writeEnable <= `DISABLE;
 		end else begin
-			ex_regDest <= id_regDest;
-			case (id_exOp[`ALU_CHIP_BUS])
-				`ALU_CHIP_LOGIC:
+			ex_srcl <= id_srcl;
+			ex_srcr <= id_srcr;
+			ex_offset <= id_offset;
+			ex_dest <= id_dest;
+
+			ex_aluop <= id_exop[`EX_OP_LOW_BUS];
+			case (id_exop[`EX_OP_HIGH_BUS])
+				`EX_HIGH_LOGIC: begin
+					ex_alusel <= `ALU_LOGIC;
+					ex_memop <= `MEM_OP_WRITE_REG;
+					ex_writeEnable <= `ENABLE;
+				end
+				default: begin
+					ex_alusel <= `ALU_NOP;
+					ex_memop <= `MEM_OP_NOP;
+					ex_writeEnable <= `DISABLE;
+				end
 			endcase
 		end
 	end

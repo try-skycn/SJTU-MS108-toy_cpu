@@ -34,7 +34,7 @@ module RegFile(
 
 	always @(negedge clk) begin
 		if (~rst) begin
-			if (writeEnable && writeAddr != 0) begin
+			if (writeEnable && writeAddr != `REG_ZERO) begin
 				registers[writeAddr] <= writeValue;
 			end
 		end

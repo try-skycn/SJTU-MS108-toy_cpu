@@ -1,7 +1,7 @@
 FILE=RegFile
 TB = $(FILE)_tb
 
-TESTDIR = ./test
+TESTDIR = ./tmp
 
 all: clean dump.vcd
 
