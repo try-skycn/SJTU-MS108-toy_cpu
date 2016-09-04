@@ -35,11 +35,71 @@
 `define INST_IMM_BUS			15 : 0
 `define INST_TARGET_BUS			25 : 0
 
-`define RAW_OPCODE_BUS			 6 : 0
-`define RAW_SHAMT_BUS			 5 : 0
+`define RAW_OPCODE_BUS			 5 : 0
+`define RAW_SHAMT_BUS			 4 : 0
 `define RAW_FUNCT_BUS			 5 : 0
+`define RAW_TARGET_BUS			25 : 0
 
 // For ID OP
+
+`define ID_OPCODE_RTYPE			6'b000000
+
+`define ID_OPCODE_ADDI			6'b001000
+`define ID_OPCODE_ADDIU			6'b001001
+`define ID_OPCODE_ANDI			6'b001100
+`define ID_OPCODE_BEQ			6'b000100
+`define ID_OPCODE_BGEZ_BLTZ		6'b000001
+`define ID_OPCODE_BGTZ			6'b000111
+`define ID_OPCODE_BLEZ			6'b000110
+`define ID_OPCODE_BNE			6'b000101
+`define ID_OPCODE_LB			6'b100000
+`define ID_OPCODE_LBU			6'b100100
+`define ID_OPCODE_LH			6'b100001
+`define ID_OPCODE_LHU			6'b100101
+`define ID_OPCODE_LUI			6'b001111
+`define ID_OPCODE_LW			6'b100011
+`define ID_OPCODE_LWC1			6'b110001
+`define ID_OPCODE_ORI			6'b001101
+`define ID_OPCODE_SB			6'b101000
+`define ID_OPCODE_SLTI			6'b001010
+`define ID_OPCODE_SLTIU			6'b001011
+`define ID_OPCODE_SH			6'b101001
+`define ID_OPCODE_SW			6'b101011
+`define ID_OPCODE_SWC1			6'b111001
+`define ID_OPCODE_XORI			6'b001110
+
+`define ID_OPCODE_J				6'b000010
+`define ID_OPCODE_JAL			6'b000011
+
+`define ID_FUNCT_NOP			6'b000000
+`define ID_FUNCT_ADD			6'b100000
+`define ID_FUNCT_ADDU			6'b100001
+`define ID_FUNCT_AND			6'b100100
+`define ID_FUNCT_BREAK			6'b001101
+`define ID_FUNCT_DIV			6'b011010
+`define ID_FUNCT_DIVU			6'b011011
+`define ID_FUNCT_JALR			6'b001001
+`define ID_FUNCT_JR				6'b001000
+`define ID_FUNCT_MFHI			6'b010000
+`define ID_FUNCT_MFLO			6'b010010
+`define ID_FUNCT_MTHI			6'b010001
+`define ID_FUNCT_MTLO			6'b010011
+`define ID_FUNCT_MULT			6'b011000
+`define ID_FUNCT_MULTU			6'b011001
+`define ID_FUNCT_NOR			6'b100111
+`define ID_FUNCT_OR				6'b100101
+`define ID_FUNCT_SLL			6'b000000
+`define ID_FUNCT_SLLV			6'b000100
+`define ID_FUNCT_SLT			6'b101010
+`define ID_FUNCT_SLTU			6'b101011
+`define ID_FUNCT_SRA			6'b000011
+`define ID_FUNCT_SRAV			6'b000111
+`define ID_FUNCT_SRL			6'b000010
+`define ID_FUNCT_SRLV			6'b000110
+`define ID_FUNCT_SUB			6'b100010
+`define ID_FUNCT_SUBU			6'b100011
+`define ID_FUNCT_SYSCALL		6'b001100
+`define ID_FUNCT_XOR			6'b100110
 
 // For EX OP
 

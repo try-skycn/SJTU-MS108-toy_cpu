@@ -5,22 +5,20 @@ module ID_EX(
 	input	wire					rst,
 
 	input	wire[`EX_OP_BUS]		id_exop,
-	input	wire[`WORD_BUS]			id_srcl,;
-
+	input	wire[`WORD_BUS]			id_srcl,
 	input	wire[`WORD_BUS]			id_srcr,
-	input	wire[`INST_IMM_BUS]		id_offset,
+	input	wire[`WORD_BUS]			id_offset,
 	input	wire[`REG_ADDR_BUS]		id_dest,
 
 	output	reg	[`ALU_NUM]			ex_alusel,
 	output	reg	[`EX_OP_LOW_BUS]	ex_aluop,
 	output	reg	[`WORD_BUS]			ex_srcl,
 	output	reg	[`WORD_BUS]			ex_srcr,
-	output	reg	[`INST_IMM_BUS]		ex_offset,
+	output	reg	[`WORD_BUS]			ex_offset,
 
 	output	reg	[`MEM_OP_BUS]		ex_memop,
 	output	reg	[`REG_ADDR_BUS]		ex_dest,
-	output	reg						ex_writeEnable,
-
+	output	reg						ex_writeEnable
 );
 
 	always @(posedge clk) begin

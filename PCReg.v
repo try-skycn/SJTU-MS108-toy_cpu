@@ -1,12 +1,12 @@
 `include "define.v"
 
-module PCReg(clk, rst, pc, chipEnable);
+module PCReg(
+	input	wire							clk,
+	input	wire							rst,
 
-	input	wire							clk;
-	input	wire							rst;
-
-	output	reg	[`INST_ADDR_WIDTH - 1 : 0]	pc = 0;
-	output	reg								chipEnable;
+	output	reg	[`INST_ADDR_WIDTH - 1 : 0]	pc,
+	output	reg								chipEnable
+);
 	
 	always @(posedge clk) begin
 		if (rst) begin
