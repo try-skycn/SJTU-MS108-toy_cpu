@@ -1,6 +1,6 @@
 `include "define.v"
 
-`define INST_MEM_NUM	4
+`define INST_MEM_NUM	10
 
 module InstRom(
 	input	wire					chipEnable,
@@ -8,9 +8,9 @@ module InstRom(
 	output	reg	[`INST_BUS]			inst
 );
 
-	reg	[`INST_BUS]		instMem[0 : INST_MEM_NUM];
+	reg	[`INST_BUS]		instMem[0 : `INST_MEM_NUM - 1];
 
-	initial $readmemh("./compile/rom.txt");
+	initial $readmemh("./compile/rom.txt", instMem);
 
 	always @(*) begin
 		if (chipEnable == `ENABLE) begin
@@ -19,3 +19,5 @@ module InstRom(
 			inst <= `ZERO_WORD;
 		end
 	end
+
+endmodule

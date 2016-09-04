@@ -4,10 +4,10 @@ module MEM_WB(
 	input	wire					clk,
 	input	wire					rst,
 
-	input	wire[`REG_BUS]			mem_regDest,
+	input	wire[`REG_ADDR_BUS]		mem_regDest,
 	input	wire[`WORD_BUS]			mem_value,
 
-	output	reg	[`REG_BUS]			wb_regDest,
+	output	reg	[`REG_ADDR_BUS]		wb_regDest,
 	output	reg	[`WORD_BUS]			wb_value
 );
 

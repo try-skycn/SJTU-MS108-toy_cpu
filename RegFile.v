@@ -5,17 +5,17 @@ module RegFile(
 	input	wire						rst,
 
 	input	wire						writeEnable,
-	input	wire[`REG_NUM_LOG - 1 : 0]	writeAddr,
-	input	wire[`WORD_WIDTH - 1 : 0]	writeValue,
+	input	wire[`REG_ADDR_BUS]			writeAddr,
+	input	wire[`WORD_BUS]				writeValue,
 
-	input	wire[`REG_NUM_LOG - 1 : 0]	readAddrLeft,
-	output	reg	[`WORD_WIDTH - 1 : 0]	readValueLeft,
+	input	wire[`REG_ADDR_BUS]			readAddrLeft,
+	output	reg	[`WORD_BUS]				readValueLeft,
 
-	input	wire[`REG_NUM_LOG - 1 : 0]	readAddrRight,
-	output	reg	[`WORD_WIDTH - 1 : 0]	readValueRight
+	input	wire[`REG_ADDR_BUS]			readAddrRight,
+	output	reg	[`WORD_BUS]				readValueRight
 );
 
-			reg	[`WORD_WIDTH - 1 : 0]	registers[`REG_NUM - 1 : 0];
+			reg	[`WORD_BUS]				registers[`REG_NUM - 1 : 0];
 
 			integer						i;
 

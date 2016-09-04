@@ -10,7 +10,7 @@ module ID_EX(
 	input	wire[`WORD_BUS]			id_offset,
 	input	wire[`REG_ADDR_BUS]		id_dest,
 
-	output	reg	[`ALU_NUM]			ex_alusel,
+	output	reg	[`ALU_SEL_BUS]		ex_alusel,
 	output	reg	[`EX_OP_LOW_BUS]	ex_aluop,
 	output	reg	[`WORD_BUS]			ex_srcLeft,
 	output	reg	[`WORD_BUS]			ex_srcRight,
@@ -27,7 +27,7 @@ module ID_EX(
 			ex_aluop <= `EX_SPECIAL_NOP;
 			ex_srcLeft <= `ZERO_WORD;
 			ex_srcRight <= `ZERO_WORD;
-			ex_imm <= 16'b0;
+			ex_offset <= 16'b0;
 			ex_memop <= `MEM_OP_NOP;
 			ex_dest <= `REG_ZERO;
 			ex_writeEnable <= `DISABLE;

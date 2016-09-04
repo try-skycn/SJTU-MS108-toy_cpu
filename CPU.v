@@ -6,63 +6,63 @@ module CPU(
 
 	output	wire					o_chipEnable,
 	output	wire[`INST_ADDR_BUS]	o_romAddr,
-	input	wire[`INST_BUS]			i_romInst,
+	input	wire[`INST_BUS]			i_romInst
 );
 
 	// PCReg
-	wire[`INST_ADDR_WIDTH - 1 : 0]	PCReg__pc
-	wire							PCReg__chipEnable
+	wire[`INST_ADDR_WIDTH - 1 : 0]	PCReg__pc;
+	wire							PCReg__chipEnable;
 
 	// IF_ID
-	wire[`INST_ADDR_BUS]			IF_ID__id_pc
-	wire[`RAW_OPCODE_BUS]			IF_ID__id_opcode
-	wire[`RAW_SHAMT_BUS]			IF_ID__id_sa
-	wire[`RAW_FUNCT_BUS]			IF_ID__id_fn
-	wire[`REG_BUS]					IF_ID__id_rs
-	wire[`REG_BUS]					IF_ID__id_rt
-	wire[`REG_BUS]					IF_ID__id_rd
-	wire[`WORD_BUS]					IF_ID__id_imm
-	wire[`RAW_TARGET_BUS]			IF_ID__id_target
+	wire[`INST_ADDR_BUS]			IF_ID__id_pc;
+	wire[`RAW_OPCODE_BUS]			IF_ID__id_opcode;
+	wire[`RAW_SHAMT_BUS]			IF_ID__id_sa;
+	wire[`RAW_FUNCT_BUS]			IF_ID__id_fn;
+	wire[`REG_ADDR_BUS]				IF_ID__id_rs;
+	wire[`REG_ADDR_BUS]				IF_ID__id_rt;
+	wire[`REG_ADDR_BUS]				IF_ID__id_rd;
+	wire[`WORD_BUS]					IF_ID__id_imm;
+	wire[`RAW_TARGET_BUS]			IF_ID__id_target;
 
 	// ID
-	wire[`REG_ADDR_BUS]				ID__o_readAddrLeft
-	wire[`REG_ADDR_BUS]				ID__o_readAddrRight
-	wire[`EX_OP_BUS]				ID__o_exop
-	wire[`WORD_BUS]					ID__o_srcLeft
-	wire[`WORD_BUS]					ID__o_srcRight
-	wire[`WORD_BUS]					ID__o_offset
-	wire[`REG_ADDR_BUS]				ID__o_dest
-	wire							ID__stall
+	wire[`REG_ADDR_BUS]				ID__o_readAddrLeft;
+	wire[`REG_ADDR_BUS]				ID__o_readAddrRight;
+	wire[`EX_OP_BUS]				ID__o_exop;
+	wire[`WORD_BUS]					ID__o_srcLeft;
+	wire[`WORD_BUS]					ID__o_srcRight;
+	wire[`WORD_BUS]					ID__o_offset;
+	wire[`REG_ADDR_BUS]				ID__o_dest;
+	wire							ID__stall;
 
 	// RegFile
-	wire[`WORD_WIDTH - 1 : 0]		RegFile__readValueLeft
-	wire[`WORD_WIDTH - 1 : 0]		RegFile__readValueRight
+	wire[`WORD_WIDTH - 1 : 0]		RegFile__readValueLeft;
+	wire[`WORD_WIDTH - 1 : 0]		RegFile__readValueRight;
 
 	// ID_EX
-	wire[`ALU_NUM]					ID_EX__ex_alusel
-	wire[`EX_OP_LOW_BUS]			ID_EX__ex_aluop
-	wire[`WORD_BUS]					ID_EX__ex_srcLeft
-	wire[`WORD_BUS]					ID_EX__ex_srcRight
-	wire[`WORD_BUS]					ID_EX__ex_offset
-	wire[`MEM_OP_BUS]				ID_EX__ex_memop
-	wire[`REG_ADDR_BUS]				ID_EX__ex_dest
-	wire							ID_EX__ex_writeEnable
+	wire[`ALU_SEL_BUS]				ID_EX__ex_alusel;
+	wire[`EX_OP_LOW_BUS]			ID_EX__ex_aluop;
+	wire[`WORD_BUS]					ID_EX__ex_srcLeft;
+	wire[`WORD_BUS]					ID_EX__ex_srcRight;
+	wire[`WORD_BUS]					ID_EX__ex_offset;
+	wire[`MEM_OP_BUS]				ID_EX__ex_memop;
+	wire[`REG_ADDR_BUS]				ID_EX__ex_dest;
+	wire							ID_EX__ex_writeEnable;
 
 	// ALU_LOGIC
-	wire[`WORD_BUS]					ALU_LOGIC__result
+	wire[`WORD_BUS]					ALU_LOGIC__result;
 
 	// EX_MEM
-	wire							EX_MEM__mem_memWriteEnable
-	wire							EX_MEM__mem_memReadEnable
-	wire[`MEM_ADDR_HIGH_BUS]		EX_MEM__mem_memAddr
-	wire[`MEM_SEL_BUS]				EX_MEM__mem_memSel
-	wire[`WORD_BUS]					EX_MEM__mem_result
-	wire[`REG_ADDR_BUS]				EX_MEM__mem_regDest
-	wire							EX_MEM__mem_resultSel
+	wire							EX_MEM__mem_memWriteEnable;
+	wire							EX_MEM__mem_memReadEnable;
+	wire[`MEM_ADDR_HIGH_BUS]		EX_MEM__mem_memAddr;
+	wire[`MEM_SEL_BUS]				EX_MEM__mem_memSel;
+	wire[`WORD_BUS]					EX_MEM__mem_result;
+	wire[`REG_ADDR_BUS]				EX_MEM__mem_regDest;
+	wire							EX_MEM__mem_resultSel;
 
 	// MEM_WB
-	wire[`REG_BUS]					MEM_WB__wb_regDest
-	wire[`WORD_BUS]					MEM_WB__wb_value
+	wire[`REG_ADDR_BUS]				MEM_WB__wb_regDest;
+	wire[`WORD_BUS]					MEM_WB__wb_value;
 
 	PCReg inst_PCReg(
 		.clk(clk),
@@ -176,5 +176,7 @@ module CPU(
 		.wb_regDest(MEM_WB__wb_regDest),
 		.wb_value(MEM_WB__wb_value)
 	);
+
+	assign o_romAddr = PCReg__pc;
 
 endmodule

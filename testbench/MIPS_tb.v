@@ -1,4 +1,4 @@
-`include "timescale.v"
+`timescale 1ns/1ns
 `include "define.v"
 
 module MIPS_tb;
@@ -13,7 +13,7 @@ module MIPS_tb;
 
 	initial begin
 		rst = `ENABLE;
-		#15
+		#13
 		rst = `DISABLE;
 	end
 
@@ -21,7 +21,7 @@ module MIPS_tb;
 
 	initial begin
 		$dumpvars;
-		#100 $finish;
+		#150 $finish;
 	end
 
 endmodule

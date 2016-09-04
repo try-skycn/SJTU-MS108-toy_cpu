@@ -11,13 +11,13 @@ module ALU_LOGIC(
 
 	always @(*) begin
 		if (aluEnable) begin
-			case (op[`EX_OP_CONCRETE_BUS])
-				`EX_LOGIC_AND: val <= srcLeft & srcRight;
-				`EX_LOGIC_OR: val <= srcLeft | srcRight;
-				`EX_LOGIC_XOR: val <= srcLeft ^ srcRight;
-				`EX_LOGIC_NOR: val <= ~(srcLeft | srcRight);
-				`EX_LOGIC_LUI: val <= {srcRight[15 : 0], 16{0}};
-				default: val <= `ZERO_WORD;
+			case (op)
+				`EX_LOGIC_AND: result <= srcLeft & srcRight;
+				`EX_LOGIC_OR: result <= srcLeft | srcRight;
+				`EX_LOGIC_XOR: result <= srcLeft ^ srcRight;
+				`EX_LOGIC_NOR: result <= ~(srcLeft | srcRight);
+				`EX_LOGIC_LUI: result <= {srcRight[15 : 0], 16'b0};
+				default: result <= `ZERO_WORD;
 			endcase
 		end else begin
 			result <= `ZERO_WORD;

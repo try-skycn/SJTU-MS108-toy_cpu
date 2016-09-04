@@ -40,6 +40,16 @@ module EX_MEM(
 					mem_result <= ex_result;
 					mem_resultSel <= `MEM_SEL_REGVAL;
 				end
+				default: begin
+					mem_memWriteEnable <= `DISABLE;
+					mem_memReadEnable <= `DISABLE;
+					mem_memAddr <= 0;
+					mem_memSel <= 4'b0000;
+
+					mem_regDest <= `REG_ZERO;
+					mem_result <= `ZERO_WORD;
+					mem_resultSel <= `MEM_SEL_REGVAL;
+				end
 			endcase
 		end
 	end

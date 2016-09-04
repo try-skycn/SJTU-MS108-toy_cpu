@@ -17,9 +17,9 @@ module ID(
 	input	wire[`RAW_OPCODE_BUS]	i_opcode,
 	input	wire[`RAW_SHAMT_BUS]	i_sa,
 	input	wire[`RAW_FUNCT_BUS]	i_fn,
-	input	wire[`REG_BUS]			i_rs,
-	input	wire[`REG_BUS]			i_rt,
-	input	wire[`REG_BUS]			i_rd,
+	input	wire[`REG_ADDR_BUS]		i_rs,
+	input	wire[`REG_ADDR_BUS]		i_rt,
+	input	wire[`REG_ADDR_BUS]		i_rd,
 	input	wire[`WORD_BUS]			i_imm,
 	input	wire[`RAW_TARGET_BUS]	i_target,
 

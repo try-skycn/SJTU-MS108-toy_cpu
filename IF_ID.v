@@ -11,9 +11,9 @@ module IF_ID(
 	output	reg	[`RAW_OPCODE_BUS]	id_opcode,
 	output	reg	[`RAW_SHAMT_BUS]	id_sa,
 	output	reg	[`RAW_FUNCT_BUS]	id_fn,
-	output	reg	[`REG_BUS]			id_rs,
-	output	reg	[`REG_BUS]			id_rt,
-	output	reg	[`REG_BUS]			id_rd,
+	output	reg	[`REG_ADDR_BUS]		id_rs,
+	output	reg	[`REG_ADDR_BUS]		id_rt,
+	output	reg	[`REG_ADDR_BUS]		id_rd,
 	output	reg	[`WORD_BUS]			id_imm,
 	output	reg	[`RAW_TARGET_BUS]	id_target
 );

@@ -1,5 +1,3 @@
-`include "timescale.v"
-
 `define ENABLE					1'b1
 `define DISABLE					1'b0
 
@@ -127,13 +125,14 @@
 `define EX_LOGIC_NOR			4'b0011
 `define EX_LOGIC_LUI			4'b1000
 
-`define ALU_NUM					8
+`define ALU_NUM					 8
+`define ALU_SEL_BUS				 7 : 0
 `define ALU_NOP					8'b00000000
 `define ALU_LOGIC				8'b10000000
 `define ALU_SHIFT				8'b01000000
 
-`define ALU_SEL_LOGIC			7
-`define ALU_SEL_SHIFT			6
+`define ALU_SEL_LOGIC			 7
+`define ALU_SEL_SHIFT			 6
 
 // For MEM OP
 
@@ -152,5 +151,5 @@
 
 `define MEM_OP_WRITE_REG		4'b1000
 
-`define MEM_SEL_REGVAL			2'b0
-`define MEM_SEL_LOAD			2'b1
+`define MEM_SEL_REGVAL			1'b0
+`define MEM_SEL_LOAD			1'b1
