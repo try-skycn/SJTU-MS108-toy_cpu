@@ -1,14 +1,3 @@
-`include "define.v"
-
-module CPU(
-	input	wire					clk,
-	input	wire					rst,
-
-	output	wire					o_chipEnable,
-	output	wire[`INST_ADDR_BUS]	o_romAddr,
-	input	wire[`INST_BUS]			i_romInst,
-);
-
 	// PCReg
 	wire[`INST_ADDR_WIDTH - 1 : 0]	PCReg__pc
 	wire							PCReg__chipEnable
@@ -68,14 +57,14 @@ module CPU(
 		.clk(clk),
 		.rst(rst),
 		.pc(PCReg__pc),
-		.chipEnable(o_chipEnable)
+		.chipEnable(PCReg__chipEnable)
 	);
 
 	IF_ID inst_IF_ID(
 		.clk(clk),
 		.rst(rst),
-		.if_pc(PCReg__pc),
-		.if_inst(i_romInst),
+		.if_pc(),
+		.if_inst(),
 		.id_pc(IF_ID__id_pc),
 		.id_opcode(IF_ID__id_opcode),
 		.id_sa(IF_ID__id_sa),
@@ -88,24 +77,24 @@ module CPU(
 	);
 
 	ID inst_ID(
-		.i_pc(IF_ID__id_pc),
-		.i_opcode(IF_ID__id_opcode),
-		.i_sa(IF_ID__id_sa),
-		.i_fn(IF_ID__id_fn),
-		.i_rs(IF_ID__id_rs),
-		.i_rt(IF_ID__id_rt),
-		.i_rd(IF_ID__id_rd),
-		.i_imm(IF_ID__id_imm),
-		.i_target(IF_ID__id_target),
+		.i_pc(),
+		.i_opcode(),
+		.i_sa(),
+		.i_fn(),
+		.i_rs(),
+		.i_rt(),
+		.i_rd(),
+		.i_imm(),
+		.i_target(),
 		.o_readAddrLeft(ID__o_readAddrLeft),
 		.o_readAddrRight(ID__o_readAddrRight),
-		.i_readValueLeft(RegFile__readValueLeft),
-		.i_readValueRight(RegFile__readValueRight),
-		.i_exDest(ID_EX__ex_dest),
-		.i_exResult(ALU_LOGIC__result),
-		.i_exWriteEnable(ID_EX__ex_writeEnable),
-		.i_memDest(EX_MEM__mem_regDest),
-		.i_memResult(EX_MEM__mem_result),
+		.i_readValueLeft(),
+		.i_readValueRight(),
+		.i_exDest(),
+		.i_exResult(),
+		.i_exWriteEnable(),
+		.i_memDest(),
+		.i_memResult(),
 		.o_exop(ID__o_exop),
 		.o_srcLeft(ID__o_srcLeft),
 		.o_srcRight(ID__o_srcRight),
@@ -117,23 +106,23 @@ module CPU(
 	RegFile inst_RegFile(
 		.clk(clk),
 		.rst(rst),
-		.writeEnable(1'b1),
-		.writeAddr(MEM_WB__wb_regDest),
-		.writeValue(MEM_WB__wb_value),
-		.readAddrLeft(ID__o_readAddrLeft),
+		.writeEnable(),
+		.writeAddr(),
+		.writeValue(),
+		.readAddrLeft(),
 		.readValueLeft(RegFile__readValueLeft),
-		.readAddrRight(ID__o_readAddrRight),
+		.readAddrRight(),
 		.readValueRight(RegFile__readValueRight)
 	);
 
 	ID_EX inst_ID_EX(
 		.clk(clk),
 		.rst(rst),
-		.id_exop(ID__o_exop),
-		.id_srcLeft(ID__o_srcLeft),
-		.id_srcRight(ID__o_srcRight),
-		.id_offset(ID__o_offset),
-		.id_dest(ID__o_dest),
+		.id_exop(),
+		.id_srcLeft(),
+		.id_srcRight(),
+		.id_offset(),
+		.id_dest(),
 		.ex_alusel(ID_EX__ex_alusel),
 		.ex_aluop(ID_EX__ex_aluop),
 		.ex_srcLeft(ID_EX__ex_srcLeft),
@@ -145,20 +134,20 @@ module CPU(
 	);
 
 	ALU_LOGIC inst_ALU_LOGIC(
-		.aluEnable(ID_EX__ex_alusel[`ALU_SEL_LOGIC]),
-		.op(ID_EX__ex_aluop),
-		.srcLeft(ID_EX__ex_srcLeft),
-		.srcRight(ID_EX__ex_srcRight),
+		.aluEnable;(),
+		.op(),
+		.srcLeft(),
+		.srcRight(),
 		.result(ALU_LOGIC__result)
 	);
 
 	EX_MEM inst_EX_MEM(
 		.clk(clk),
 		.rst(rst),
-		.ex_memOp(ID_EX__ex_memop),
-		.ex_result(ALU_LOGIC__result),
-		.ex_memAddr(0),
-		.ex_regDest(ID_EX__ex_dest),
+		.ex_memOp(),
+		.ex_result(),
+		.ex_memAddr(),
+		.ex_regDest(),
 		.mem_memWriteEnable(EX_MEM__mem_memWriteEnable),
 		.mem_memReadEnable(EX_MEM__mem_memReadEnable),
 		.mem_memAddr(EX_MEM__mem_memAddr),
@@ -171,10 +160,9 @@ module CPU(
 	MEM_WB inst_MEM_WB(
 		.clk(clk),
 		.rst(rst),
-		.mem_regDest(EX_MEM__mem_regDest),
-		.mem_value(EX_MEM__mem_result),
+		.mem_regDest(),
+		.mem_value(),
 		.wb_regDest(MEM_WB__wb_regDest),
 		.wb_value(MEM_WB__wb_value)
 	);
 
-endmodule

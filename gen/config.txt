@@ -1,0 +1,11 @@
+PCReg
+IF_ID
+
+ID
+RegFile
+ID_EX
+
+ALU_LOGIC
+EX_MEM
+
+MEM_WB

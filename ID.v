@@ -26,8 +26,8 @@ module ID(
 	output	reg	[`REG_ADDR_BUS]		o_readAddrLeft,
 	output	reg	[`REG_ADDR_BUS]		o_readAddrRight,
 
-	input	wire[`WORD_BUS]			i_readVall,
-	input	wire[`WORD_BUS]			i_readValr,
+	input	wire[`WORD_BUS]			i_readValueLeft,
+	input	wire[`WORD_BUS]			i_readValueRight,
 	input	wire[`REG_ADDR_BUS]		i_exDest,
 	input	wire[`WORD_BUS]			i_exResult,
 	input	wire					i_exWriteEnable,
@@ -139,7 +139,7 @@ module ID(
 
 	always @(*) begin
 		case (srcLeftLowSel)
-			`LSEL_REG: o_srcLeft <= i_readVall;
+			`LSEL_REG: o_srcLeft <= i_readValueLeft;
 			`LSEL_IMM: o_srcLeft <= i_imm;
 			`LSEL_EX: o_srcLeft <= i_exResult;
 			`LSEL_MEM: o_srcLeft <= i_memResult;
@@ -149,7 +149,7 @@ module ID(
 
 	always @(*) begin
 		case (srcRightLowSel)
-			`LSEL_REG: o_srcRight <= i_readValr;
+			`LSEL_REG: o_srcRight <= i_readValueRight;
 			`LSEL_IMM: o_srcRight <= i_imm;
 			`LSEL_EX: o_srcRight <= i_exResult;
 			`LSEL_MEM: o_srcRight <= i_memResult;
