@@ -1,12 +1,14 @@
 `define	HSEL_BUS		1 : 0
 `define HSEL_ZERO		2'b00
 `define HSEL_REG		2'b01
-`define	HSEL_IMM		2'b10
+`define	HSEL_ZEIMM		2'b10
+`define HSEL_SEIMM		2'b11
 
 `define LSEL_BUS		2 : 0
 `define LSEL_ZERO		3'b000
 `define LSEL_REG		3'b001
-`define	LSEL_IMM		3'b010
+`define	LSEL_ZEIMM		3'b010
+`define LSEL_SEIMM		3'b011
 `define LSEL_EX			3'b101
 `define	LSEL_MEM		3'b110
 
@@ -18,7 +20,7 @@ module ID(
 	input	wire[`REG_ADDR_BUS]		i_rs,				//= IF_ID::id_rs
 	input	wire[`REG_ADDR_BUS]		i_rt,				//= IF_ID::id_rt
 	input	wire[`REG_ADDR_BUS]		i_rd,				//= IF_ID::id_rd
-	input	wire[`WORD_BUS]			i_imm,				//= IF_ID::id_imm
+	input	wire[`INST_IMM_BUS]		i_imm,				//= IF_ID::id_imm
 	input	wire[`RAW_TARGET_BUS]	i_target,			//= IF_ID::id_target
 
 	output	reg	[`REG_ADDR_BUS]		o_readAddrLeft,		//= id_readAddrLeft
@@ -27,7 +29,7 @@ module ID(
 	input	wire[`WORD_BUS]			i_readValueLeft,	//= RegFile::readValueLeft
 	input	wire[`WORD_BUS]			i_readValueRight,	//= RegFile::readValueRight
 	input	wire[`REG_ADDR_BUS]		i_exDest,			//= ID_EX::ex_dest
-	input	wire[`WORD_BUS]			i_exResult,			//= ALU_LOGIC::result
+	input	wire[`WORD_BUS]			i_exResult,			//= EX::o_result
 	input	wire					i_exWriteEnable,	//= ID_EX::ex_writeEnable
 	input	wire[`REG_ADDR_BUS]		i_memDest,			//= EX_MEM::mem_regDest
 	input	wire[`WORD_BUS]			i_memResult,		//= EX_MEM::mem_result
@@ -74,7 +76,37 @@ module ID(
 
 				o_exop <= {`EX_HIGH_LOGIC, `EX_LOGIC_OR};
 				srcLeftHighSel <= `HSEL_REG;
-				srcRightHighSel <= `HSEL_IMM;
+				srcRightHighSel <= `HSEL_ZEIMM;
+				o_offset <= `ZERO_WORD;
+				o_dest <= i_rt;
+			end
+			`ID_OPCODE_XORI: begin
+				o_readAddrLeft <= i_rs;
+				o_readAddrRight <= `REG_ZERO;
+
+				o_exop <= {`EX_HIGH_LOGIC, `EX_LOGIC_XOR};
+				srcLeftHighSel <= `HSEL_REG;
+				srcRightHighSel <= `HSEL_ZEIMM;
+				o_offset <= `ZERO_WORD;
+				o_dest <= i_rt;
+			end
+			`ID_OPCODE_ANDI: begin
+				o_readAddrLeft <= i_rs;
+				o_readAddrRight <= `REG_ZERO;
+
+				o_exop <= {`EX_HIGH_LOGIC, `EX_LOGIC_AND};
+				srcLeftHighSel <= `HSEL_REG;
+				srcRightHighSel <= `HSEL_ZEIMM;
+				o_offset <= `ZERO_WORD;
+				o_dest <= i_rt;
+			end
+			`ID_OPCODE_LUI: begin
+				o_readAddrLeft <= i_rs;
+				o_readAddrRight <= `REG_ZERO;
+
+				o_exop <= {`EX_HIGH_LOGIC, `EX_LOGIC_LUI};
+				srcLeftHighSel <= `HSEL_REG;
+				srcRightHighSel <= `HSEL_ZEIMM;
 				o_offset <= `ZERO_WORD;
 				o_dest <= i_rt;
 			end
@@ -138,7 +170,8 @@ module ID(
 	always @(*) begin
 		case (srcLeftLowSel)
 			`LSEL_REG: o_srcLeft <= i_readValueLeft;
-			`LSEL_IMM: o_srcLeft <= i_imm;
+			`LSEL_ZEIMM: o_srcLeft <= {16'b0, i_imm};
+			`LSEL_SEIMM: o_srcLeft <= {{16{i_imm[15]}}, i_imm};
 			`LSEL_EX: o_srcLeft <= i_exResult;
 			`LSEL_MEM: o_srcLeft <= i_memResult;
 			default: o_srcLeft <= `ZERO_WORD;
@@ -148,7 +181,8 @@ module ID(
 	always @(*) begin
 		case (srcRightLowSel)
 			`LSEL_REG: o_srcRight <= i_readValueRight;
-			`LSEL_IMM: o_srcRight <= i_imm;
+			`LSEL_ZEIMM: o_srcRight <= {16'b0, i_imm};
+			`LSEL_SEIMM: o_srcRight <= {{16{i_imm[15]}}, i_imm};
 			`LSEL_EX: o_srcRight <= i_exResult;
 			`LSEL_MEM: o_srcRight <= i_memResult;
 			default: o_srcRight <= `ZERO_WORD;

@@ -2,7 +2,16 @@ import re
 import sys
 
 pattern = re.compile(
-	r'[\t ]*(input|output)[\t ]*(wire|reg)[\t ]*((?:\[[`\w\-\+\*\/ :]+\])?)[\t ]*([\w]+),?[\t ]*(?://[\t ]*(.*))?'
+	r'[\t ]*'
+	r'(input|output)'
+	r'[\t ]*'
+	r'(wire|reg|triand|trior|tri|wand)'
+	r'[\t ]*'
+	r'((?:\[[`\w\-\+\*\/ :]+\])?)'
+	r'[\t ]*'
+	r'([\w]+)'
+	r',?[\t ]*'
+	r'(?://[\t ]*(.*))?'
 )
 module_match = re.compile(
 	r'[\t ]*compile[\t ]+module[\t ]+(\w+)'

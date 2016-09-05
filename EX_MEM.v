@@ -3,7 +3,7 @@ module EX_MEM(
 	input	wire						rst,				//= rst
 
 	input	wire[`MEM_OP_BUS]			ex_memop,			//= ID_EX::ex_memop
-	input	wire[`WORD_BUS]				ex_result,			//= ALU_LOGIC::result
+	input	wire[`WORD_BUS]				ex_result,			//= EX::o_result
 	input	wire[`MEM_ADDR_BUS]			ex_memAddr,			//= 0
 	input	wire[`REG_ADDR_BUS]			ex_regDest,			//= ID_EX::ex_dest
 

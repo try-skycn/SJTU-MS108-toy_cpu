@@ -6,10 +6,10 @@ TESTDIR = ./tmp
 all: clean dump.vcd
 
 wave: dump.vcd
-	open $< -a Scansion
+	@open $< -a Scansion
 
 dump.vcd: $(TESTDIR)/$(TB)
-	vvp $< -vcd
+	@vvp $< -vcd
 
 $(TESTDIR)/$(TB): ./testbench/$(TB).v *.v
 	iverilog -o $@ $^
@@ -24,5 +24,5 @@ cpu:
 
 .PHONY: clean
 clean:
-	-rm $(TESTDIR)/*
-	-rm *.vcd
+	@-rm $(TESTDIR)/*
+	@-rm *.vcd

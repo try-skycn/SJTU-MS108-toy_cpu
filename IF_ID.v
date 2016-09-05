@@ -12,7 +12,7 @@ module IF_ID(
 	output	reg	[`REG_ADDR_BUS]		id_rs,		//= id_rs
 	output	reg	[`REG_ADDR_BUS]		id_rt,		//= id_rt
 	output	reg	[`REG_ADDR_BUS]		id_rd,		//= id_rd
-	output	reg	[`WORD_BUS]			id_imm,		//= id_imm
+	output	reg	[`INST_IMM_BUS]			id_imm,		//= id_imm
 	output	reg	[`RAW_TARGET_BUS]	id_target	//= id_target
 );
 

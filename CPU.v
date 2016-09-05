@@ -20,7 +20,7 @@ module CPU(
 	wire[`REG_ADDR_BUS]			id_rs;				// id_rs
 	wire[`REG_ADDR_BUS]			id_rt;				// id_rt
 	wire[`REG_ADDR_BUS]			id_rd;				// id_rd
-	wire[`WORD_BUS]				id_imm;				// id_imm
+	wire[`INST_IMM_BUS]			id_imm;				// id_imm
 	wire[`RAW_TARGET_BUS]		id_target;			// id_target
 
 	// ID
@@ -49,6 +49,9 @@ module CPU(
 
 	// ALU_LOGIC
 	wire[`WORD_BUS]				aluLogic_result;	// result
+
+	// EX
+	wire[`WORD_BUS]				ex_result;			// o_result
 
 	// EX_MEM
 	wire						mem_memWriteEnable;	// mem_memWriteEnable
@@ -101,7 +104,7 @@ module CPU(
 		.i_readValueLeft(readValueLeft),
 		.i_readValueRight(readValueRight),
 		.i_exDest(ex_dest),
-		.i_exResult(aluLogic_result),
+		.i_exResult(ex_result),
 		.i_exWriteEnable(ex_writeEnable),
 		.i_memDest(mem_regDest),
 		.i_memResult(mem_result),
@@ -151,11 +154,16 @@ module CPU(
 		.result(aluLogic_result)
 	);
 
+	EX inst__EX(
+		.i_aluLogic(aluLogic_result),
+		.o_result(ex_result)
+	);
+
 	EX_MEM inst__EX_MEM(
 		.clk(clk),
 		.rst(rst),
 		.ex_memop(ex_memop),
-		.ex_result(aluLogic_result),
+		.ex_result(ex_result),
 		.ex_memAddr(0),
 		.ex_regDest(ex_dest),
 		.mem_memWriteEnable(mem_memWriteEnable),
