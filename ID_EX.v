@@ -1,5 +1,3 @@
-`include "define.v"
-
 module ID_EX(
 	input	wire					clk,				//= clk
 	input	wire					rst,				//= rst

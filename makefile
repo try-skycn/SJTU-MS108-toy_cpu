@@ -18,6 +18,11 @@ $(TESTDIR)/$(TB): ./testbench/$(TB).v *.v
 comp: ./compile/rom.s
 	cd compile && python main.py
 
+.PHONY: cpu
+cpu:
+	cd gen && python3 comp.py cpu-config.v .. > output.v && cp output.v ../CPU.v
+
+.PHONY: clean
 clean:
 	-rm $(TESTDIR)/*
 	-rm *.vcd

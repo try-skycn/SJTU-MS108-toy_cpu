@@ -1,5 +1,3 @@
-`include "define.v"
-
 `define	HSEL_BUS		1 : 0
 `define HSEL_ZERO		2'b00
 `define HSEL_REG		2'b01

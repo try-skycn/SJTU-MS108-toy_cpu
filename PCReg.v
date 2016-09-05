@@ -1,5 +1,3 @@
-`include "define.v"
-
 module PCReg(
 	input	wire							clk,		//= clk
 	input	wire							rst,		//= rst

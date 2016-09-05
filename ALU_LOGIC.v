@@ -1,5 +1,3 @@
-`include "define.v"
-
 module ALU_LOGIC(
 	input	wire					aluEnable,	//= ID_EX::ex_alusel [`ALU_SEL_LOGIC]
 	input	wire[`EX_OP_LOW_BUS]	op,			//= ID_EX::ex_aluop

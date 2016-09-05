@@ -1,5 +1,3 @@
-`include "define.v"
-
 module EX_MEM(
 	input	wire						clk,				//= clk
 	input	wire						rst,				//= rst

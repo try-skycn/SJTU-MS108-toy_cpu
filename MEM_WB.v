@@ -1,5 +1,3 @@
-`include "define.v"
-
 module MEM_WB(
 	input	wire					clk,			//= clk
 	input	wire					rst,			//= rst
