@@ -13,34 +13,34 @@
 `define	LSEL_MEM		3'b110
 
 module ID(
-	input	wire[`INST_ADDR_BUS]	i_pc,
-	input	wire[`RAW_OPCODE_BUS]	i_opcode,
-	input	wire[`RAW_SHAMT_BUS]	i_sa,
-	input	wire[`RAW_FUNCT_BUS]	i_fn,
-	input	wire[`REG_ADDR_BUS]		i_rs,
-	input	wire[`REG_ADDR_BUS]		i_rt,
-	input	wire[`REG_ADDR_BUS]		i_rd,
-	input	wire[`WORD_BUS]			i_imm,
-	input	wire[`RAW_TARGET_BUS]	i_target,
+	input	wire[`INST_ADDR_BUS]	i_pc,				//= IF_ID::id_pc
+	input	wire[`RAW_OPCODE_BUS]	i_opcode,			//= IF_ID::id_opcode
+	input	wire[`RAW_SHAMT_BUS]	i_sa,				//= IF_ID::id_sa
+	input	wire[`RAW_FUNCT_BUS]	i_fn,				//= IF_ID::id_fn
+	input	wire[`REG_ADDR_BUS]		i_rs,				//= IF_ID::id_rs
+	input	wire[`REG_ADDR_BUS]		i_rt,				//= IF_ID::id_rt
+	input	wire[`REG_ADDR_BUS]		i_rd,				//= IF_ID::id_rd
+	input	wire[`WORD_BUS]			i_imm,				//= IF_ID::id_imm
+	input	wire[`RAW_TARGET_BUS]	i_target,			//= IF_ID::id_target
 
-	output	reg	[`REG_ADDR_BUS]		o_readAddrLeft,
-	output	reg	[`REG_ADDR_BUS]		o_readAddrRight,
+	output	reg	[`REG_ADDR_BUS]		o_readAddrLeft,		//= id_readAddrLeft
+	output	reg	[`REG_ADDR_BUS]		o_readAddrRight,	//= id_readAddrRight
 
-	input	wire[`WORD_BUS]			i_readValueLeft,
-	input	wire[`WORD_BUS]			i_readValueRight,
-	input	wire[`REG_ADDR_BUS]		i_exDest,
-	input	wire[`WORD_BUS]			i_exResult,
-	input	wire					i_exWriteEnable,
-	input	wire[`REG_ADDR_BUS]		i_memDest,
-	input	wire[`WORD_BUS]			i_memResult,
+	input	wire[`WORD_BUS]			i_readValueLeft,	//= RegFile::readValueLeft
+	input	wire[`WORD_BUS]			i_readValueRight,	//= RegFile::readValueRight
+	input	wire[`REG_ADDR_BUS]		i_exDest,			//= ID_EX::ex_dest
+	input	wire[`WORD_BUS]			i_exResult,			//= ALU_LOGIC::result
+	input	wire					i_exWriteEnable,	//= ID_EX::ex_writeEnable
+	input	wire[`REG_ADDR_BUS]		i_memDest,			//= EX_MEM::mem_regDest
+	input	wire[`WORD_BUS]			i_memResult,		//= EX_MEM::mem_result
 
-	output	reg	[`EX_OP_BUS]		o_exop,
-	output	reg	[`WORD_BUS]			o_srcLeft,
-	output	reg	[`WORD_BUS]			o_srcRight,
-	output	reg	[`WORD_BUS]			o_offset,
-	output	reg	[`REG_ADDR_BUS]		o_dest,
+	output	reg	[`EX_OP_BUS]		o_exop,				//= id_exop
+	output	reg	[`WORD_BUS]			o_srcLeft,			//= id_srcLeft
+	output	reg	[`WORD_BUS]			o_srcRight,			//= id_srcRight
+	output	reg	[`WORD_BUS]			o_offset,			//= id_offset
+	output	reg	[`REG_ADDR_BUS]		o_dest,				//= id_dest
 
-	output	wire					stall
+	output	wire					o_stall				//= id_stall
 );
 
 			reg						leftStall;
@@ -52,7 +52,7 @@ module ID(
 			reg	[`LSEL_BUS]			srcLeftLowSel;
 			reg	[`LSEL_BUS]			srcRightLowSel;
 
-	assign stall = leftStall & rightStall;
+	assign o_stall = leftStall & rightStall;
 
 	always @(*) begin
 		case (i_opcode)

@@ -1,24 +1,24 @@
 `include "define.v"
 
 module ID_EX(
-	input	wire					clk,
-	input	wire					rst,
+	input	wire					clk,				//= clk
+	input	wire					rst,				//= rst
 
-	input	wire[`EX_OP_BUS]		id_exop,
-	input	wire[`WORD_BUS]			id_srcLeft,
-	input	wire[`WORD_BUS]			id_srcRight,
-	input	wire[`WORD_BUS]			id_offset,
-	input	wire[`REG_ADDR_BUS]		id_dest,
+	input	wire[`EX_OP_BUS]		id_exop,			//= ID::o_exop
+	input	wire[`WORD_BUS]			id_srcLeft,			//= ID::o_srcLeft
+	input	wire[`WORD_BUS]			id_srcRight,		//= ID::o_srcRight
+	input	wire[`WORD_BUS]			id_offset,			//= ID::o_offset
+	input	wire[`REG_ADDR_BUS]		id_dest,			//= ID::o_dest
 
-	output	reg	[`ALU_SEL_BUS]		ex_alusel,
-	output	reg	[`EX_OP_LOW_BUS]	ex_aluop,
-	output	reg	[`WORD_BUS]			ex_srcLeft,
-	output	reg	[`WORD_BUS]			ex_srcRight,
-	output	reg	[`WORD_BUS]			ex_offset,
+	output	reg	[`ALU_SEL_BUS]		ex_alusel,			//= ex_alusel
+	output	reg	[`EX_OP_LOW_BUS]	ex_aluop,			//= ex_aluop
+	output	reg	[`WORD_BUS]			ex_srcLeft,			//= ex_srcLeft
+	output	reg	[`WORD_BUS]			ex_srcRight,		//= ex_srcRight
+	output	reg	[`WORD_BUS]			ex_offset,			//= ex_offset
 
-	output	reg	[`MEM_OP_BUS]		ex_memop,
-	output	reg	[`REG_ADDR_BUS]		ex_dest,
-	output	reg						ex_writeEnable
+	output	reg	[`MEM_OP_BUS]		ex_memop,			//= ex_memop
+	output	reg	[`REG_ADDR_BUS]		ex_dest,			//= ex_dest
+	output	reg						ex_writeEnable		//= ex_writeEnable
 );
 
 	always @(posedge clk) begin

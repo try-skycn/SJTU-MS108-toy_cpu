@@ -1,18 +1,18 @@
 `include "define.v"
 
 module RegFile(
-	input	wire						clk,
-	input	wire						rst,
+	input	wire						clk,				//= clk
+	input	wire						rst,				//= rst
 
-	input	wire						writeEnable,
-	input	wire[`REG_ADDR_BUS]			writeAddr,
-	input	wire[`WORD_BUS]				writeValue,
+	input	wire						writeEnable,		//= 1'b1
+	input	wire[`REG_ADDR_BUS]			writeAddr,			//= MEM_WB::wb_regDest
+	input	wire[`WORD_BUS]				writeResult,		//= MEM_WB::wb_result
 
-	input	wire[`REG_ADDR_BUS]			readAddrLeft,
-	output	reg	[`WORD_BUS]				readValueLeft,
+	input	wire[`REG_ADDR_BUS]			readAddrLeft,		//= ID::o_readAddrLeft
+	output	reg	[`WORD_BUS]				readValueLeft,		//= readValueLeft
 
-	input	wire[`REG_ADDR_BUS]			readAddrRight,
-	output	reg	[`WORD_BUS]				readValueRight
+	input	wire[`REG_ADDR_BUS]			readAddrRight,		//= ID::o_readAddrRight
+	output	reg	[`WORD_BUS]				readValueRight		//= readValueRight
 );
 
 			reg	[`WORD_BUS]				registers[`REG_NUM - 1 : 0];
@@ -30,7 +30,7 @@ module RegFile(
 	always @(negedge clk) begin
 		if (~rst) begin
 			if (writeEnable && writeAddr != `REG_ZERO) begin
-				registers[writeAddr] <= writeValue;
+				registers[writeAddr] <= writeResult;
 			end
 		end
 	end

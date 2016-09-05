@@ -1,11 +1,11 @@
 `include "define.v"
 
 module PCReg(
-	input	wire							clk,
-	input	wire							rst,
+	input	wire							clk,		//= clk
+	input	wire							rst,		//= rst
 
-	output	reg	[`INST_ADDR_WIDTH - 1 : 0]	pc,
-	output	reg								chipEnable
+	output	reg	[`INST_ADDR_BUS]			pc,			//= pc
+	output	reg								chipEnable	//=> o_chipEnable
 );
 	
 	always @(posedge clk) begin

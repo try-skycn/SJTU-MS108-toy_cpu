@@ -1,12 +1,12 @@
 `include "define.v"
 
 module ALU_LOGIC(
-	input	wire					aluEnable,
-	input	wire[`EX_OP_LOW_BUS]	op,
-	input	wire[`WORD_BUS]			srcLeft,
-	input	wire[`WORD_BUS]			srcRight,
+	input	wire					aluEnable,	//= ID_EX::ex_alusel [`ALU_SEL_LOGIC]
+	input	wire[`EX_OP_LOW_BUS]	op,			//= ID_EX::ex_aluop
+	input	wire[`WORD_BUS]			srcLeft,	//=	ID_EX::ex_srcLeft
+	input	wire[`WORD_BUS]			srcRight,	//= ID_EX::ex_srcRight
 
-	output	reg	[`WORD_BUS]			result
+	output	reg	[`WORD_BUS]			result		//= aluLogic_result
 );
 
 	always @(*) begin

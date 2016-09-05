@@ -1,21 +1,21 @@
 `include "define.v"
 
 module IF_ID(
-	input	wire					clk,
-	input	wire					rst,
+	input	wire					clk,		//= clk
+	input	wire					rst,		//= rst
 
-	input	wire[`INST_ADDR_BUS]	if_pc,
-	input	wire[`INST_BUS]			if_inst,
+	input	wire[`INST_ADDR_BUS]	if_pc,		//= PCReg::pc
+	input	wire[`INST_BUS]			if_inst,	//= i_romInst
 
-	output	reg	[`INST_ADDR_BUS]	id_pc,
-	output	reg	[`RAW_OPCODE_BUS]	id_opcode,
-	output	reg	[`RAW_SHAMT_BUS]	id_sa,
-	output	reg	[`RAW_FUNCT_BUS]	id_fn,
-	output	reg	[`REG_ADDR_BUS]		id_rs,
-	output	reg	[`REG_ADDR_BUS]		id_rt,
-	output	reg	[`REG_ADDR_BUS]		id_rd,
-	output	reg	[`WORD_BUS]			id_imm,
-	output	reg	[`RAW_TARGET_BUS]	id_target
+	output	reg	[`INST_ADDR_BUS]	id_pc,		//= id_pc
+	output	reg	[`RAW_OPCODE_BUS]	id_opcode,	//= id_opcode
+	output	reg	[`RAW_SHAMT_BUS]	id_sa,		//= id_sa
+	output	reg	[`RAW_FUNCT_BUS]	id_fn,		//= id_fn
+	output	reg	[`REG_ADDR_BUS]		id_rs,		//= id_rs
+	output	reg	[`REG_ADDR_BUS]		id_rt,		//= id_rt
+	output	reg	[`REG_ADDR_BUS]		id_rd,		//= id_rd
+	output	reg	[`WORD_BUS]			id_imm,		//= id_imm
+	output	reg	[`RAW_TARGET_BUS]	id_target	//= id_target
 );
 
 	always @(posedge clk) begin
