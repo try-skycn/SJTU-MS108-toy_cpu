@@ -24,5 +24,4 @@ cpu:
 
 .PHONY: clean
 clean:
-	@-rm $(TESTDIR)/*
-	@-rm *.vcd
+	@-rm $(TESTDIR)/* *.vcd

@@ -112,8 +112,8 @@
 
 `define EX_HIGH_SPECIAL			4'b0000
 `define EX_HIGH_LOGIC			4'b1000
-`define EX_HIGH_SHIFT			4'b1001
-`define EX_HIGH_MOVE			4'b1010
+// `define EX_HIGH_SHIFT			4'b1001
+// `define EX_HIGH_HILO			4'b1010
 `define EX_HIGH_ARITH			4'b1011
 `define EX_HIGH_BRANCH			4'b1100
 `define EX_HIGH_MEMACC			4'b1101
@@ -127,18 +127,22 @@
 `define EX_LOGIC_XOR			4'b0010
 `define EX_LOGIC_NOR			4'b0011
 `define EX_LOGIC_LUI			4'b0100
-`define EX_LOGIC_SHLEFT			4'b1000
-`define EX_LOGIC_SHRIGHTLOG		4'b1010
-`define EX_LOGIC_SHRIGHTARI		4'b1011
+`define EX_LOGIC_SHLEFT			4'b0101
+`define EX_LOGIC_SHRIGHTLOG		4'b0110
+`define EX_LOGIC_SHRIGHTARI		4'b0111
+`define EX_LOGIC_FROMHI			4'b1000
+`define EX_LOGIC_FROMLO			4'b1010
+`define EX_LOGIC_TOHI			4'b1001
+`define EX_LOGIC_TOLO			4'b1011
 
 `define ALU_NUM					 8
 `define ALU_SEL_BUS				 7 : 0
 `define ALU_NOP					8'b00000000
 `define ALU_LOGIC				8'b10000000
-`define ALU_SHIFT				8'b01000000
+`define ALU_HILO				8'b01000000
 
 `define ALU_SEL_LOGIC			 7
-`define ALU_SEL_SHIFT			 6
+`define ALU_SEL_HILO			 6
 
 // For MEM OP
 

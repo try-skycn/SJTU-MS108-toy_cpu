@@ -117,6 +117,38 @@ module ID(
 						o_exop <= {`EX_HIGH_LOGIC, `EX_LOGIC_SHRIGHTARI};
 						o_dest <= i_inst[`INST_RD_BUS];
 					end
+					`ID_FUNCT_MFHI: begin
+						o_readEnableLeft <= `DISABLE;
+						o_readEnableRight <= `DISABLE;
+						imm <= `ZERO_WORD;
+
+						o_exop <= {`EX_HIGH_LOGIC, `EX_LOGIC_FROMHI};
+						o_dest <= i_inst[`INST_RD_BUS];
+					end
+					`ID_FUNCT_MFLO: begin
+						o_readEnableLeft <= `DISABLE;
+						o_readEnableRight <= `DISABLE;
+						imm <= `ZERO_WORD;
+
+						o_exop <= {`EX_HIGH_LOGIC, `EX_LOGIC_FROMLO};
+						o_dest <= i_inst[`INST_RD_BUS];
+					end
+					`ID_FUNCT_MTHI: begin
+						o_readEnableLeft <= `ENABLE;
+						o_readEnableRight <= `DISABLE;
+						imm <= `ZERO_WORD;
+
+						o_exop <= {`EX_HIGH_LOGIC, `EX_LOGIC_TOHI};
+						o_dest <= `REG_ZERO;
+					end
+					`ID_FUNCT_MTLO: begin
+						o_readEnableLeft <= `ENABLE;
+						o_readEnableRight <= `DISABLE;
+						imm <= `ZERO_WORD;
+
+						o_exop <= {`EX_HIGH_LOGIC, `EX_LOGIC_TOLO};
+						o_dest <= `REG_ZERO;
+					end
 					default: begin
 						o_readEnableLeft <= `DISABLE;
 						o_readEnableRight <= `DISABLE;

@@ -90,7 +90,7 @@ module RegFile(
 	end
 
 	initial begin
-		$dumpvars(0, registers[2]);
+		$dumpvars(0, registers[1], registers[2], registers[3], registers[4]);
 	end
 
 endmodule

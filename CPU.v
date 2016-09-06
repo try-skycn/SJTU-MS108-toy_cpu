@@ -41,18 +41,25 @@ module CPU(
 
 	// ALU_LOGIC
 	wire[`WORD_BUS]				aluLogic_result;	// result
+	wire						aluLogic_we;		// o_we
+	wire[`WORD_BUS]				aluLogic_hi;		// o_hi
+	wire[`WORD_BUS]				aluLogic_lo;		// o_lo
+
+	// HILO
+	wire[`WORD_BUS]				lo;					// hi
+	wire[`WORD_BUS]				hi;					// lo
 
 	// EX
 	wire[`WORD_BUS]				ex_result;			// o_result
 
 	// EX_MEM
+	wire[`MEM_OP_BUS]			mem_memop;			// mem_memop
 	wire						mem_memWriteEnable;	// mem_memWriteEnable
 	wire						mem_memReadEnable;	// mem_memReadEnable
 	wire[`MEM_ADDR_HIGH_BUS]	mem_memAddr;		// mem_memAddr
 	wire[`MEM_SEL_BUS]			mem_memSel;			// mem_memSel
 	wire[`WORD_BUS]				mem_result;			// mem_result
 	wire[`REG_ADDR_BUS]			mem_regDest;		// mem_regDest
-	wire						mem_resultSel;		// mem_resultSel
 
 	// MEM_WB
 	wire[`REG_ADDR_BUS]			wb_regDest;			// wb_regDest
@@ -130,7 +137,22 @@ module CPU(
 		.op(ex_aluop),
 		.srcLeft(ex_srcLeft),
 		.srcRight(ex_srcRight),
-		.result(aluLogic_result)
+		.result(aluLogic_result),
+		.hi(lo),
+		.lo(hi),
+		.o_we(aluLogic_we),
+		.o_hi(aluLogic_hi),
+		.o_lo(aluLogic_lo)
+	);
+
+	HILO inst__HILO(
+		.clk(clk),
+		.rst(rst),
+		.we(aluLogic_we),
+		.i_hi(aluLogic_hi),
+		.i_lo(aluLogic_lo),
+		.hi(lo),
+		.lo(hi)
 	);
 
 	EX inst__EX(
@@ -145,13 +167,13 @@ module CPU(
 		.ex_result(ex_result),
 		.ex_memAddr(0),
 		.ex_regDest(ex_dest),
+		.mem_memop(mem_memop),
 		.mem_memWriteEnable(mem_memWriteEnable),
 		.mem_memReadEnable(mem_memReadEnable),
 		.mem_memAddr(mem_memAddr),
 		.mem_memSel(mem_memSel),
 		.mem_result(mem_result),
-		.mem_regDest(mem_regDest),
-		.mem_resultSel(mem_resultSel)
+		.mem_regDest(mem_regDest)
 	);
 
 	MEM_WB inst__MEM_WB(

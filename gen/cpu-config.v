@@ -18,6 +18,7 @@ module CPU(
 
 	compile module ID_EX
 	compile module ALU_LOGIC
+	compile module HILO
 	compile module EX
 
 	compile module EX_MEM
