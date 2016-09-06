@@ -186,6 +186,7 @@ module CPU(
 
 	EX inst__EX(
 		.i_aluLogic(aluLogic_result),
+		.i_aluArith(aluArith_result),
 		.o_result(ex_result)
 	);
 
