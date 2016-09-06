@@ -45,7 +45,7 @@
 `define ID_OPCODE_ADDIU			6'b001001
 `define ID_OPCODE_ANDI			6'b001100
 `define ID_OPCODE_BEQ			6'b000100
-`define ID_OPCODE_BGEZ_BLTZ		6'b000001
+`define ID_OPCODE_BRANCH		6'b000001
 `define ID_OPCODE_BGTZ			6'b000111
 `define ID_OPCODE_BLEZ			6'b000110
 `define ID_OPCODE_BNE			6'b000101
@@ -67,6 +67,9 @@
 
 `define ID_OPCODE_J				6'b000010
 `define ID_OPCODE_JAL			6'b000011
+
+`define ID_RT_BLTZ				5'b00000
+`define ID_RT_BGEZ				5'b00001
 
 `define ID_FUNCT_NOP			6'b000000
 `define ID_FUNCT_ADD			6'b100000
@@ -126,6 +129,8 @@
 `define EX_LOGIC_FROMLO			4'b1010
 `define EX_LOGIC_TOHI			4'b1001
 `define EX_LOGIC_TOLO			4'b1011
+`define EX_LOGIC_SELLEFT		4'b1100
+`define EX_LOGIC_SELRIGHT		4'b1101
 
 `define EX_ARITH_ADD			4'b0000
 `define EX_ARITH_ADDU			4'b1000

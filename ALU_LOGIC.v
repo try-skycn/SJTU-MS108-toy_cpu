@@ -40,6 +40,8 @@ module ALU_LOGIC(
 					o_lo <= srcLeft;
 					o_we <= `ENABLE;
 				end
+				`EX_LOGIC_SELLEFT: result <= srcLeft;
+				`EX_LOGIC_SELRIGHT: result <= srcRight;
 				default: result <= `ZERO_WORD;
 			endcase
 		end else begin

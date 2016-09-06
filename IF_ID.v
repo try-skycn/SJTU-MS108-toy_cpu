@@ -2,6 +2,8 @@ module IF_ID(
 	input	wire					clk,		//= clk
 	input	wire					rst,		//= rst
 
+	input	wire					kill,		//= ID::o_takeBranch
+
 	input	wire[`INST_ADDR_BUS]	if_pc,		//= PCReg::pc
 	input	wire[`INST_BUS]			if_inst,	//= i_romInst
 
@@ -10,7 +12,7 @@ module IF_ID(
 );
 
 	always @(posedge clk) begin
-		if (rst) begin
+		if (rst | kill) begin
 			id_pc <= 0;
 			id_inst <= 0;
 		end else begin

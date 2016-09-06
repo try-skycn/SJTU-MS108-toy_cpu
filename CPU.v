@@ -23,6 +23,8 @@ module CPU(
 	wire[`REG_ADDR_BUS]			id_dest;			// o_dest
 	wire[`WORD_BUS]				id_srcLeft;			// o_srcLeft
 	wire[`WORD_BUS]				id_srcRight;		// o_srcRight
+	wire						id_takeBranch;		// o_takeBranch
+	wire[`INST_BUS]				id_nPC;				// o_jpc
 
 	// RegFile
 	wire[`WORD_BUS]				readValueLeft;		// readValueLeft
@@ -44,6 +46,13 @@ module CPU(
 	wire						aluLogic_we;		// o_we
 	wire[`WORD_BUS]				aluLogic_hi;		// o_hi
 	wire[`WORD_BUS]				aluLogic_lo;		// o_lo
+
+	// ALU_ARITH
+	wire[`WORD_BUS]				aluArith_result;	// result
+	wire						aluArith_overflow;	// overflow
+	wire						aluArith_we;		// o_we
+	wire[`WORD_BUS]				aluArith_hi;		// o_hi
+	wire[`WORD_BUS]				aluArith_lo;		// o_lo
 
 	// HILO
 	wire[`WORD_BUS]				lo;					// hi
@@ -68,6 +77,9 @@ module CPU(
 	PCReg inst__PCReg(
 		.clk(clk),
 		.rst(rst),
+		.stall_if(`DISABLE),
+		.takeBranch(id_takeBranch),
+		.jpc(id_nPC),
 		.pc(pc),
 		.chipEnable(o_chipEnable)
 	);
@@ -75,6 +87,7 @@ module CPU(
 	IF_ID inst__IF_ID(
 		.clk(clk),
 		.rst(rst),
+		.kill(id_takeBranch),
 		.if_pc(pc),
 		.if_inst(i_romInst),
 		.id_pc(id_pc),
@@ -91,7 +104,9 @@ module CPU(
 		.i_readValueLeft(readValueLeft),
 		.i_readValueRight(readValueRight),
 		.o_srcLeft(id_srcLeft),
-		.o_srcRight(id_srcRight)
+		.o_srcRight(id_srcRight),
+		.o_takeBranch(id_takeBranch),
+		.o_jpc(id_nPC)
 	);
 
 	RegFile inst__RegFile(
@@ -143,6 +158,20 @@ module CPU(
 		.o_we(aluLogic_we),
 		.o_hi(aluLogic_hi),
 		.o_lo(aluLogic_lo)
+	);
+
+	ALU_ARITH inst__ALU_ARITH(
+		.aluEnable(ex_alusel == `EX_HIGH_ARITH),
+		.op(ex_aluop),
+		.srcLeft(ex_srcLeft),
+		.srcRight(ex_srcRight),
+		.result(aluArith_result),
+		.overflow(aluArith_overflow),
+		.hi(lo),
+		.lo(hi),
+		.o_we(aluArith_we),
+		.o_hi(aluArith_hi),
+		.o_lo(aluArith_lo)
 	);
 
 	HILO inst__HILO(

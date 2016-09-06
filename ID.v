@@ -25,7 +25,10 @@ module ID(
 	input	wire[`WORD_BUS]			i_readValueRight,	//= RegFile::readValueRight
 
 	output	wire[`WORD_BUS]			o_srcLeft,			//= id_srcLeft
-	output	wire[`WORD_BUS]			o_srcRight			//= id_srcRight
+	output	wire[`WORD_BUS]			o_srcRight,			//= id_srcRight
+
+	output	reg						o_takeBranch,		//= id_takeBranch
+	output	reg	[`INST_BUS]			o_jpc				//= id_nPC
 );
 
 			wire[`INST_OPCODE_BUS]		opcode;
@@ -54,7 +57,42 @@ module ID(
 	assign o_srcLeft = o_readEnableLeft ? i_readValueLeft : immediate;
 	assign o_srcRight = o_readEnableRight ? i_readValueRight : immediate;
 
+			wire					eq;
+			wire					ne;
+			wire					nez;
+			wire					gez;
+			wire					gtz;
+			wire					ltz;
+			wire					lez;
+
+	assign eq = (o_srcLeft == o_srcRight);
+	assign ne = ~eq;
+	assign nez = |o_srcLeft;
+	assign ltz = o_srcLeft[31];
+	assign gez = ~ltz;
+	assign gtz = gez & nez;
+	assign lez = ltz | (~nez);
+
+			wire[`INST_ADDR_BUS]	npc;
+			wire[`INST_ADDR_BUS]	jtarget;
+			wire[`INST_ADDR_BUS]	jrtarget;
+			wire[`INST_ADDR_BUS]	btarget;
+
+	assign npc = i_pc + 4;
+	assign jtarget = {npc[31 : 28], target, 2'b00};
+	assign jrtarget = o_srcLeft;
+	assign btarget = npc + {seimm[31: 2], 2'b00};
+
 	always @(*) begin
+		o_readEnableLeft <= `DISABLE;
+		o_readEnableRight <= `DISABLE;
+		immediate <= `ZERO_WORD;
+
+		o_exop <= {`EX_HIGH_SPECIAL, `EX_SPECIAL_NOP};
+		o_dest <= `REG_ZERO;
+
+		o_takeBranch <= `DISABLE;
+		o_jpc <= `ZERO_WORD;
 		case (i_inst[`INST_OPCODE_BUS])
 			`ID_OPCODE_RTYPE: begin
 				case (i_inst[`INST_FUNCT_BUS])
@@ -238,13 +276,30 @@ module ID(
 						o_exop <= {`EX_HIGH_ARITH, `EX_ARITH_SLTU};
 						o_dest <= `REG_ZERO;
 					end
-					default: begin
-						o_readEnableLeft <= `DISABLE;
+				// for jump operations
+					`ID_FUNCT_JR: begin
+						o_readEnableLeft <= `ENABLE;
 						o_readEnableRight <= `DISABLE;
 						immediate <= `ZERO_WORD;
 
 						o_exop <= {`EX_HIGH_SPECIAL, `EX_SPECIAL_NOP};
 						o_dest <= `REG_ZERO;
+
+						o_takeBranch <= `ENABLE;
+						o_jpc <= jrtarget;
+					end
+					`ID_FUNCT_JALR: begin
+						o_readEnableLeft <= `ENABLE;
+						o_readEnableRight <= `DISABLE;
+						immediate <= npc;
+
+						o_exop <= {`EX_HIGH_LOGIC, `EX_LOGIC_SELRIGHT};
+						o_dest <= `REG_RA;
+
+						o_takeBranch <= `ENABLE;
+						o_jpc <= jrtarget;
+					end
+					default: begin
 					end
 				endcase
 			end
@@ -314,13 +369,103 @@ module ID(
 				o_exop <= {`EX_HIGH_ARITH, `EX_ARITH_SLTU};
 				o_dest <= rt;
 			end
-			default: begin
+		// for jump operations
+			`ID_OPCODE_J: begin
 				o_readEnableLeft <= `DISABLE;
 				o_readEnableRight <= `DISABLE;
 				immediate <= `ZERO_WORD;
 
 				o_exop <= {`EX_HIGH_SPECIAL, `EX_SPECIAL_NOP};
 				o_dest <= `REG_ZERO;
+
+				o_takeBranch <= `ENABLE;
+				o_jpc <= jtarget;
+			end
+			`ID_OPCODE_JAL: begin
+				o_readEnableLeft <= `DISABLE;
+				o_readEnableRight <= `DISABLE;
+				immediate <= npc;
+
+				o_exop <= {`EX_HIGH_LOGIC, `EX_LOGIC_OR};
+				o_dest <= `REG_RA;
+
+				o_takeBranch <= `ENABLE;
+				o_jpc <= jtarget;
+			end
+		// for branch operations
+			`ID_OPCODE_BEQ: begin
+				o_readEnableLeft <= `ENABLE;
+				o_readEnableRight <= `ENABLE;
+				immediate <= `ZERO_WORD;
+
+				o_exop <= {`EX_HIGH_SPECIAL, `EX_SPECIAL_NOP};
+				o_dest <= `REG_ZERO;
+
+				o_takeBranch <= eq;
+				o_jpc <= btarget;
+			end
+			`ID_OPCODE_BNE: begin
+				o_readEnableLeft <= `ENABLE;
+				o_readEnableRight <= `ENABLE;
+				immediate <= `ZERO_WORD;
+
+				o_exop <= {`EX_HIGH_SPECIAL, `EX_SPECIAL_NOP};
+				o_dest <= `REG_ZERO;
+
+				o_takeBranch <= ne;
+				o_jpc <= btarget;
+			end
+			`ID_OPCODE_BGTZ: begin
+				o_readEnableLeft <= `ENABLE;
+				o_readEnableRight <= `DISABLE;
+				immediate <= `ZERO_WORD;
+
+				o_exop <= {`EX_HIGH_SPECIAL, `EX_SPECIAL_NOP};
+				o_dest <= `REG_ZERO;
+
+				o_takeBranch <= gtz;
+				o_jpc <= btarget;
+			end
+			`ID_OPCODE_BLEZ: begin
+				o_readEnableLeft <= `ENABLE;
+				o_readEnableRight <= `DISABLE;
+				immediate <= `ZERO_WORD;
+
+				o_exop <= {`EX_HIGH_SPECIAL, `EX_SPECIAL_NOP};
+				o_dest <= `REG_ZERO;
+
+				o_takeBranch <= lez;
+				o_jpc <= btarget;
+			end
+			`ID_OPCODE_BRANCH: begin
+				case (rt)
+					`ID_RT_BLTZ: begin
+						o_readEnableLeft <= `ENABLE;
+						o_readEnableRight <= `DISABLE;
+						immediate <= `ZERO_WORD;
+
+						o_exop <= {`EX_HIGH_SPECIAL, `EX_SPECIAL_NOP};
+						o_dest <= `REG_ZERO;
+
+						o_takeBranch <= ltz;
+						o_jpc <= btarget;
+					end
+					`ID_RT_BGEZ: begin
+						o_readEnableLeft <= `ENABLE;
+						o_readEnableRight <= `DISABLE;
+						immediate <= `ZERO_WORD;
+
+						o_exop <= {`EX_HIGH_SPECIAL, `EX_SPECIAL_NOP};
+						o_dest <= `REG_ZERO;
+
+						o_takeBranch <= gez;
+						o_jpc <= btarget;
+					end
+					default: begin
+					end
+				endcase
+			end
+			default: begin
 			end
 		endcase
 	end
