@@ -9,7 +9,7 @@ module ID_EX(
 	input	wire[`REG_ADDR_BUS]		id_dest,			//= ID::o_dest
 
 	output	reg	[`INST_BUS]			ex_inst,			//= ex_inst
-	output	reg	[`ALU_SEL_BUS]		ex_alusel,			//= ex_alusel
+	output	reg	[`EX_OP_HIGH_BUS]	ex_alusel,			//= ex_alusel
 	output	reg	[`EX_OP_LOW_BUS]	ex_aluop,			//= ex_aluop
 	output	reg	[`WORD_BUS]			ex_srcLeft,			//= ex_srcLeft
 	output	reg	[`WORD_BUS]			ex_srcRight,		//= ex_srcRight
@@ -22,7 +22,7 @@ module ID_EX(
 	always @(posedge clk) begin
 		if (rst) begin
 			ex_inst <= `ZERO_WORD;
-			ex_alusel <= `ALU_NOP;
+			ex_alusel <= `EX_HIGH_SPECIAL;
 			ex_aluop <= `EX_SPECIAL_NOP;
 			ex_srcLeft <= `ZERO_WORD;
 			ex_srcRight <= `ZERO_WORD;
@@ -31,18 +31,20 @@ module ID_EX(
 			ex_writeEnable <= `DISABLE;
 		end else begin
 			ex_inst <= id_inst;
-			ex_aluop <= id_exop[`EX_OP_LOW_BUS];
+			{ex_alusel, ex_aluop} <= id_exop;
 			ex_srcLeft <= id_srcLeft;
 			ex_srcRight <= id_srcRight;
 			ex_dest <= id_dest;
 			case (id_exop[`EX_OP_HIGH_BUS])
 				`EX_HIGH_LOGIC: begin
-					ex_alusel <= `ALU_LOGIC;
+					ex_memop <= `MEM_OP_WRITE_REG;
+					ex_writeEnable <= `ENABLE;
+				end
+				`EX_HIGH_ARITH: begin
 					ex_memop <= `MEM_OP_WRITE_REG;
 					ex_writeEnable <= `ENABLE;
 				end
 				default: begin
-					ex_alusel <= `ALU_NOP;
 					ex_memop <= `MEM_OP_NOP;
 					ex_writeEnable <= `DISABLE;
 				end

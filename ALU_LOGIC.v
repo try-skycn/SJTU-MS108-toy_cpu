@@ -1,5 +1,5 @@
 module ALU_LOGIC(
-	input	wire					aluEnable,	//= ID_EX::ex_alusel [`ALU_SEL_LOGIC]
+	input	wire					aluEnable,	//= ID_EX::ex_alusel == `EX_HIGH_LOGIC
 	input	wire[`EX_OP_LOW_BUS]	op,			//= ID_EX::ex_aluop
 	input	wire[`WORD_BUS]			srcLeft,	//=	ID_EX::ex_srcLeft
 	input	wire[`WORD_BUS]			srcRight,	//= ID_EX::ex_srcRight
@@ -23,7 +23,6 @@ module ALU_LOGIC(
 				`EX_LOGIC_OR: result <= srcLeft | srcRight;
 				`EX_LOGIC_XOR: result <= srcLeft ^ srcRight;
 				`EX_LOGIC_NOR: result <= ~(srcLeft | srcRight);
-				`EX_LOGIC_LUI: result <= {srcRight[15 : 0], 16'b0};
 				`EX_LOGIC_SHLEFT: result <= srcRight << srcLeft[4 : 0];
 				`EX_LOGIC_SHRIGHTLOG: result <= srcRight >> srcLeft[4 : 0];
 				`EX_LOGIC_SHRIGHTARI: result <= ({32{srcRight[31]}} << (6'd32 - {1'b0, srcLeft[4 : 0]})) | (srcRight >> srcLeft[4 : 0]);

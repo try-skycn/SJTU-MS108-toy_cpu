@@ -31,7 +31,7 @@ module CPU(
 
 	// ID_EX
 	wire[`INST_BUS]				ex_inst;			// ex_inst
-	wire[`ALU_SEL_BUS]			ex_alusel;			// ex_alusel
+	wire[`EX_OP_HIGH_BUS]		ex_alusel;			// ex_alusel
 	wire[`EX_OP_LOW_BUS]		ex_aluop;			// ex_aluop
 	wire[`WORD_BUS]				ex_srcLeft;			// ex_srcLeft
 	wire[`WORD_BUS]				ex_srcRight;		// ex_srcRight
@@ -133,7 +133,7 @@ module CPU(
 	);
 
 	ALU_LOGIC inst__ALU_LOGIC(
-		.aluEnable(ex_alusel [`ALU_SEL_LOGIC]),
+		.aluEnable(ex_alusel == `EX_HIGH_LOGIC),
 		.op(ex_aluop),
 		.srcLeft(ex_srcLeft),
 		.srcRight(ex_srcRight),
