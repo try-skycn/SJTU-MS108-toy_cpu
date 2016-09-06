@@ -14,35 +14,27 @@ module CPU(
 
 	// IF_ID
 	wire[`INST_ADDR_BUS]		id_pc;				// id_pc
-	wire[`RAW_OPCODE_BUS]		id_opcode;			// id_opcode
-	wire[`RAW_SHAMT_BUS]		id_sa;				// id_sa
-	wire[`RAW_FUNCT_BUS]		id_fn;				// id_fn
-	wire[`REG_ADDR_BUS]			id_rs;				// id_rs
-	wire[`REG_ADDR_BUS]			id_rt;				// id_rt
-	wire[`REG_ADDR_BUS]			id_rd;				// id_rd
-	wire[`INST_IMM_BUS]			id_imm;				// id_imm
-	wire[`RAW_TARGET_BUS]		id_target;			// id_target
+	wire[`INST_BUS]				id_inst;			// id_inst
 
 	// ID
-	wire[`REG_ADDR_BUS]			id_readAddrLeft;	// o_readAddrLeft
-	wire[`REG_ADDR_BUS]			id_readAddrRight;	// o_readAddrRight
+	wire						id_readEnableLeft;	// o_readEnableLeft
+	wire						id_readEnableRight;	// o_readEnableRight
 	wire[`EX_OP_BUS]			id_exop;			// o_exop
+	wire[`REG_ADDR_BUS]			id_dest;			// o_dest
 	wire[`WORD_BUS]				id_srcLeft;			// o_srcLeft
 	wire[`WORD_BUS]				id_srcRight;		// o_srcRight
-	wire[`WORD_BUS]				id_offset;			// o_offset
-	wire[`REG_ADDR_BUS]			id_dest;			// o_dest
-	wire						id_stall;			// o_stall
 
 	// RegFile
 	wire[`WORD_BUS]				readValueLeft;		// readValueLeft
 	wire[`WORD_BUS]				readValueRight;		// readValueRight
+	wire						id_stall;			// stall
 
 	// ID_EX
+	wire[`INST_BUS]				ex_inst;			// ex_inst
 	wire[`ALU_SEL_BUS]			ex_alusel;			// ex_alusel
 	wire[`EX_OP_LOW_BUS]		ex_aluop;			// ex_aluop
 	wire[`WORD_BUS]				ex_srcLeft;			// ex_srcLeft
 	wire[`WORD_BUS]				ex_srcRight;		// ex_srcRight
-	wire[`WORD_BUS]				ex_offset;			// ex_offset
 	wire[`MEM_OP_BUS]			ex_memop;			// ex_memop
 	wire[`REG_ADDR_BUS]			ex_dest;			// ex_dest
 	wire						ex_writeEnable;		// ex_writeEnable
@@ -79,41 +71,20 @@ module CPU(
 		.if_pc(pc),
 		.if_inst(i_romInst),
 		.id_pc(id_pc),
-		.id_opcode(id_opcode),
-		.id_sa(id_sa),
-		.id_fn(id_fn),
-		.id_rs(id_rs),
-		.id_rt(id_rt),
-		.id_rd(id_rd),
-		.id_imm(id_imm),
-		.id_target(id_target)
+		.id_inst(id_inst)
 	);
 
 	ID inst__ID(
 		.i_pc(id_pc),
-		.i_opcode(id_opcode),
-		.i_sa(id_sa),
-		.i_fn(id_fn),
-		.i_rs(id_rs),
-		.i_rt(id_rt),
-		.i_rd(id_rd),
-		.i_imm(id_imm),
-		.i_target(id_target),
-		.o_readAddrLeft(id_readAddrLeft),
-		.o_readAddrRight(id_readAddrRight),
+		.i_inst(id_inst),
+		.o_readEnableLeft(id_readEnableLeft),
+		.o_readEnableRight(id_readEnableRight),
+		.o_exop(id_exop),
+		.o_dest(id_dest),
 		.i_readValueLeft(readValueLeft),
 		.i_readValueRight(readValueRight),
-		.i_exDest(ex_dest),
-		.i_exResult(ex_result),
-		.i_exWriteEnable(ex_writeEnable),
-		.i_memDest(mem_regDest),
-		.i_memResult(mem_result),
-		.o_exop(id_exop),
 		.o_srcLeft(id_srcLeft),
-		.o_srcRight(id_srcRight),
-		.o_offset(id_offset),
-		.o_dest(id_dest),
-		.o_stall(id_stall)
+		.o_srcRight(id_srcRight)
 	);
 
 	RegFile inst__RegFile(
@@ -122,25 +93,33 @@ module CPU(
 		.writeEnable(1'b1),
 		.writeAddr(wb_regDest),
 		.writeResult(wb_result),
-		.readAddrLeft(id_readAddrLeft),
+		.readEnableLeft(id_readEnableLeft),
+		.readAddrLeft(id_inst [`INST_RS_BUS]),
 		.readValueLeft(readValueLeft),
-		.readAddrRight(id_readAddrRight),
-		.readValueRight(readValueRight)
+		.readEnableRight(id_readEnableRight),
+		.readAddrRight(id_inst [`INST_RT_BUS]),
+		.readValueRight(readValueRight),
+		.exDest(ex_dest),
+		.exResult(ex_result),
+		.exWriteEnable(ex_writeEnable),
+		.memDest(mem_regDest),
+		.memResult(mem_result),
+		.stall(id_stall)
 	);
 
 	ID_EX inst__ID_EX(
 		.clk(clk),
 		.rst(rst),
+		.id_inst(id_inst),
 		.id_exop(id_exop),
 		.id_srcLeft(id_srcLeft),
 		.id_srcRight(id_srcRight),
-		.id_offset(id_offset),
 		.id_dest(id_dest),
+		.ex_inst(ex_inst),
 		.ex_alusel(ex_alusel),
 		.ex_aluop(ex_aluop),
 		.ex_srcLeft(ex_srcLeft),
 		.ex_srcRight(ex_srcRight),
-		.ex_offset(ex_offset),
 		.ex_memop(ex_memop),
 		.ex_dest(ex_dest),
 		.ex_writeEnable(ex_writeEnable)

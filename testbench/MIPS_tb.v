@@ -21,7 +21,7 @@ module MIPS_tb;
 
 	initial begin
 		$dumpvars;
-		#150 $finish;
+		#500 $finish;
 	end
 
 endmodule

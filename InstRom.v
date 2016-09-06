@@ -1,6 +1,6 @@
 `include "define.v"
 
-`define INST_MEM_NUM	10
+`define INST_MEM_NUM	16
 
 module InstRom(
 	input	wire					chipEnable,

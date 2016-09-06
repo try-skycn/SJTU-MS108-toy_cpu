@@ -1,12 +1,12 @@
 `define	HSEL_BUS		1 : 0
-`define HSEL_ZERO		2'b00
-`define HSEL_REG		2'b01
+`define HSEL_REG		2'b00
+`define HSEL_SA			2'b01
 `define	HSEL_ZEIMM		2'b10
 `define HSEL_SEIMM		2'b11
 
 `define LSEL_BUS		2 : 0
-`define LSEL_ZERO		3'b000
-`define LSEL_REG		3'b001
+`define LSEL_REG		3'b000
+`define LSEL_SA			3'b001
 `define	LSEL_ZEIMM		3'b010
 `define LSEL_SEIMM		3'b011
 `define LSEL_EX			3'b101
@@ -14,178 +14,159 @@
 
 module ID(
 	input	wire[`INST_ADDR_BUS]	i_pc,				//= IF_ID::id_pc
-	input	wire[`RAW_OPCODE_BUS]	i_opcode,			//= IF_ID::id_opcode
-	input	wire[`RAW_SHAMT_BUS]	i_sa,				//= IF_ID::id_sa
-	input	wire[`RAW_FUNCT_BUS]	i_fn,				//= IF_ID::id_fn
-	input	wire[`REG_ADDR_BUS]		i_rs,				//= IF_ID::id_rs
-	input	wire[`REG_ADDR_BUS]		i_rt,				//= IF_ID::id_rt
-	input	wire[`REG_ADDR_BUS]		i_rd,				//= IF_ID::id_rd
-	input	wire[`INST_IMM_BUS]		i_imm,				//= IF_ID::id_imm
-	input	wire[`RAW_TARGET_BUS]	i_target,			//= IF_ID::id_target
+	input	wire[`INST_BUS]			i_inst,				//= IF_ID::id_inst
 
-	output	reg	[`REG_ADDR_BUS]		o_readAddrLeft,		//= id_readAddrLeft
-	output	reg	[`REG_ADDR_BUS]		o_readAddrRight,	//= id_readAddrRight
+	output	reg						o_readEnableLeft,	//= id_readEnableLeft
+	output	reg						o_readEnableRight,	//= id_readEnableRight
+	output	reg	[`EX_OP_BUS]		o_exop,				//= id_exop
+	output	reg	[`REG_ADDR_BUS]		o_dest,				//= id_dest
 
 	input	wire[`WORD_BUS]			i_readValueLeft,	//= RegFile::readValueLeft
 	input	wire[`WORD_BUS]			i_readValueRight,	//= RegFile::readValueRight
-	input	wire[`REG_ADDR_BUS]		i_exDest,			//= ID_EX::ex_dest
-	input	wire[`WORD_BUS]			i_exResult,			//= EX::o_result
-	input	wire					i_exWriteEnable,	//= ID_EX::ex_writeEnable
-	input	wire[`REG_ADDR_BUS]		i_memDest,			//= EX_MEM::mem_regDest
-	input	wire[`WORD_BUS]			i_memResult,		//= EX_MEM::mem_result
 
-	output	reg	[`EX_OP_BUS]		o_exop,				//= id_exop
-	output	reg	[`WORD_BUS]			o_srcLeft,			//= id_srcLeft
-	output	reg	[`WORD_BUS]			o_srcRight,			//= id_srcRight
-	output	reg	[`WORD_BUS]			o_offset,			//= id_offset
-	output	reg	[`REG_ADDR_BUS]		o_dest,				//= id_dest
-
-	output	wire					o_stall				//= id_stall
+	output	wire[`WORD_BUS]			o_srcLeft,			//= id_srcLeft
+	output	wire[`WORD_BUS]			o_srcRight			//= id_srcRight
 );
 
-			reg						leftStall;
-			reg						rightStall;
+			reg	[`WORD_BUS]			imm;
 
-			reg	[`HSEL_BUS]			srcLeftHighSel;
-			reg	[`HSEL_BUS]			srcRightHighSel;
-
-			reg	[`LSEL_BUS]			srcLeftLowSel;
-			reg	[`LSEL_BUS]			srcRightLowSel;
-
-	assign o_stall = leftStall & rightStall;
+	assign o_srcLeft = o_readEnableLeft ? i_readValueLeft : imm;
+	assign o_srcRight = o_readEnableRight ? i_readValueRight : imm;
 
 	always @(*) begin
-		case (i_opcode)
+		case (i_inst[`INST_OPCODE_BUS])
 			`ID_OPCODE_RTYPE: begin
-				case (i_sa)
+				case (i_inst[`INST_FUNCT_BUS])
+					`ID_FUNCT_AND: begin
+						o_readEnableLeft <= `ENABLE;
+						o_readEnableRight <= `ENABLE;
+						imm <= `ZERO_WORD;
+
+						o_exop <= {`EX_HIGH_LOGIC, `EX_LOGIC_AND};
+						o_dest <= i_inst[`INST_RD_BUS];
+					end
+					`ID_FUNCT_OR: begin
+						o_readEnableLeft <= `ENABLE;
+						o_readEnableRight <= `ENABLE;
+						imm <= `ZERO_WORD;
+
+						o_exop <= {`EX_HIGH_LOGIC, `EX_LOGIC_OR};
+						o_dest <= i_inst[`INST_RD_BUS];
+					end
+					`ID_FUNCT_XOR: begin
+						o_readEnableLeft <= `ENABLE;
+						o_readEnableRight <= `ENABLE;
+						imm <= `ZERO_WORD;
+
+						o_exop <= {`EX_HIGH_LOGIC, `EX_LOGIC_XOR};
+						o_dest <= i_inst[`INST_RD_BUS];
+					end
+					`ID_FUNCT_NOR: begin
+						o_readEnableLeft <= `ENABLE;
+						o_readEnableRight <= `ENABLE;
+						imm <= `ZERO_WORD;
+
+						o_exop <= {`EX_HIGH_LOGIC, `EX_LOGIC_NOR};
+						o_dest <= i_inst[`INST_RD_BUS];
+					end
+					`ID_FUNCT_SLL: begin
+						o_readEnableLeft <= `DISABLE;
+						o_readEnableRight <= `ENABLE;
+						imm <= {27'h0, i_inst[`INST_SHAMT_BUS]};
+
+						o_exop <= {`EX_HIGH_LOGIC, `EX_LOGIC_SHLEFT};
+						o_dest <= i_inst[`INST_RD_BUS];
+					end
+					`ID_FUNCT_SLLV: begin
+						o_readEnableLeft <= `ENABLE;
+						o_readEnableRight <= `ENABLE;
+						imm <= `ZERO_WORD;
+
+						o_exop <= {`EX_HIGH_LOGIC, `EX_LOGIC_SHLEFT};
+						o_dest <= i_inst[`INST_RD_BUS];
+					end
+					`ID_FUNCT_SRL: begin
+						o_readEnableLeft <= `DISABLE;
+						o_readEnableRight <= `ENABLE;
+						imm <= {27'h0, i_inst[`INST_SHAMT_BUS]};
+
+						o_exop <= {`EX_HIGH_LOGIC, `EX_LOGIC_SHRIGHTLOG};
+						o_dest <= i_inst[`INST_RD_BUS];
+					end
+					`ID_FUNCT_SRLV: begin
+						o_readEnableLeft <= `ENABLE;
+						o_readEnableRight <= `ENABLE;
+						imm <= `ZERO_WORD;
+
+						o_exop <= {`EX_HIGH_LOGIC, `EX_LOGIC_SHRIGHTLOG};
+						o_dest <= i_inst[`INST_RD_BUS];
+					end
+					`ID_FUNCT_SRA: begin
+						o_readEnableLeft <= `DISABLE;
+						o_readEnableRight <= `ENABLE;
+						imm <= {27'h0, i_inst[`INST_SHAMT_BUS]};
+
+						o_exop <= {`EX_HIGH_LOGIC, `EX_LOGIC_SHRIGHTARI};
+						o_dest <= i_inst[`INST_RD_BUS];
+					end
+					`ID_FUNCT_SRAV: begin
+						o_readEnableLeft <= `ENABLE;
+						o_readEnableRight <= `ENABLE;
+						imm <= `ZERO_WORD;
+
+						o_exop <= {`EX_HIGH_LOGIC, `EX_LOGIC_SHRIGHTARI};
+						o_dest <= i_inst[`INST_RD_BUS];
+					end
 					default: begin
-						o_readAddrLeft <= `REG_ZERO;
-						o_readAddrRight <= `REG_ZERO;
+						o_readEnableLeft <= `DISABLE;
+						o_readEnableRight <= `DISABLE;
+						imm <= `ZERO_WORD;
 
 						o_exop <= {`EX_HIGH_SPECIAL, `EX_SPECIAL_NOP};
-						srcLeftHighSel <= `HSEL_ZERO;
-						srcRightHighSel <= `HSEL_ZERO;
-						o_offset <= `ZERO_WORD;
 						o_dest <= `REG_ZERO;
 					end
 				endcase
 			end
 			`ID_OPCODE_ORI: begin
-				o_readAddrLeft <= i_rs;
-				o_readAddrRight <= `REG_ZERO;
+				o_readEnableLeft <= `ENABLE;
+				o_readEnableRight <= `DISABLE;
+				imm <= {16'h0, i_inst[`INST_IMM_BUS]};
 
 				o_exop <= {`EX_HIGH_LOGIC, `EX_LOGIC_OR};
-				srcLeftHighSel <= `HSEL_REG;
-				srcRightHighSel <= `HSEL_ZEIMM;
-				o_offset <= `ZERO_WORD;
-				o_dest <= i_rt;
+				o_dest <= i_inst[`INST_RT_BUS];
 			end
 			`ID_OPCODE_XORI: begin
-				o_readAddrLeft <= i_rs;
-				o_readAddrRight <= `REG_ZERO;
+				o_readEnableLeft <= `ENABLE;
+				o_readEnableRight <= `DISABLE;
+				imm <= {16'h0, i_inst[`INST_IMM_BUS]};
 
 				o_exop <= {`EX_HIGH_LOGIC, `EX_LOGIC_XOR};
-				srcLeftHighSel <= `HSEL_REG;
-				srcRightHighSel <= `HSEL_ZEIMM;
-				o_offset <= `ZERO_WORD;
-				o_dest <= i_rt;
+				o_dest <= i_inst[`INST_RT_BUS];
 			end
 			`ID_OPCODE_ANDI: begin
-				o_readAddrLeft <= i_rs;
-				o_readAddrRight <= `REG_ZERO;
+				o_readEnableLeft <= `ENABLE;
+				o_readEnableRight <= `DISABLE;
+				imm <= {16'h0, i_inst[`INST_IMM_BUS]};
 
 				o_exop <= {`EX_HIGH_LOGIC, `EX_LOGIC_AND};
-				srcLeftHighSel <= `HSEL_REG;
-				srcRightHighSel <= `HSEL_ZEIMM;
-				o_offset <= `ZERO_WORD;
-				o_dest <= i_rt;
+				o_dest <= i_inst[`INST_RT_BUS];
 			end
 			`ID_OPCODE_LUI: begin
-				o_readAddrLeft <= i_rs;
-				o_readAddrRight <= `REG_ZERO;
+				o_readEnableLeft <= `ENABLE;
+				o_readEnableRight <= `DISABLE;
+				imm <= {16'h0, i_inst[`INST_IMM_BUS]};
 
 				o_exop <= {`EX_HIGH_LOGIC, `EX_LOGIC_LUI};
-				srcLeftHighSel <= `HSEL_REG;
-				srcRightHighSel <= `HSEL_ZEIMM;
-				o_offset <= `ZERO_WORD;
-				o_dest <= i_rt;
+				o_dest <= i_inst[`INST_RT_BUS];
 			end
 			default: begin
-				o_readAddrLeft <= `REG_ZERO;
-				o_readAddrRight <= `REG_ZERO;
+				o_readEnableLeft <= `ENABLE;
+				o_readEnableRight <= `DISABLE;
+				imm <= 32'h0;
 
 				o_exop <= {`EX_HIGH_SPECIAL, `EX_SPECIAL_NOP};
-				srcLeftHighSel <= `HSEL_ZERO;
-				srcRightHighSel <= `HSEL_ZERO;
-				o_offset <= `ZERO_WORD;
 				o_dest <= `REG_ZERO;
 			end
-		endcase
-	end
-
-	always @(*) begin
-		leftStall <= `DISABLE;
-		if (srcLeftHighSel == `HSEL_REG) begin
-			if (o_readAddrLeft == `REG_ZERO) begin
-				srcLeftLowSel <= `LSEL_ZERO;
-			end else if (o_readAddrLeft == i_exDest) begin
-				if (i_exWriteEnable) begin
-					srcLeftLowSel <= `LSEL_EX;
-				end else begin
-					srcLeftLowSel <= `LSEL_ZERO;
-					leftStall <= `ENABLE;
-				end
-			end else if (o_readAddrLeft == i_memDest) begin
-				srcLeftLowSel <= `LSEL_MEM;
-			end else begin
-				srcLeftLowSel <= `LSEL_REG;
-			end
-		end else begin
-			srcLeftLowSel <= {1'b0, srcLeftHighSel};
-		end
-	end
-
-	always @(*) begin
-		rightStall <= `DISABLE;
-		if (srcRightHighSel == `HSEL_REG) begin
-			if (o_readAddrRight == `REG_ZERO) begin
-				srcRightLowSel <= `LSEL_ZERO;
-			end else if (o_readAddrRight == i_exDest) begin
-				if (i_exWriteEnable) begin
-					srcRightLowSel <= `LSEL_EX;
-				end else begin
-					srcRightLowSel <= `LSEL_ZERO;
-					rightStall <= `ENABLE;
-				end
-			end else if (o_readAddrRight == i_memDest) begin
-				srcRightLowSel <= `LSEL_MEM;
-			end else begin
-				srcRightLowSel <= `LSEL_REG;
-			end
-		end else begin
-			srcRightLowSel <= {1'b0, srcRightHighSel};
-		end
-	end
-
-	always @(*) begin
-		case (srcLeftLowSel)
-			`LSEL_REG: o_srcLeft <= i_readValueLeft;
-			`LSEL_ZEIMM: o_srcLeft <= {16'b0, i_imm};
-			`LSEL_SEIMM: o_srcLeft <= {{16{i_imm[15]}}, i_imm};
-			`LSEL_EX: o_srcLeft <= i_exResult;
-			`LSEL_MEM: o_srcLeft <= i_memResult;
-			default: o_srcLeft <= `ZERO_WORD;
-		endcase
-	end
-
-	always @(*) begin
-		case (srcRightLowSel)
-			`LSEL_REG: o_srcRight <= i_readValueRight;
-			`LSEL_ZEIMM: o_srcRight <= {16'b0, i_imm};
-			`LSEL_SEIMM: o_srcRight <= {{16{i_imm[15]}}, i_imm};
-			`LSEL_EX: o_srcRight <= i_exResult;
-			`LSEL_MEM: o_srcRight <= i_memResult;
-			default: o_srcRight <= `ZERO_WORD;
 		endcase
 	end
 

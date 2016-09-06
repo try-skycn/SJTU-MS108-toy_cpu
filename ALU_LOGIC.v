@@ -15,6 +15,9 @@ module ALU_LOGIC(
 				`EX_LOGIC_XOR: result <= srcLeft ^ srcRight;
 				`EX_LOGIC_NOR: result <= ~(srcLeft | srcRight);
 				`EX_LOGIC_LUI: result <= {srcRight[15 : 0], 16'b0};
+				`EX_LOGIC_SHLEFT: result <= srcRight << srcLeft[4 : 0];
+				`EX_LOGIC_SHRIGHTLOG: result <= srcRight >> srcLeft[4 : 0];
+				`EX_LOGIC_SHRIGHTARI: result <= ({32{srcRight[31]}} << (6'd32 - {1'b0, srcLeft[4 : 0]})) | (srcRight >> srcLeft[4 : 0]);
 				default: result <= `ZERO_WORD;
 			endcase
 		end else begin

@@ -1,10 +1,13 @@
 `define ENABLE					1'b1
 `define DISABLE					1'b0
 
-`define ZERO_WORD				32'h0
-
 `define WORD_WIDTH				32
 `define WORD_BUS				31 : 0
+`define ZERO_WORD				32'h0
+
+`define HALFWORD_WIDTH			16
+`define HALFWORD_BUS			15 : 0
+`define ZERO_HALFWORD			16'h0
 
 `define INST_ADDR_WIDTH			32
 `define INST_ADDR_BUS			31 : 0
@@ -123,7 +126,10 @@
 `define EX_LOGIC_OR				4'b0001
 `define EX_LOGIC_XOR			4'b0010
 `define EX_LOGIC_NOR			4'b0011
-`define EX_LOGIC_LUI			4'b1000
+`define EX_LOGIC_LUI			4'b0100
+`define EX_LOGIC_SHLEFT			4'b1000
+`define EX_LOGIC_SHRIGHTLOG		4'b1010
+`define EX_LOGIC_SHRIGHTARI		4'b1011
 
 `define ALU_NUM					 8
 `define ALU_SEL_BUS				 7 : 0

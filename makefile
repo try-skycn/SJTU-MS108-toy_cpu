@@ -3,7 +3,7 @@ TB = $(FILE)_tb
 
 TESTDIR = ./tmp
 
-all: clean dump.vcd
+all: clean comp cpu dump.vcd
 
 wave: dump.vcd
 	@open $< -a Scansion
