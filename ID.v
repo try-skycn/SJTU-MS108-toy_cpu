@@ -131,12 +131,14 @@ module ID(
 					end
 				// for shift operations
 					`ID_FUNCT_SLL: begin
-						o_readEnableLeft <= `DISABLE;
-						o_readEnableRight <= `ENABLE;
-						immediate <= zesa;
+						if (|sa) begin
+							o_readEnableLeft <= `DISABLE;
+							o_readEnableRight <= `ENABLE;
+							immediate <= zesa;
 
-						o_exop <= {`EX_HIGH_LOGIC, `EX_LOGIC_SHLEFT};
-						o_dest <= rd;
+							o_exop <= {`EX_HIGH_LOGIC, `EX_LOGIC_SHLEFT};
+							o_dest <= rd;
+						end
 					end
 					`ID_FUNCT_SLLV: begin
 						o_readEnableLeft <= `ENABLE;
@@ -147,12 +149,14 @@ module ID(
 						o_dest <= rd;
 					end
 					`ID_FUNCT_SRL: begin
-						o_readEnableLeft <= `DISABLE;
-						o_readEnableRight <= `ENABLE;
-						immediate <= zesa;
+						if (|sa) begin
+							o_readEnableLeft <= `DISABLE;
+							o_readEnableRight <= `ENABLE;
+							immediate <= zesa;
 
-						o_exop <= {`EX_HIGH_LOGIC, `EX_LOGIC_SHRIGHTLOG};
-						o_dest <= rd;
+							o_exop <= {`EX_HIGH_LOGIC, `EX_LOGIC_SHRIGHTLOG};
+							o_dest <= rd;
+						end
 					end
 					`ID_FUNCT_SRLV: begin
 						o_readEnableLeft <= `ENABLE;
@@ -163,12 +167,14 @@ module ID(
 						o_dest <= rd;
 					end
 					`ID_FUNCT_SRA: begin
-						o_readEnableLeft <= `DISABLE;
-						o_readEnableRight <= `ENABLE;
-						immediate <= zesa;
+						if (|sa) begin
+							o_readEnableLeft <= `DISABLE;
+							o_readEnableRight <= `ENABLE;
+							immediate <= zesa;
 
-						o_exop <= {`EX_HIGH_LOGIC, `EX_LOGIC_SHRIGHTARI};
-						o_dest <= rd;
+							o_exop <= {`EX_HIGH_LOGIC, `EX_LOGIC_SHRIGHTARI};
+							o_dest <= rd;
+						end
 					end
 					`ID_FUNCT_SRAV: begin
 						o_readEnableLeft <= `ENABLE;
