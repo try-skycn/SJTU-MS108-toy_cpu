@@ -3,7 +3,7 @@ TB = $(FILE)_tb
 
 TESTDIR = ./tmp
 
-all: clean comp cpu dump.vcd
+all: clean comp cpu mips dump.vcd
 
 wave: dump.vcd
 	@open $< -a Scansion
@@ -20,7 +20,11 @@ comp: ./compile/rom.s
 
 .PHONY: cpu
 cpu:
-	cd gen && python3 comp.py cpu-config.v .. > output.v && cp output.v ../CPU.v
+	cd gen && python3 comp.py cpu-config.v .. > cpu.v && cp cpu.v ../CPU.v
+
+.PHONY: mips
+mips:
+	cd gen && python3 comp.py mips-config.v .. > mips.v && cp mips.v ../MIPS.v
 
 .PHONY: clean
 clean:

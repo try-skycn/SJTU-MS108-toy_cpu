@@ -1,11 +1,9 @@
-`include "define.v"
-
 `define INST_MEM_NUM	16
 
 module InstRom(
-	input	wire					chipEnable,
-	input	wire[`INST_ADDR_BUS]	addr,
-	output	reg	[`INST_BUS]			inst
+	input	wire					chipEnable,		//= CPU::o_romEnable
+	input	wire[`INST_ADDR_BUS]	addr,			//= CPU::o_romAddr
+	output	reg	[`INST_BUS]			inst			//= romInst
 );
 
 	reg	[`INST_BUS]		instMem[0 : `INST_MEM_NUM - 1];

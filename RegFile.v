@@ -2,9 +2,9 @@ module RegFile(
 	input	wire						clk,				//= clk
 	input	wire						rst,				//= rst
 
-	input	wire						writeEnable,		//= 1'b1
-	input	wire[`REG_ADDR_BUS]			writeAddr,			//= MEM_WB::wb_regDest
-	input	wire[`WORD_BUS]				writeResult,		//= MEM_WB::wb_result
+	input	wire						writeEnable,		//= EX_MEM::mem_regWriteEnable
+	input	wire[`REG_ADDR_BUS]			writeAddr,			//= EX_MEM::mem_regDest
+	input	wire[`WORD_BUS]				writeResult,		//= MEM::result
 
 	input	wire						readEnableLeft,		//= ID::o_readEnableLeft
 	input	wire[`REG_ADDR_BUS]			readAddrLeft,		//= IF_ID::id_inst [`INST_RS_BUS]
@@ -17,8 +17,6 @@ module RegFile(
 	input	wire[`REG_ADDR_BUS]			exDest,				//= ID_EX::ex_dest
 	input	wire[`WORD_BUS]				exResult,			//= EX::o_result
 	input	wire						exWriteEnable,		//= ID_EX::ex_writeEnable
-	input	wire[`REG_ADDR_BUS]			memDest,			//= EX_MEM::mem_regDest
-	input	wire[`WORD_BUS]				memResult,			//= EX_MEM::mem_result
 
 	output	wire						stall				//= id_stall
 );
@@ -27,21 +25,46 @@ module RegFile(
 			reg							leftStall;
 			reg							rightStall;
 
-			integer						i;
-
 	assign stall = leftStall | rightStall;
 
 	always @(posedge clk) begin
 		if (rst) begin
-			for (i = 0; i < `REG_NUM; i = i + 1) begin
-				registers[i] <= 0;
+       			registers[ 0] <= `ZERO_WORD;
+       			registers[ 1] <= `ZERO_WORD;
+       			registers[ 2] <= `ZERO_WORD;
+       			registers[ 3] <= `ZERO_WORD;
+       			registers[ 4] <= `ZERO_WORD;
+       			registers[ 5] <= `ZERO_WORD;
+       			registers[ 6] <= `ZERO_WORD;
+       			registers[ 7] <= `ZERO_WORD;
+       			registers[ 8] <= `ZERO_WORD;
+       			registers[ 9] <= `ZERO_WORD;
+       			registers[10] <= `ZERO_WORD;
+       			registers[11] <= `ZERO_WORD;
+       			registers[12] <= `ZERO_WORD;
+       			registers[13] <= `ZERO_WORD;
+       			registers[14] <= `ZERO_WORD;
+       			registers[15] <= `ZERO_WORD;
+       			registers[16] <= `ZERO_WORD;
+       			registers[17] <= `ZERO_WORD;
+       			registers[18] <= `ZERO_WORD;
+       			registers[19] <= `ZERO_WORD;
+       			registers[20] <= `ZERO_WORD;
+       			registers[21] <= `ZERO_WORD;
+       			registers[22] <= `ZERO_WORD;
+       			registers[23] <= `ZERO_WORD;
+       			registers[24] <= `ZERO_WORD;
+       			registers[25] <= `ZERO_WORD;
+       			registers[26] <= `ZERO_WORD;
+       			registers[27] <= `ZERO_WORD;
+       			registers[28] <= `ZERO_WORD;
+       			registers[29] <= `ZERO_WORD;
+       			registers[30] <= `ZERO_WORD;
+       			registers[31] <= `ZERO_WORD;
+		end else begin
+			if (writeEnable && writeAddr != `REG_ZERO) begin
+				registers[writeAddr] <= writeResult;
 			end
-		end
-	end
-
-	always @(negedge clk) begin
-		if (writeEnable && writeAddr != `REG_ZERO) begin
-			registers[writeAddr] <= writeResult;
 		end
 	end
 
@@ -57,8 +80,8 @@ module RegFile(
 					readValueLeft <= `ZERO_WORD;
 					leftStall <= `ENABLE;
 				end
-			end else if (readAddrLeft == memDest) begin
-				readValueLeft <= memResult;
+			end else if (readAddrLeft == writeAddr) begin
+				readValueLeft <= writeResult;
 			end else begin
 				readValueLeft <= registers[readAddrLeft];
 			end
@@ -79,8 +102,8 @@ module RegFile(
 					readValueRight <= `ZERO_WORD;
 					rightStall <= `ENABLE;
 				end
-			end else if (readAddrRight == memDest) begin
-				readValueRight <= memResult;
+			end else if (readAddrRight == writeAddr) begin
+				readValueRight <= writeResult;
 			end else begin
 				readValueRight <= registers[readAddrRight];
 			end

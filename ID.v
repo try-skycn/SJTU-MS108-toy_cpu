@@ -100,7 +100,6 @@ module ID(
 					`ID_FUNCT_AND: begin
 						o_readEnableLeft <= `ENABLE;
 						o_readEnableRight <= `ENABLE;
-						immediate <= `ZERO_WORD;
 
 						o_exop <= {`EX_HIGH_LOGIC, `EX_LOGIC_AND};
 						o_dest <= rd;
@@ -108,7 +107,6 @@ module ID(
 					`ID_FUNCT_OR: begin
 						o_readEnableLeft <= `ENABLE;
 						o_readEnableRight <= `ENABLE;
-						immediate <= `ZERO_WORD;
 
 						o_exop <= {`EX_HIGH_LOGIC, `EX_LOGIC_OR};
 						o_dest <= rd;
@@ -116,7 +114,6 @@ module ID(
 					`ID_FUNCT_XOR: begin
 						o_readEnableLeft <= `ENABLE;
 						o_readEnableRight <= `ENABLE;
-						immediate <= `ZERO_WORD;
 
 						o_exop <= {`EX_HIGH_LOGIC, `EX_LOGIC_XOR};
 						o_dest <= rd;
@@ -124,7 +121,6 @@ module ID(
 					`ID_FUNCT_NOR: begin
 						o_readEnableLeft <= `ENABLE;
 						o_readEnableRight <= `ENABLE;
-						immediate <= `ZERO_WORD;
 
 						o_exop <= {`EX_HIGH_LOGIC, `EX_LOGIC_NOR};
 						o_dest <= rd;
@@ -132,9 +128,8 @@ module ID(
 				// for shift operations
 					`ID_FUNCT_SLL: begin
 						if (|sa) begin
-							o_readEnableLeft <= `DISABLE;
-							o_readEnableRight <= `ENABLE;
 							immediate <= zesa;
+							o_readEnableRight <= `ENABLE;
 
 							o_exop <= {`EX_HIGH_LOGIC, `EX_LOGIC_SHLEFT};
 							o_dest <= rd;
@@ -143,16 +138,14 @@ module ID(
 					`ID_FUNCT_SLLV: begin
 						o_readEnableLeft <= `ENABLE;
 						o_readEnableRight <= `ENABLE;
-						immediate <= `ZERO_WORD;
 
 						o_exop <= {`EX_HIGH_LOGIC, `EX_LOGIC_SHLEFT};
 						o_dest <= rd;
 					end
 					`ID_FUNCT_SRL: begin
 						if (|sa) begin
-							o_readEnableLeft <= `DISABLE;
-							o_readEnableRight <= `ENABLE;
 							immediate <= zesa;
+							o_readEnableRight <= `ENABLE;
 
 							o_exop <= {`EX_HIGH_LOGIC, `EX_LOGIC_SHRIGHTLOG};
 							o_dest <= rd;
@@ -161,16 +154,14 @@ module ID(
 					`ID_FUNCT_SRLV: begin
 						o_readEnableLeft <= `ENABLE;
 						o_readEnableRight <= `ENABLE;
-						immediate <= `ZERO_WORD;
 
 						o_exop <= {`EX_HIGH_LOGIC, `EX_LOGIC_SHRIGHTLOG};
 						o_dest <= rd;
 					end
 					`ID_FUNCT_SRA: begin
 						if (|sa) begin
-							o_readEnableLeft <= `DISABLE;
-							o_readEnableRight <= `ENABLE;
 							immediate <= zesa;
+							o_readEnableRight <= `ENABLE;
 
 							o_exop <= {`EX_HIGH_LOGIC, `EX_LOGIC_SHRIGHTARI};
 							o_dest <= rd;
@@ -179,49 +170,33 @@ module ID(
 					`ID_FUNCT_SRAV: begin
 						o_readEnableLeft <= `ENABLE;
 						o_readEnableRight <= `ENABLE;
-						immediate <= `ZERO_WORD;
 
 						o_exop <= {`EX_HIGH_LOGIC, `EX_LOGIC_SHRIGHTARI};
 						o_dest <= rd;
 					end
 				// for move operations
 					`ID_FUNCT_MFHI: begin
-						o_readEnableLeft <= `DISABLE;
-						o_readEnableRight <= `DISABLE;
-						immediate <= `ZERO_WORD;
-
 						o_exop <= {`EX_HIGH_LOGIC, `EX_LOGIC_FROMHI};
 						o_dest <= rd;
 					end
 					`ID_FUNCT_MFLO: begin
-						o_readEnableLeft <= `DISABLE;
-						o_readEnableRight <= `DISABLE;
-						immediate <= `ZERO_WORD;
-
 						o_exop <= {`EX_HIGH_LOGIC, `EX_LOGIC_FROMLO};
 						o_dest <= rd;
 					end
 					`ID_FUNCT_MTHI: begin
 						o_readEnableLeft <= `ENABLE;
-						o_readEnableRight <= `DISABLE;
-						immediate <= `ZERO_WORD;
 
 						o_exop <= {`EX_HIGH_LOGIC, `EX_LOGIC_TOHI};
-						o_dest <= `REG_ZERO;
 					end
 					`ID_FUNCT_MTLO: begin
 						o_readEnableLeft <= `ENABLE;
-						o_readEnableRight <= `DISABLE;
-						immediate <= `ZERO_WORD;
 
 						o_exop <= {`EX_HIGH_LOGIC, `EX_LOGIC_TOLO};
-						o_dest <= `REG_ZERO;
 					end
 				// for arithmetic operations
 					`ID_FUNCT_ADD: begin
 						o_readEnableLeft <= `ENABLE;
 						o_readEnableRight <= `ENABLE;
-						immediate <= `ZERO_WORD;
 
 						o_exop <= {`EX_HIGH_ARITH, `EX_ARITH_ADD};
 						o_dest <= rd;
@@ -229,7 +204,6 @@ module ID(
 					`ID_FUNCT_ADDU: begin
 						o_readEnableLeft <= `ENABLE;
 						o_readEnableRight <= `ENABLE;
-						immediate <= `ZERO_WORD;
 
 						o_exop <= {`EX_HIGH_ARITH, `EX_ARITH_ADDU};
 						o_dest <= rd;
@@ -237,7 +211,6 @@ module ID(
 					`ID_FUNCT_SUB: begin
 						o_readEnableLeft <= `ENABLE;
 						o_readEnableRight <= `ENABLE;
-						immediate <= `ZERO_WORD;
 
 						o_exop <= {`EX_HIGH_ARITH, `EX_ARITH_SUB};
 						o_dest <= rd;
@@ -245,7 +218,6 @@ module ID(
 					`ID_FUNCT_SUBU: begin
 						o_readEnableLeft <= `ENABLE;
 						o_readEnableRight <= `ENABLE;
-						immediate <= `ZERO_WORD;
 
 						o_exop <= {`EX_HIGH_ARITH, `EX_ARITH_SUBU};
 						o_dest <= rd;
@@ -253,23 +225,18 @@ module ID(
 					`ID_FUNCT_MULT: begin
 						o_readEnableLeft <= `ENABLE;
 						o_readEnableRight <= `ENABLE;
-						immediate <= `ZERO_WORD;
 
 						o_exop <= {`EX_HIGH_ARITH, `EX_ARITH_MULT};
-						o_dest <= `REG_ZERO;
 					end
 					`ID_FUNCT_MULTU: begin
 						o_readEnableLeft <= `ENABLE;
 						o_readEnableRight <= `ENABLE;
-						immediate <= `ZERO_WORD;
 
 						o_exop <= {`EX_HIGH_ARITH, `EX_ARITH_MULTU};
-						o_dest <= `REG_ZERO;
 					end
 					`ID_FUNCT_SLT: begin
 						o_readEnableLeft <= `ENABLE;
 						o_readEnableRight <= `ENABLE;
-						immediate <= `ZERO_WORD;
 
 						o_exop <= {`EX_HIGH_ARITH, `EX_ARITH_SLT};
 						o_dest <= rd;
@@ -277,26 +244,18 @@ module ID(
 					`ID_FUNCT_SLTU: begin
 						o_readEnableLeft <= `ENABLE;
 						o_readEnableRight <= `ENABLE;
-						immediate <= `ZERO_WORD;
 
 						o_exop <= {`EX_HIGH_ARITH, `EX_ARITH_SLTU};
-						o_dest <= `REG_ZERO;
 					end
 				// for jump operations
 					`ID_FUNCT_JR: begin
 						o_readEnableLeft <= `ENABLE;
-						o_readEnableRight <= `DISABLE;
-						immediate <= `ZERO_WORD;
-
-						o_exop <= {`EX_HIGH_SPECIAL, `EX_SPECIAL_NOP};
-						o_dest <= `REG_ZERO;
 
 						o_takeBranch <= `ENABLE;
 						o_jpc <= jrtarget;
 					end
 					`ID_FUNCT_JALR: begin
 						o_readEnableLeft <= `ENABLE;
-						o_readEnableRight <= `DISABLE;
 						immediate <= npc;
 
 						o_exop <= {`EX_HIGH_LOGIC, `EX_LOGIC_SELRIGHT};
@@ -312,7 +271,6 @@ module ID(
 		// for logic operations
 			`ID_OPCODE_ORI: begin
 				o_readEnableLeft <= `ENABLE;
-				o_readEnableRight <= `DISABLE;
 				immediate <= zeimm;
 
 				o_exop <= {`EX_HIGH_LOGIC, `EX_LOGIC_OR};
@@ -320,7 +278,6 @@ module ID(
 			end
 			`ID_OPCODE_XORI: begin
 				o_readEnableLeft <= `ENABLE;
-				o_readEnableRight <= `DISABLE;
 				immediate <= zeimm;
 
 				o_exop <= {`EX_HIGH_LOGIC, `EX_LOGIC_XOR};
@@ -328,15 +285,12 @@ module ID(
 			end
 			`ID_OPCODE_ANDI: begin
 				o_readEnableLeft <= `ENABLE;
-				o_readEnableRight <= `DISABLE;
 				immediate <= zeimm;
 
 				o_exop <= {`EX_HIGH_LOGIC, `EX_LOGIC_AND};
 				o_dest <= rt;
 			end
 			`ID_OPCODE_LUI: begin
-				o_readEnableLeft <= `DISABLE;
-				o_readEnableRight <= `DISABLE;
 				immediate <= {imm, 16'h0};
 
 				o_exop <= {`EX_HIGH_LOGIC, `EX_LOGIC_OR};
@@ -345,7 +299,6 @@ module ID(
 		// for arithmetic operations
 			`ID_OPCODE_ADDI: begin
 				o_readEnableLeft <= `ENABLE;
-				o_readEnableRight <= `DISABLE;
 				immediate <= seimm;
 
 				o_exop <= {`EX_HIGH_ARITH, `EX_ARITH_ADD};
@@ -353,7 +306,6 @@ module ID(
 			end
 			`ID_OPCODE_ADDIU: begin
 				o_readEnableLeft <= `ENABLE;
-				o_readEnableRight <= `DISABLE;
 				immediate <= seimm;
 
 				o_exop <= {`EX_HIGH_ARITH, `EX_ARITH_ADDU};
@@ -361,7 +313,6 @@ module ID(
 			end
 			`ID_OPCODE_SLTI: begin
 				o_readEnableLeft <= `ENABLE;
-				o_readEnableRight <= `DISABLE;
 				immediate <= seimm;
 
 				o_exop <= {`EX_HIGH_ARITH, `EX_ARITH_SLT};
@@ -369,7 +320,6 @@ module ID(
 			end
 			`ID_OPCODE_SLTIU: begin
 				o_readEnableLeft <= `ENABLE;
-				o_readEnableRight <= `DISABLE;
 				immediate <= seimm;
 
 				o_exop <= {`EX_HIGH_ARITH, `EX_ARITH_SLTU};
@@ -377,19 +327,10 @@ module ID(
 			end
 		// for jump operations
 			`ID_OPCODE_J: begin
-				o_readEnableLeft <= `DISABLE;
-				o_readEnableRight <= `DISABLE;
-				immediate <= `ZERO_WORD;
-
-				o_exop <= {`EX_HIGH_SPECIAL, `EX_SPECIAL_NOP};
-				o_dest <= `REG_ZERO;
-
 				o_takeBranch <= `ENABLE;
 				o_jpc <= jtarget;
 			end
 			`ID_OPCODE_JAL: begin
-				o_readEnableLeft <= `DISABLE;
-				o_readEnableRight <= `DISABLE;
 				immediate <= npc;
 
 				o_exop <= {`EX_HIGH_LOGIC, `EX_LOGIC_OR};
@@ -402,10 +343,6 @@ module ID(
 			`ID_OPCODE_BEQ: begin
 				o_readEnableLeft <= `ENABLE;
 				o_readEnableRight <= `ENABLE;
-				immediate <= `ZERO_WORD;
-
-				o_exop <= {`EX_HIGH_SPECIAL, `EX_SPECIAL_NOP};
-				o_dest <= `REG_ZERO;
 
 				o_takeBranch <= eq;
 				o_jpc <= btarget;
@@ -413,32 +350,18 @@ module ID(
 			`ID_OPCODE_BNE: begin
 				o_readEnableLeft <= `ENABLE;
 				o_readEnableRight <= `ENABLE;
-				immediate <= `ZERO_WORD;
-
-				o_exop <= {`EX_HIGH_SPECIAL, `EX_SPECIAL_NOP};
-				o_dest <= `REG_ZERO;
 
 				o_takeBranch <= ne;
 				o_jpc <= btarget;
 			end
 			`ID_OPCODE_BGTZ: begin
 				o_readEnableLeft <= `ENABLE;
-				o_readEnableRight <= `DISABLE;
-				immediate <= `ZERO_WORD;
-
-				o_exop <= {`EX_HIGH_SPECIAL, `EX_SPECIAL_NOP};
-				o_dest <= `REG_ZERO;
 
 				o_takeBranch <= gtz;
 				o_jpc <= btarget;
 			end
 			`ID_OPCODE_BLEZ: begin
 				o_readEnableLeft <= `ENABLE;
-				o_readEnableRight <= `DISABLE;
-				immediate <= `ZERO_WORD;
-
-				o_exop <= {`EX_HIGH_SPECIAL, `EX_SPECIAL_NOP};
-				o_dest <= `REG_ZERO;
 
 				o_takeBranch <= lez;
 				o_jpc <= btarget;
@@ -447,22 +370,12 @@ module ID(
 				case (rt)
 					`ID_RT_BLTZ: begin
 						o_readEnableLeft <= `ENABLE;
-						o_readEnableRight <= `DISABLE;
-						immediate <= `ZERO_WORD;
-
-						o_exop <= {`EX_HIGH_SPECIAL, `EX_SPECIAL_NOP};
-						o_dest <= `REG_ZERO;
 
 						o_takeBranch <= ltz;
 						o_jpc <= btarget;
 					end
 					`ID_RT_BGEZ: begin
 						o_readEnableLeft <= `ENABLE;
-						o_readEnableRight <= `DISABLE;
-						immediate <= `ZERO_WORD;
-
-						o_exop <= {`EX_HIGH_SPECIAL, `EX_SPECIAL_NOP};
-						o_dest <= `REG_ZERO;
 
 						o_takeBranch <= gez;
 						o_jpc <= btarget;
@@ -470,6 +383,59 @@ module ID(
 					default: begin
 					end
 				endcase
+			end
+		// for load operations
+			`ID_OPCODE_LB: begin
+				o_readEnableLeft <= `ENABLE;
+
+				o_exop <= {`EX_HIGH_MEMACC, `EX_MEMACC_LB};
+				o_dest <= rt;
+			end
+			`ID_OPCODE_LBU: begin
+				o_readEnableLeft <= `ENABLE;
+
+				o_exop <= {`EX_HIGH_MEMACC, `EX_MEMACC_LBU};
+				o_dest <= rt;
+			end
+			`ID_OPCODE_LH: begin
+				o_readEnableLeft <= `ENABLE;
+
+				o_exop <= {`EX_HIGH_MEMACC, `EX_MEMACC_LH};
+				o_dest <= rt;
+			end
+			`ID_OPCODE_LHU: begin
+				o_readEnableLeft <= `ENABLE;
+
+				o_exop <= {`EX_HIGH_MEMACC, `EX_MEMACC_LHU};
+				o_dest <= rt;
+			end
+			`ID_OPCODE_LW: begin
+				o_readEnableLeft <= `ENABLE;
+
+				o_exop <= {`EX_HIGH_MEMACC, `EX_MEMACC_LW};
+				o_dest <= rt;
+			end
+		// for store operations
+			`ID_OPCODE_SB: begin
+				o_readEnableLeft <= `ENABLE;
+				o_readEnableRight <= `ENABLE;
+
+				o_exop <= {`EX_HIGH_MEMACC, `EX_MEMACC_SB};
+				o_dest <= rt;
+			end
+			`ID_OPCODE_SH: begin
+				o_readEnableLeft <= `ENABLE;
+				o_readEnableRight <= `ENABLE;
+
+				o_exop <= {`EX_HIGH_MEMACC, `EX_MEMACC_SH};
+				o_dest <= rt;
+			end
+			`ID_OPCODE_SW: begin
+				o_readEnableLeft <= `ENABLE;
+				o_readEnableRight <= `ENABLE;
+
+				o_exop <= {`EX_HIGH_MEMACC, `EX_MEMACC_SW};
+				o_dest <= rt;
 			end
 			default: begin
 			end

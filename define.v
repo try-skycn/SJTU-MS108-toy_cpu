@@ -9,6 +9,10 @@
 `define HALFWORD_BUS			15 : 0
 `define ZERO_HALFWORD			16'h0
 
+`define BYTE_WIDTH				 8
+`define BYTE_BUS				 7 : 0
+`define ZERO_BYTE				 8'h0
+
 `define INST_ADDR_WIDTH			32
 `define INST_ADDR_BUS			31 : 0
 `define INST_ADDR_HIGH_BUS		31 : 2
@@ -24,7 +28,7 @@
 `define MEM_ADDR_BUS			31 : 0
 `define MEM_ADDR_HIGH_BUS		31 : 2
 `define MEM_ADDR_LOW_BUS		 1 : 0
-`define MEM_SEL_BUS				 4 : 0
+`define MEM_SEL_BUS				 3 : 0
 
 `define INST_WIDTH				32
 `define INST_BUS				31 : 0
@@ -111,10 +115,7 @@
 `define EX_HIGH_SPECIAL			4'b0000
 `define EX_HIGH_LOGIC			4'b1000
 `define EX_HIGH_ARITH			4'b1001
-`define EX_HIGH_BRANCH			4'b1100
-`define EX_HIGH_MEMACC			4'b1101
-`define EX_HIGH_CP0				4'b1110
-`define EX_HIGH_EXCEPTION		4'b1111
+`define EX_HIGH_MEMACC			4'b0100
 
 `define EX_SPECIAL_NOP			4'b0000
 
@@ -141,22 +142,32 @@
 `define EX_ARITH_MULT			4'b0001
 `define EX_ARITH_MULTU			4'b1001
 
+`define EX_MEMACC_LB			4'b1101
+`define EX_MEMACC_LBU			4'b1001
+`define EX_MEMACC_LH			4'b1110
+`define EX_MEMACC_LHU			4'b1010
+`define EX_MEMACC_LW			4'b1011
+`define EX_MEMACC_SB			4'b0001
+`define EX_MEMACC_SH			4'b0010
+`define EX_MEMACC_SW			4'b0011
+
 // For MEM OP
 
-`define MEM_OP_WIDTH			4
-`define MEM_OP_BUS				3 : 0
+`define MEM_OP_WIDTH			 2
+`define MEM_OP_BUS				 1 : 0
 
-`define MEM_OP_NOP				4'b0000
+`define MEM_OP_NOP				2'b00
+`define MEM_OP_STORE			2'b01
+`define MEM_OP_LOAD				2'b11
+`define MEM_OP_WRITE_REG		2'b10
 
-`define MEM_OP_STORE_BYTE		4'b0101
-`define MEM_OP_STORE_HALFWORD	4'b0110
-`define MEM_OP_STORE_WORD		4'b0111
+`define MEM_REGENABLE			 1
+`define MEM_MEMACCESS			 0
 
-`define MEM_OP_LOAD_BYTE		4'b1101
-`define MEM_OP_LOAD_HALFWORD	4'b1110
-`define MEM_OP_LOAD_WORD		4'b1111
-
-`define MEM_OP_WRITE_REG		4'b1000
-
-`define MEM_SEL_REGVAL			1'b0
-`define MEM_SEL_LOAD			1'b1
+`define MEM_LOADOP_BUS			 2 : 0
+`define MEM_LOADOP_NOP			3'b000
+`define MEM_LOADOP_LB			3'b101
+`define MEM_LOADOP_LBU			3'b001
+`define MEM_LOADOP_LH			3'b110
+`define MEM_LOADOP_LHU			3'b010
+`define MEM_LOADOP_LW			3'b011

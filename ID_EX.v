@@ -44,6 +44,10 @@ module ID_EX(
 					ex_memop <= `MEM_OP_WRITE_REG;
 					ex_writeEnable <= `ENABLE;
 				end
+				`EX_HIGH_MEMACC: begin
+					ex_memop <= {id_exop[3], 1'b1};
+					ex_writeEnable <= `DISABLE;
+				end
 				default: begin
 					ex_memop <= `MEM_OP_NOP;
 					ex_writeEnable <= `DISABLE;
