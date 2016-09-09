@@ -1,4 +1,4 @@
-`define INST_MEM_NUM	16
+`define INST_MEM_NUM	32
 
 module InstRom(
 	input	wire					chipEnable,		//= CPU::o_romEnable
@@ -16,6 +16,10 @@ module InstRom(
 		end else begin
 			inst <= `ZERO_WORD;
 		end
+	end
+
+	initial begin
+		$dumpvars(0, addr, inst);
 	end
 
 endmodule

@@ -112,8 +112,12 @@ module RegFile(
 		end
 	end
 
+	integer i;
 	initial begin
-		$dumpvars(0, registers[1], registers[2], registers[3], registers[4]);
+		for (i = 1; i < 5; i = i + 1) begin
+			$dumpvars(0, registers[i]);
+		end
+		$dumpvars(0, writeEnable, writeAddr, writeResult);
 	end
 
 endmodule

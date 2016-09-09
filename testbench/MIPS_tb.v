@@ -1,5 +1,5 @@
 `timescale 1ns/1ns
-`include "define.v"
+`include "./src/define.v"
 
 module MIPS_tb;
 
@@ -20,7 +20,6 @@ module MIPS_tb;
 	MIPS instMIPS(.clk(clk), .rst(rst));
 
 	initial begin
-		$dumpvars;
 		#500 $finish;
 	end
 

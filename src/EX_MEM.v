@@ -2,6 +2,9 @@ module EX_MEM(
 	input	wire						clk,				//= clk
 	input	wire						rst,				//= rst
 
+	input	wire						stall_ex,			//= CTRL::stall_ex
+	input	wire						stall_mem,			//= CTRL::stall_mem
+
 	input	wire[`MEM_OP_BUS]			ex_memop,			//= ID_EX::ex_memop
 	input	wire[`WORD_BUS]				ex_result,			//= EX::o_result
 	input	wire[`MEM_ADDR_BUS]			ex_ramAddr,			//= ALU_MEMACC::ramAddr
@@ -14,7 +17,7 @@ module EX_MEM(
 
 	output	wire						mem_ramWriteEnable,	//=> o_ramWriteEnable
 	output	wire						mem_ramReadEnable,	//= mem_ramReadEnable
-	output	reg	[`MEM_ADDR_HIGH_BUS]	mem_ramAddr,		//= mem_ramAddr
+	output	reg	[`MEM_ADDR_BUS]			mem_ramAddr,		//= mem_ramAddr
 	output	reg	[`MEM_SEL_BUS]			mem_ramSel,			//=> o_ramSel
 	output	reg	[`MEM_LOADOP_BUS]		mem_loadop,			//= mem_loadop
 	output	wire[`MEM_ADDR_LOW_BUS]		mem_ramLowAddr,		//= mem_ramLowAddr
@@ -23,13 +26,21 @@ module EX_MEM(
 	output	reg	[`REG_ADDR_BUS]			mem_regDest			//= mem_regDest
 );
 
-	assign mem_memWriteEnable = (mem_memop == `MEM_OP_STORE);
-	assign mem_memReadEnable = (mem_memop == `MEM_OP_LOAD);
+	assign mem_ramWriteEnable = (mem_memop == `MEM_OP_STORE);
+	assign mem_ramReadEnable = (mem_memop == `MEM_OP_LOAD);
 	assign mem_ramLowAddr = mem_ramAddr[`MEM_ADDR_LOW_BUS];
 	assign mem_regWriteEnable = mem_memop[`MEM_REGENABLE];
 
 	always @(posedge clk) begin
 		if (rst) begin
+			mem_memop <= 0;
+			mem_exresult <= `ZERO_WORD;
+			mem_ramAddr <= `ZERO_WORD;
+			mem_ramSel <= 4'b0000;
+			mem_loadop <= `MEM_LOADOP_NOP;
+			mem_regDest <= `REG_ZERO;
+		end else if (stall_mem) begin
+		end else if (stall_ex) begin
 			mem_memop <= 0;
 			mem_exresult <= `ZERO_WORD;
 			mem_ramAddr <= `ZERO_WORD;

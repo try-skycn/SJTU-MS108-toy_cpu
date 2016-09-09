@@ -81,7 +81,7 @@ module ID(
 	assign npc = i_pc + 4;
 	assign jtarget = {npc[31 : 28], target, 2'b00};
 	assign jrtarget = o_srcLeft;
-	assign btarget = npc + {seimm[31: 2], 2'b00};
+	assign btarget = npc + {seimm[29: 0], 2'b00};
 
 	always @(*) begin
 		o_readEnableLeft <= `DISABLE;
@@ -421,25 +421,29 @@ module ID(
 				o_readEnableRight <= `ENABLE;
 
 				o_exop <= {`EX_HIGH_MEMACC, `EX_MEMACC_SB};
-				o_dest <= rt;
+				o_dest <= `REG_ZERO;
 			end
 			`ID_OPCODE_SH: begin
 				o_readEnableLeft <= `ENABLE;
 				o_readEnableRight <= `ENABLE;
 
 				o_exop <= {`EX_HIGH_MEMACC, `EX_MEMACC_SH};
-				o_dest <= rt;
+				o_dest <= `REG_ZERO;
 			end
 			`ID_OPCODE_SW: begin
 				o_readEnableLeft <= `ENABLE;
 				o_readEnableRight <= `ENABLE;
 
 				o_exop <= {`EX_HIGH_MEMACC, `EX_MEMACC_SW};
-				o_dest <= rt;
+				o_dest <= `REG_ZERO;
 			end
 			default: begin
 			end
 		endcase
+	end
+
+	initial begin
+		$dumpvars(1, o_dest, o_takeBranch, o_jpc);
 	end
 
 endmodule

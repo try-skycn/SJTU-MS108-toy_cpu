@@ -13,35 +13,42 @@ module DataRam(
 	output	reg	[`WORD_BUS]			loadData	//= ramLoadData
 );
 
-			reg	[`BYTE_BUS]			ram0[0 : `RAM_MEM_NUM - 1];
-			reg	[`BYTE_BUS]			ram1[0 : `RAM_MEM_NUM - 1];
-			reg	[`BYTE_BUS]			ram2[0 : `RAM_MEM_NUM - 1];
-			reg	[`BYTE_BUS]			ram3[0 : `RAM_MEM_NUM - 1];
+			reg	[`WORD_BUS]			ram[0 : `RAM_MEM_NUM - 1];
 
-			wire[`RAM_ADDR_BUS]		realaddr;
+			wire[`RAM_ADDR_BUS]		validaddr;
 
-	assign realaddr = addr[`RAM_ADDR_BUS];
+	assign validaddr = addr[`RAM_ADDR_BUS];
+
+	integer i;
+	initial begin
+		for (i = 0; i < `RAM_MEM_NUM; i = i + 1) begin
+			ram[i] <= 0;
+		end
+		for (i = 0; i < 4; i = i + 1) begin
+			$dumpvars(0, ram[i]);
+		end
+	end
 
 	always @(posedge clk) begin
 		if (we) begin
 			if (sel[0]) begin
-				ram0[realaddr] <= storeData[ 7 : 0 ];
+				ram[validaddr][ 7 : 0 ] <= storeData[ 7 : 0 ];
 			end
 			if (sel[1]) begin
-				ram1[realaddr] <= storeData[15 : 8 ];
+				ram[validaddr][15 : 8 ] <= storeData[15 : 8 ];
 			end
 			if (sel[2]) begin
-				ram2[realaddr] <= storeData[23 : 16];
+				ram[validaddr][23 : 16] <= storeData[23 : 16];
 			end
 			if (sel[3]) begin
-				ram3[realaddr] <= storeData[31 : 24];
+				ram[validaddr][31 : 24] <= storeData[31 : 24];
 			end
 		end
 	end
 
 	always @(*) begin
 		if (re) begin
-			loadData <= {ram3[realaddr], ram2[realaddr], ram1[realaddr], ram0[realaddr]};
+			loadData <= ram[validaddr];
 		end else begin
 			loadData <= `ZERO_WORD;
 		end

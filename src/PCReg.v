@@ -2,7 +2,7 @@ module PCReg(
 	input	wire							clk,		//= clk
 	input	wire							rst,		//= rst
 
-	input	wire							stall_if,	//= `DISABLE
+	input	wire							stall_if,	//= CTRL::stall_if
 
 	input	wire							takeBranch,	//= ID::o_takeBranch
 	input	wire[`INST_ADDR_BUS]			jpc,		//= ID::o_jpc

@@ -1,5 +1,3 @@
-`include "define.v"
-
 module MIPS(
 	input	wire	clk,
 	input	wire	rst

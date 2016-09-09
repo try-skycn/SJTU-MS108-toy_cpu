@@ -9,4 +9,8 @@ module EX(
 	assign o_result = i_aluArith;
 	assign o_result = i_aluMemacc;
 
+	initial begin
+		$dumpvars(0, o_result);
+	end
+
 endmodule

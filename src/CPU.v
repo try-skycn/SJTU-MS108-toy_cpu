@@ -1,5 +1,3 @@
-`include "define.v"
-
 module CPU(
 	input	wire					clk,				//= clk
 	input	wire					rst,				//= rst
@@ -16,81 +14,97 @@ module CPU(
 	input	wire[`WORD_BUS]			i_ramLoadData		//= DataRam::loadData
 );
 
+	// CTRL
+	wire					ctrl_stall_if;		// stall_if
+	wire					ctrl_stall_id;		// stall_id
+	wire					ctrl_stall_ex;		// stall_ex
+	wire					ctrl_stall_mem;		// stall_mem
+
 	// PCReg
-	wire[`INST_ADDR_BUS]		pc;					// pc
+	wire[`INST_ADDR_BUS]	pc;					// pc
 
 	// IF_ID
-	wire[`INST_ADDR_BUS]		id_pc;				// id_pc
-	wire[`INST_BUS]				id_inst;			// id_inst
+	wire[`INST_ADDR_BUS]	id_pc;				// id_pc
+	wire[`INST_BUS]			id_inst;			// id_inst
 
 	// ID
-	wire						id_readEnableLeft;	// o_readEnableLeft
-	wire						id_readEnableRight;	// o_readEnableRight
-	wire[`EX_OP_BUS]			id_exop;			// o_exop
-	wire[`REG_ADDR_BUS]			id_dest;			// o_dest
-	wire[`WORD_BUS]				id_srcLeft;			// o_srcLeft
-	wire[`WORD_BUS]				id_srcRight;		// o_srcRight
-	wire						id_takeBranch;		// o_takeBranch
-	wire[`INST_BUS]				id_nPC;				// o_jpc
+	wire					id_readEnableLeft;	// o_readEnableLeft
+	wire					id_readEnableRight;	// o_readEnableRight
+	wire[`EX_OP_BUS]		id_exop;			// o_exop
+	wire[`REG_ADDR_BUS]		id_dest;			// o_dest
+	wire[`WORD_BUS]			id_srcLeft;			// o_srcLeft
+	wire[`WORD_BUS]			id_srcRight;		// o_srcRight
+	wire					id_takeBranch;		// o_takeBranch
+	wire[`INST_BUS]			id_nPC;				// o_jpc
 
 	// RegFile
-	wire[`WORD_BUS]				readValueLeft;		// readValueLeft
-	wire[`WORD_BUS]				readValueRight;		// readValueRight
-	wire						id_stall;			// stall
+	wire[`WORD_BUS]			readValueLeft;		// readValueLeft
+	wire[`WORD_BUS]			readValueRight;		// readValueRight
+	wire					id_stall;			// stall
 
 	// ID_EX
-	wire[`INST_BUS]				ex_inst;			// ex_inst
-	wire[`EX_OP_HIGH_BUS]		ex_alusel;			// ex_alusel
-	wire[`EX_OP_LOW_BUS]		ex_aluop;			// ex_aluop
-	wire[`WORD_BUS]				ex_srcLeft;			// ex_srcLeft
-	wire[`WORD_BUS]				ex_srcRight;		// ex_srcRight
-	wire[`MEM_OP_BUS]			ex_memop;			// ex_memop
-	wire[`REG_ADDR_BUS]			ex_dest;			// ex_dest
-	wire						ex_writeEnable;		// ex_writeEnable
+	wire[`INST_BUS]			ex_inst;			// ex_inst
+	wire[`EX_OP_HIGH_BUS]	ex_alusel;			// ex_alusel
+	wire[`EX_OP_LOW_BUS]	ex_aluop;			// ex_aluop
+	wire[`WORD_BUS]			ex_srcLeft;			// ex_srcLeft
+	wire[`WORD_BUS]			ex_srcRight;		// ex_srcRight
+	wire[`MEM_OP_BUS]		ex_memop;			// ex_memop
+	wire[`REG_ADDR_BUS]		ex_dest;			// ex_dest
+	wire					ex_writeEnable;		// ex_writeEnable
 
 	// ALU_LOGIC
-	wire[`WORD_BUS]				aluLogic_result;	// result
-	wire						aluLogic_we;		// o_we
-	wire[`WORD_BUS]				aluLogic_hi;		// o_hi
-	wire[`WORD_BUS]				aluLogic_lo;		// o_lo
+	wire[`WORD_BUS]			aluLogic_result;	// result
+	wire					aluLogic_we;		// o_we
+	wire[`WORD_BUS]			aluLogic_hi;		// o_hi
+	wire[`WORD_BUS]			aluLogic_lo;		// o_lo
 
 	// ALU_ARITH
-	wire[`WORD_BUS]				aluArith_result;	// result
-	wire						aluArith_overflow;	// overflow
-	wire						aluArith_we;		// o_we
-	wire[`WORD_BUS]				aluArith_hi;		// o_hi
-	wire[`WORD_BUS]				aluArith_lo;		// o_lo
+	wire[`WORD_BUS]			aluArith_result;	// result
+	wire					aluArith_overflow;	// overflow
+	wire					aluArith_we;		// o_we
+	wire[`WORD_BUS]			aluArith_hi;		// o_hi
+	wire[`WORD_BUS]			aluArith_lo;		// o_lo
 
 	// ALU_MEMACC
-	wire[`WORD_BUS]				aluMemacc_result;	// result
-	wire[`MEM_ADDR_BUS]			aluMemacc_ramAddr;	// ramAddr
-	wire[`MEM_SEL_BUS]			aluMemacc_ramSel;	// ramSel
-	wire[`MEM_LOADOP_BUS]		aluMemacc_loadop;	// loadop
+	wire[`WORD_BUS]			aluMemacc_result;	// result
+	wire[`MEM_ADDR_BUS]		aluMemacc_ramAddr;	// ramAddr
+	wire[`MEM_SEL_BUS]		aluMemacc_ramSel;	// ramSel
+	wire[`MEM_LOADOP_BUS]	aluMemacc_loadop;	// loadop
 
 	// HILO
-	wire[`WORD_BUS]				lo;					// hi
-	wire[`WORD_BUS]				hi;					// lo
+	wire[`WORD_BUS]			lo;					// hi
+	wire[`WORD_BUS]			hi;					// lo
 
 	// EX
-	wire[`WORD_BUS]				ex_result;			// o_result
+	wire[`WORD_BUS]			ex_result;			// o_result
 
 	// EX_MEM
-	wire[`MEM_OP_BUS]			mem_memop;			// mem_memop
-	wire[`WORD_BUS]				mem_exresult;		// mem_exresult
-	wire						mem_ramReadEnable;	// mem_ramReadEnable
-	wire[`MEM_ADDR_HIGH_BUS]	mem_ramAddr;		// mem_ramAddr
-	wire[`MEM_LOADOP_BUS]		mem_loadop;			// mem_loadop
-	wire[`MEM_ADDR_LOW_BUS]		mem_ramLowAddr;		// mem_ramLowAddr
-	wire						mem_regWriteEnable;	// mem_regWriteEnable
-	wire[`REG_ADDR_BUS]			mem_regDest;		// mem_regDest
+	wire[`MEM_OP_BUS]		mem_memop;			// mem_memop
+	wire[`WORD_BUS]			mem_exresult;		// mem_exresult
+	wire					mem_ramReadEnable;	// mem_ramReadEnable
+	wire[`MEM_ADDR_BUS]		mem_ramAddr;		// mem_ramAddr
+	wire[`MEM_LOADOP_BUS]	mem_loadop;			// mem_loadop
+	wire[`MEM_ADDR_LOW_BUS]	mem_ramLowAddr;		// mem_ramLowAddr
+	wire					mem_regWriteEnable;	// mem_regWriteEnable
+	wire[`REG_ADDR_BUS]		mem_regDest;		// mem_regDest
 
 	// MEM
-	wire[`WORD_BUS]				memResult;			// result
+	wire[`WORD_BUS]			memResult;			// result
+
+	CTRL inst__CTRL(
+		.stall_req_id(id_stall),
+		.stall_req_ex(1'b0),
+		.stall_req_mem(1'b0),
+		.stall_if(ctrl_stall_if),
+		.stall_id(ctrl_stall_id),
+		.stall_ex(ctrl_stall_ex),
+		.stall_mem(ctrl_stall_mem)
+	);
 
 	PCReg inst__PCReg(
 		.clk(clk),
 		.rst(rst),
-		.stall_if(`DISABLE),
+		.stall_if(ctrl_stall_if),
 		.takeBranch(id_takeBranch),
 		.jpc(id_nPC),
 		.pc(pc),
@@ -101,6 +115,8 @@ module CPU(
 		.clk(clk),
 		.rst(rst),
 		.kill(id_takeBranch),
+		.stall_if(ctrl_stall_if),
+		.stall_id(ctrl_stall_id),
 		.if_pc(pc),
 		.if_inst(i_romInst),
 		.id_pc(id_pc),
@@ -143,6 +159,8 @@ module CPU(
 	ID_EX inst__ID_EX(
 		.clk(clk),
 		.rst(rst),
+		.stall_id(ctrl_stall_id),
+		.stall_ex(ctrl_stall_ex),
 		.id_inst(id_inst),
 		.id_exop(id_exop),
 		.id_srcLeft(id_srcLeft),
@@ -200,9 +218,9 @@ module CPU(
 	HILO inst__HILO(
 		.clk(clk),
 		.rst(rst),
-		.we(aluLogic_we),
-		.i_hi(aluLogic_hi),
-		.i_lo(aluLogic_lo),
+		.we(aluLogic_we | aluArith_we),
+		.i_hi(aluLogic_hi | aluArith_hi),
+		.i_lo(aluLogic_lo | aluArith_lo),
 		.hi(lo),
 		.lo(hi)
 	);
@@ -217,6 +235,8 @@ module CPU(
 	EX_MEM inst__EX_MEM(
 		.clk(clk),
 		.rst(rst),
+		.stall_ex(ctrl_stall_ex),
+		.stall_mem(ctrl_stall_mem),
 		.ex_memop(ex_memop),
 		.ex_result(ex_result),
 		.ex_ramAddr(aluMemacc_ramAddr),
@@ -250,5 +270,9 @@ assign o_romAddr = pc;
 assign o_ramReadEnable = mem_ramReadEnable;
 assign o_ramAddr = mem_ramAddr;
 assign o_ramStoreData = mem_exresult;
+
+	initial begin
+		$dumpvars(0, clk, rst);
+	end
 
 endmodule

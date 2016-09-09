@@ -2,6 +2,9 @@ module ID_EX(
 	input	wire					clk,				//= clk
 	input	wire					rst,				//= rst
 
+	input	wire					stall_id,			//= CTRL::stall_id
+	input	wire					stall_ex,			//= CTRL::stall_ex
+
 	input	wire[`INST_BUS]			id_inst,			//= IF_ID::id_inst
 	input	wire[`EX_OP_BUS]		id_exop,			//= ID::o_exop
 	input	wire[`WORD_BUS]			id_srcLeft,			//= ID::o_srcLeft
@@ -21,6 +24,16 @@ module ID_EX(
 
 	always @(posedge clk) begin
 		if (rst) begin
+			ex_inst <= `ZERO_WORD;
+			ex_alusel <= `EX_HIGH_SPECIAL;
+			ex_aluop <= `EX_SPECIAL_NOP;
+			ex_srcLeft <= `ZERO_WORD;
+			ex_srcRight <= `ZERO_WORD;
+			ex_memop <= `MEM_OP_NOP;
+			ex_dest <= `REG_ZERO;
+			ex_writeEnable <= `DISABLE;
+		end else if (stall_ex) begin
+		end else if (stall_id) begin
 			ex_inst <= `ZERO_WORD;
 			ex_alusel <= `EX_HIGH_SPECIAL;
 			ex_aluop <= `EX_SPECIAL_NOP;
@@ -54,6 +67,10 @@ module ID_EX(
 				end
 			endcase
 		end
+	end
+
+	initial begin
+		$dumpvars(0, id_srcLeft, id_srcRight, ex_dest);
 	end
 
 endmodule

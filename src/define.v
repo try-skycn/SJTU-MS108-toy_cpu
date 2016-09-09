@@ -171,3 +171,16 @@
 `define MEM_LOADOP_LH			3'b110
 `define MEM_LOADOP_LHU			3'b010
 `define MEM_LOADOP_LW			3'b011
+
+// For CTRL
+
+`define STALL_SIGNAL_BUS		 3 : 0
+`define NO_STALL				4'b0000
+`define STALL_FROM_ID			4'b0011
+`define STALL_FROM_EX			4'b0111
+`define STALL_FROM_MEM			4'b1111
+
+`define STALL_IF				 0
+`define STALL_ID				 1
+`define STALL_EX				 2
+`define STALL_MEM				 3

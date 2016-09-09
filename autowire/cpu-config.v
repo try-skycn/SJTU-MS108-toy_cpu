@@ -1,5 +1,3 @@
-`include "define.v"
-
 module CPU(
 	input	wire					clk,				//= clk
 	input	wire					rst,				//= rst
@@ -17,6 +15,8 @@ module CPU(
 );
 
 /*
+	compile module CTRL
+	
 	compile module PCReg
 
 	compile module IF_ID
@@ -39,5 +39,9 @@ assign o_romAddr = pc;
 assign o_ramReadEnable = mem_ramReadEnable;
 assign o_ramAddr = mem_ramAddr;
 assign o_ramStoreData = mem_exresult;
+
+	initial begin
+		$dumpvars(0, clk, rst);
+	end
 
 endmodule

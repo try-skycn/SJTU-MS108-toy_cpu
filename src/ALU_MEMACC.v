@@ -58,10 +58,14 @@ module ALU_MEMACC(
 			endcase
 		end else begin
 			result <= `ZERO_WORD;
-			ramAddr <= addr;
+			ramAddr <= `ZERO_WORD;
 			ramSel <= 4'b0000;
 			loadop <= `MEM_LOADOP_NOP;
 		end
+	end
+
+	initial begin
+		$dumpvars(0, loadop, ramAddr, ramSel);
 	end
 
 endmodule

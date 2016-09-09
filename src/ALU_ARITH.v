@@ -34,7 +34,7 @@ module ALU_ARITH(
 	assign unsignedLessResult = srcLeft < srcRight;
 	assign lessResult = (srcLeft[31] == srcRight[31]) ? ~srcLeft[31] : unsignedLessResult;
 
-	assign {hi_mulResult, lo_mulResult} = {{32{srcLeft[31]}}, srcLeft} * {{32{srcRight}}, srcRight};
+	assign {hi_mulResult, lo_mulResult} = {{32{srcLeft[31]}}, srcLeft} * {{32{srcRight[31]}}, srcRight};
 	assign {hi_unsignedMulResult, lo_unsignedMulResult} = {32'h0, srcLeft} * {32'h0, srcRight};
 
 	always @(*) begin

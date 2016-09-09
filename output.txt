@@ -1,0 +1,1148 @@
+rm: ../tmp/*: No such file or directory
+rm: ../*.vcd: No such file or directory
+make: [clean] Error 1 (ignored)
+../testbench/MIPS_tb.v:14: warning: macro ENABLE undefined (and assumed null) at this point.
+../testbench/MIPS_tb.v:16: warning: macro DISABLE undefined (and assumed null) at this point.
+ALU_ARITH.v:3: warning: macro EX_OP_LOW_BUS undefined (and assumed null) at this point.
+ALU_ARITH.v:4: warning: macro WORD_BUS undefined (and assumed null) at this point.
+ALU_ARITH.v:5: warning: macro WORD_BUS undefined (and assumed null) at this point.
+ALU_ARITH.v:7: warning: macro WORD_BUS undefined (and assumed null) at this point.
+ALU_ARITH.v:10: warning: macro WORD_BUS undefined (and assumed null) at this point.
+ALU_ARITH.v:11: warning: macro WORD_BUS undefined (and assumed null) at this point.
+ALU_ARITH.v:13: warning: macro WORD_BUS undefined (and assumed null) at this point.
+ALU_ARITH.v:14: warning: macro WORD_BUS undefined (and assumed null) at this point.
+ALU_ARITH.v:17: warning: macro WORD_BUS undefined (and assumed null) at this point.
+ALU_ARITH.v:19: warning: macro WORD_BUS undefined (and assumed null) at this point.
+ALU_ARITH.v:21: warning: macro WORD_BUS undefined (and assumed null) at this point.
+ALU_ARITH.v:22: warning: macro WORD_BUS undefined (and assumed null) at this point.
+ALU_ARITH.v:23: warning: macro WORD_BUS undefined (and assumed null) at this point.
+ALU_ARITH.v:24: warning: macro WORD_BUS undefined (and assumed null) at this point.
+ALU_ARITH.v:25: warning: macro WORD_BUS undefined (and assumed null) at this point.
+ALU_ARITH.v:26: warning: macro WORD_BUS undefined (and assumed null) at this point.
+ALU_ARITH.v:42: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+ALU_ARITH.v:43: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+ALU_ARITH.v:44: warning: macro DISABLE undefined (and assumed null) at this point.
+ALU_ARITH.v:46: warning: macro EX_ARITH_ADD undefined (and assumed null) at this point.
+ALU_ARITH.v:50: warning: macro EX_ARITH_ADDU undefined (and assumed null) at this point.
+ALU_ARITH.v:52: warning: macro DISABLE undefined (and assumed null) at this point.
+ALU_ARITH.v:54: warning: macro EX_ARITH_SUB undefined (and assumed null) at this point.
+ALU_ARITH.v:58: warning: macro EX_ARITH_SUBU undefined (and assumed null) at this point.
+ALU_ARITH.v:60: warning: macro DISABLE undefined (and assumed null) at this point.
+ALU_ARITH.v:62: warning: macro EX_ARITH_SLT undefined (and assumed null) at this point.
+ALU_ARITH.v:64: warning: macro DISABLE undefined (and assumed null) at this point.
+ALU_ARITH.v:66: warning: macro EX_ARITH_SLTU undefined (and assumed null) at this point.
+ALU_ARITH.v:68: warning: macro DISABLE undefined (and assumed null) at this point.
+ALU_ARITH.v:70: warning: macro EX_ARITH_MULT undefined (and assumed null) at this point.
+ALU_ARITH.v:71: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+ALU_ARITH.v:73: warning: macro ENABLE undefined (and assumed null) at this point.
+ALU_ARITH.v:75: warning: macro EX_ARITH_MULTU undefined (and assumed null) at this point.
+ALU_ARITH.v:76: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+ALU_ARITH.v:78: warning: macro ENABLE undefined (and assumed null) at this point.
+ALU_ARITH.v:82: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+ALU_ARITH.v:83: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+ALU_ARITH.v:84: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+ALU_ARITH.v:85: warning: macro DISABLE undefined (and assumed null) at this point.
+ALU_LOGIC.v:3: warning: macro EX_OP_LOW_BUS undefined (and assumed null) at this point.
+ALU_LOGIC.v:4: warning: macro WORD_BUS undefined (and assumed null) at this point.
+ALU_LOGIC.v:5: warning: macro WORD_BUS undefined (and assumed null) at this point.
+ALU_LOGIC.v:7: warning: macro WORD_BUS undefined (and assumed null) at this point.
+ALU_LOGIC.v:9: warning: macro WORD_BUS undefined (and assumed null) at this point.
+ALU_LOGIC.v:10: warning: macro WORD_BUS undefined (and assumed null) at this point.
+ALU_LOGIC.v:12: warning: macro WORD_BUS undefined (and assumed null) at this point.
+ALU_LOGIC.v:13: warning: macro WORD_BUS undefined (and assumed null) at this point.
+ALU_LOGIC.v:18: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+ALU_LOGIC.v:19: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+ALU_LOGIC.v:20: warning: macro DISABLE undefined (and assumed null) at this point.
+ALU_LOGIC.v:22: warning: macro EX_LOGIC_AND undefined (and assumed null) at this point.
+ALU_LOGIC.v:23: warning: macro EX_LOGIC_OR undefined (and assumed null) at this point.
+ALU_LOGIC.v:24: warning: macro EX_LOGIC_XOR undefined (and assumed null) at this point.
+ALU_LOGIC.v:25: warning: macro EX_LOGIC_NOR undefined (and assumed null) at this point.
+ALU_LOGIC.v:26: warning: macro EX_LOGIC_SHLEFT undefined (and assumed null) at this point.
+ALU_LOGIC.v:27: warning: macro EX_LOGIC_SHRIGHTLOG undefined (and assumed null) at this point.
+ALU_LOGIC.v:28: warning: macro EX_LOGIC_SHRIGHTARI undefined (and assumed null) at this point.
+ALU_LOGIC.v:29: warning: macro EX_LOGIC_FROMHI undefined (and assumed null) at this point.
+ALU_LOGIC.v:30: warning: macro EX_LOGIC_FROMLO undefined (and assumed null) at this point.
+ALU_LOGIC.v:31: warning: macro EX_LOGIC_TOHI undefined (and assumed null) at this point.
+ALU_LOGIC.v:32: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+ALU_LOGIC.v:35: warning: macro ENABLE undefined (and assumed null) at this point.
+ALU_LOGIC.v:37: warning: macro EX_LOGIC_TOLO undefined (and assumed null) at this point.
+ALU_LOGIC.v:38: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+ALU_LOGIC.v:41: warning: macro ENABLE undefined (and assumed null) at this point.
+ALU_LOGIC.v:43: warning: macro EX_LOGIC_SELLEFT undefined (and assumed null) at this point.
+ALU_LOGIC.v:44: warning: macro EX_LOGIC_SELRIGHT undefined (and assumed null) at this point.
+ALU_LOGIC.v:45: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+ALU_LOGIC.v:48: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+ALU_LOGIC.v:49: warning: macro DISABLE undefined (and assumed null) at this point.
+ALU_LOGIC.v:50: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+ALU_LOGIC.v:51: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+ALU_MEMACC.v:3: warning: macro EX_OP_LOW_BUS undefined (and assumed null) at this point.
+ALU_MEMACC.v:4: warning: macro WORD_BUS undefined (and assumed null) at this point.
+ALU_MEMACC.v:5: warning: macro WORD_BUS undefined (and assumed null) at this point.
+ALU_MEMACC.v:6: warning: macro INST_BUS undefined (and assumed null) at this point.
+ALU_MEMACC.v:8: warning: macro WORD_BUS undefined (and assumed null) at this point.
+ALU_MEMACC.v:10: warning: macro MEM_ADDR_BUS undefined (and assumed null) at this point.
+ALU_MEMACC.v:11: warning: macro MEM_SEL_BUS undefined (and assumed null) at this point.
+ALU_MEMACC.v:12: warning: macro MEM_LOADOP_BUS undefined (and assumed null) at this point.
+ALU_MEMACC.v:15: warning: macro WORD_BUS undefined (and assumed null) at this point.
+ALU_MEMACC.v:16: warning: macro MEM_ADDR_BUS undefined (and assumed null) at this point.
+ALU_MEMACC.v:23: warning: macro MEM_SEL_BUS undefined (and assumed null) at this point.
+ALU_MEMACC.v:24: warning: macro MEM_SEL_BUS undefined (and assumed null) at this point.
+ALU_MEMACC.v:25: warning: macro MEM_SEL_BUS undefined (and assumed null) at this point.
+ALU_MEMACC.v:35: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+ALU_MEMACC.v:39: warning: macro MEM_LOADOP_NOP undefined (and assumed null) at this point.
+ALU_MEMACC.v:41: warning: macro EX_MEMACC_LB undefined (and assumed null) at this point.
+ALU_MEMACC.v:42: warning: macro EX_MEMACC_LBU undefined (and assumed null) at this point.
+ALU_MEMACC.v:43: warning: macro EX_MEMACC_LH undefined (and assumed null) at this point.
+ALU_MEMACC.v:44: warning: macro EX_MEMACC_LHU undefined (and assumed null) at this point.
+ALU_MEMACC.v:45: warning: macro EX_MEMACC_LW undefined (and assumed null) at this point.
+ALU_MEMACC.v:45: warning: macro MEM_LOADOP_BUS undefined (and assumed null) at this point.
+ALU_MEMACC.v:46: warning: macro EX_MEMACC_SB undefined (and assumed null) at this point.
+ALU_MEMACC.v:50: warning: macro EX_MEMACC_SH undefined (and assumed null) at this point.
+ALU_MEMACC.v:54: warning: macro EX_MEMACC_SW undefined (and assumed null) at this point.
+ALU_MEMACC.v:60: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+ALU_MEMACC.v:61: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+ALU_MEMACC.v:63: warning: macro MEM_LOADOP_NOP undefined (and assumed null) at this point.
+CPU.v:6: warning: macro INST_ADDR_BUS undefined (and assumed null) at this point.
+CPU.v:7: warning: macro INST_BUS undefined (and assumed null) at this point.
+CPU.v:11: warning: macro MEM_ADDR_BUS undefined (and assumed null) at this point.
+CPU.v:12: warning: macro MEM_SEL_BUS undefined (and assumed null) at this point.
+CPU.v:13: warning: macro WORD_BUS undefined (and assumed null) at this point.
+CPU.v:14: warning: macro WORD_BUS undefined (and assumed null) at this point.
+CPU.v:24: warning: macro INST_ADDR_BUS undefined (and assumed null) at this point.
+CPU.v:27: warning: macro INST_ADDR_BUS undefined (and assumed null) at this point.
+CPU.v:28: warning: macro INST_BUS undefined (and assumed null) at this point.
+CPU.v:33: warning: macro EX_OP_BUS undefined (and assumed null) at this point.
+CPU.v:34: warning: macro REG_ADDR_BUS undefined (and assumed null) at this point.
+CPU.v:35: warning: macro WORD_BUS undefined (and assumed null) at this point.
+CPU.v:36: warning: macro WORD_BUS undefined (and assumed null) at this point.
+CPU.v:38: warning: macro INST_BUS undefined (and assumed null) at this point.
+CPU.v:41: warning: macro WORD_BUS undefined (and assumed null) at this point.
+CPU.v:42: warning: macro WORD_BUS undefined (and assumed null) at this point.
+CPU.v:46: warning: macro INST_BUS undefined (and assumed null) at this point.
+CPU.v:47: warning: macro EX_OP_HIGH_BUS undefined (and assumed null) at this point.
+CPU.v:48: warning: macro EX_OP_LOW_BUS undefined (and assumed null) at this point.
+CPU.v:49: warning: macro WORD_BUS undefined (and assumed null) at this point.
+CPU.v:50: warning: macro WORD_BUS undefined (and assumed null) at this point.
+CPU.v:51: warning: macro MEM_OP_BUS undefined (and assumed null) at this point.
+CPU.v:52: warning: macro REG_ADDR_BUS undefined (and assumed null) at this point.
+CPU.v:56: warning: macro WORD_BUS undefined (and assumed null) at this point.
+CPU.v:58: warning: macro WORD_BUS undefined (and assumed null) at this point.
+CPU.v:59: warning: macro WORD_BUS undefined (and assumed null) at this point.
+CPU.v:62: warning: macro WORD_BUS undefined (and assumed null) at this point.
+CPU.v:65: warning: macro WORD_BUS undefined (and assumed null) at this point.
+CPU.v:66: warning: macro WORD_BUS undefined (and assumed null) at this point.
+CPU.v:69: warning: macro WORD_BUS undefined (and assumed null) at this point.
+CPU.v:70: warning: macro MEM_ADDR_BUS undefined (and assumed null) at this point.
+CPU.v:71: warning: macro MEM_SEL_BUS undefined (and assumed null) at this point.
+CPU.v:72: warning: macro MEM_LOADOP_BUS undefined (and assumed null) at this point.
+CPU.v:75: warning: macro WORD_BUS undefined (and assumed null) at this point.
+CPU.v:76: warning: macro WORD_BUS undefined (and assumed null) at this point.
+CPU.v:79: warning: macro WORD_BUS undefined (and assumed null) at this point.
+CPU.v:82: warning: macro MEM_OP_BUS undefined (and assumed null) at this point.
+CPU.v:83: warning: macro WORD_BUS undefined (and assumed null) at this point.
+CPU.v:85: warning: macro MEM_ADDR_BUS undefined (and assumed null) at this point.
+CPU.v:86: warning: macro MEM_LOADOP_BUS undefined (and assumed null) at this point.
+CPU.v:87: warning: macro MEM_ADDR_LOW_BUS undefined (and assumed null) at this point.
+CPU.v:89: warning: macro REG_ADDR_BUS undefined (and assumed null) at this point.
+CPU.v:92: warning: macro WORD_BUS undefined (and assumed null) at this point.
+CPU.v:148: warning: macro INST_RS_BUS undefined (and assumed null) at this point.
+CPU.v:151: warning: macro INST_RT_BUS undefined (and assumed null) at this point.
+CPU.v:180: warning: macro EX_HIGH_LOGIC undefined (and assumed null) at this point.
+CPU.v:193: warning: macro EX_HIGH_ARITH undefined (and assumed null) at this point.
+CPU.v:207: warning: macro EX_HIGH_MEMACC undefined (and assumed null) at this point.
+CTRL.v:12: warning: macro STALL_SIGNAL_BUS undefined (and assumed null) at this point.
+CTRL.v:14: warning: macro STALL_IF undefined (and assumed null) at this point.
+CTRL.v:15: warning: macro STALL_ID undefined (and assumed null) at this point.
+CTRL.v:16: warning: macro STALL_EX undefined (and assumed null) at this point.
+CTRL.v:17: warning: macro STALL_MEM undefined (and assumed null) at this point.
+CTRL.v:21: warning: macro STALL_FROM_MEM undefined (and assumed null) at this point.
+CTRL.v:23: warning: macro STALL_FROM_EX undefined (and assumed null) at this point.
+CTRL.v:25: warning: macro STALL_FROM_ID undefined (and assumed null) at this point.
+CTRL.v:27: warning: macro NO_STALL undefined (and assumed null) at this point.
+DataRam.v:10: warning: macro MEM_ADDR_BUS undefined (and assumed null) at this point.
+DataRam.v:11: warning: macro MEM_SEL_BUS undefined (and assumed null) at this point.
+DataRam.v:12: warning: macro WORD_BUS undefined (and assumed null) at this point.
+DataRam.v:13: warning: macro WORD_BUS undefined (and assumed null) at this point.
+DataRam.v:16: warning: macro WORD_BUS undefined (and assumed null) at this point.
+DataRam.v:51: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+EX.v:2: warning: macro WORD_BUS undefined (and assumed null) at this point.
+EX.v:3: warning: macro WORD_BUS undefined (and assumed null) at this point.
+EX.v:4: warning: macro WORD_BUS undefined (and assumed null) at this point.
+EX.v:5: warning: macro WORD_BUS undefined (and assumed null) at this point.
+EX_MEM.v:8: warning: macro MEM_OP_BUS undefined (and assumed null) at this point.
+EX_MEM.v:9: warning: macro WORD_BUS undefined (and assumed null) at this point.
+EX_MEM.v:10: warning: macro MEM_ADDR_BUS undefined (and assumed null) at this point.
+EX_MEM.v:11: warning: macro MEM_SEL_BUS undefined (and assumed null) at this point.
+EX_MEM.v:12: warning: macro MEM_LOADOP_BUS undefined (and assumed null) at this point.
+EX_MEM.v:13: warning: macro REG_ADDR_BUS undefined (and assumed null) at this point.
+EX_MEM.v:15: warning: macro MEM_OP_BUS undefined (and assumed null) at this point.
+EX_MEM.v:16: warning: macro WORD_BUS undefined (and assumed null) at this point.
+EX_MEM.v:20: warning: macro MEM_ADDR_BUS undefined (and assumed null) at this point.
+EX_MEM.v:21: warning: macro MEM_SEL_BUS undefined (and assumed null) at this point.
+EX_MEM.v:22: warning: macro MEM_LOADOP_BUS undefined (and assumed null) at this point.
+EX_MEM.v:23: warning: macro MEM_ADDR_LOW_BUS undefined (and assumed null) at this point.
+EX_MEM.v:26: warning: macro REG_ADDR_BUS undefined (and assumed null) at this point.
+EX_MEM.v:29: warning: macro MEM_OP_STORE undefined (and assumed null) at this point.
+EX_MEM.v:30: warning: macro MEM_OP_LOAD undefined (and assumed null) at this point.
+EX_MEM.v:31: warning: macro MEM_ADDR_LOW_BUS undefined (and assumed null) at this point.
+EX_MEM.v:32: warning: macro MEM_REGENABLE undefined (and assumed null) at this point.
+EX_MEM.v:37: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+EX_MEM.v:38: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+EX_MEM.v:40: warning: macro MEM_LOADOP_NOP undefined (and assumed null) at this point.
+EX_MEM.v:41: warning: macro REG_ZERO undefined (and assumed null) at this point.
+EX_MEM.v:45: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+EX_MEM.v:46: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+EX_MEM.v:48: warning: macro MEM_LOADOP_NOP undefined (and assumed null) at this point.
+EX_MEM.v:49: warning: macro REG_ZERO undefined (and assumed null) at this point.
+HILO.v:6: warning: macro WORD_BUS undefined (and assumed null) at this point.
+HILO.v:7: warning: macro WORD_BUS undefined (and assumed null) at this point.
+HILO.v:9: warning: macro WORD_BUS undefined (and assumed null) at this point.
+HILO.v:10: warning: macro WORD_BUS undefined (and assumed null) at this point.
+HILO.v:15: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+HILO.v:16: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+ID.v:16: warning: macro INST_ADDR_BUS undefined (and assumed null) at this point.
+ID.v:17: warning: macro INST_BUS undefined (and assumed null) at this point.
+ID.v:21: warning: macro EX_OP_BUS undefined (and assumed null) at this point.
+ID.v:22: warning: macro REG_ADDR_BUS undefined (and assumed null) at this point.
+ID.v:24: warning: macro WORD_BUS undefined (and assumed null) at this point.
+ID.v:25: warning: macro WORD_BUS undefined (and assumed null) at this point.
+ID.v:27: warning: macro WORD_BUS undefined (and assumed null) at this point.
+ID.v:28: warning: macro WORD_BUS undefined (and assumed null) at this point.
+ID.v:31: warning: macro INST_BUS undefined (and assumed null) at this point.
+ID.v:34: warning: macro INST_OPCODE_BUS undefined (and assumed null) at this point.
+ID.v:35: warning: macro INST_RS_BUS undefined (and assumed null) at this point.
+ID.v:36: warning: macro INST_RT_BUS undefined (and assumed null) at this point.
+ID.v:37: warning: macro INST_RD_BUS undefined (and assumed null) at this point.
+ID.v:38: warning: macro INST_SHAMT_BUS undefined (and assumed null) at this point.
+ID.v:39: warning: macro INST_FUNCT_BUS undefined (and assumed null) at this point.
+ID.v:40: warning: macro INST_IMM_BUS undefined (and assumed null) at this point.
+ID.v:41: warning: macro INST_TARGET_BUS undefined (and assumed null) at this point.
+ID.v:44: warning: macro INST_IMM_BUS undefined (and assumed null) at this point.
+ID.v:45: warning: macro INST_TARGET_BUS undefined (and assumed null) at this point.
+ID.v:47: warning: macro WORD_BUS undefined (and assumed null) at this point.
+ID.v:48: warning: macro WORD_BUS undefined (and assumed null) at this point.
+ID.v:49: warning: macro WORD_BUS undefined (and assumed null) at this point.
+ID.v:55: warning: macro WORD_BUS undefined (and assumed null) at this point.
+ID.v:76: warning: macro INST_ADDR_BUS undefined (and assumed null) at this point.
+ID.v:77: warning: macro INST_ADDR_BUS undefined (and assumed null) at this point.
+ID.v:78: warning: macro INST_ADDR_BUS undefined (and assumed null) at this point.
+ID.v:79: warning: macro INST_ADDR_BUS undefined (and assumed null) at this point.
+ID.v:87: warning: macro DISABLE undefined (and assumed null) at this point.
+ID.v:88: warning: macro DISABLE undefined (and assumed null) at this point.
+ID.v:89: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+ID.v:91: warning: macro EX_HIGH_SPECIAL undefined (and assumed null) at this point.
+ID.v:91: warning: macro EX_SPECIAL_NOP undefined (and assumed null) at this point.
+ID.v:92: warning: macro REG_ZERO undefined (and assumed null) at this point.
+ID.v:94: warning: macro DISABLE undefined (and assumed null) at this point.
+../testbenchID.v:95: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+/MIPS_tID.v:96: warning: macro INST_OPCODE_BUS undefined (and assumed null) at this point.
+b.ID.v:97: warning: macro ID_OPCODE_RTYPE undefined (and assumed null) at this point.
+vID.v:98: warning: macro INST_FUNCT_BUS undefined (and assumed null) at this point.
+:ID.v:100: warning: macro ID_FUNCT_AND undefined (and assumed null) at this point.
+14: ID.v:101: warning: macro ENABLE undefined (and assumed null) at this point.
+synID.v:102: warning: macro ENABLE undefined (and assumed null) at this point.
+tax errorID.v:104: 
+warning: macro EX_HIGH_LOGIC undefined (and assumed null) at this point.
+ID.v:104: warning: macro EX_LOGIC_AND undefined (and assumed null) at this point.
+../testbench/MIPS_tb.v:14: ID.v:107: warning: macro ID_FUNCT_OR undefined (and assumed null) at this point.
+error: malformed statementID.v:108: warning: macro ENABLE undefined (and assumed null) at this point.
+ID.v:109: warning: macro ENABLE undefined (and assumed null) at this point.
+ID.v:111: warning: macro EX_HIGH_LOGIC undefined (and assumed null) at this point.
+ID.v:111: warning: macro EX_LOGIC_OR undefined (and assumed null) at this point.
+
+ID.v:114: warning: macro ID_FUNCT_XOR undefined (and assumed null) at this point.
+..ID.v:115: warning: macro ENABLE undefined (and assumed null) at this point.
+/ID.v:116: warning: macro ENABLE undefined (and assumed null) at this point.
+testID.v:118: warning: macro EX_HIGH_LOGIC undefined (and assumed null) at this point.
+bench/MIPID.v:118: warning: macro EX_LOGIC_XOR undefined (and assumed null) at this point.
+ID.v:121: warning: macro ID_FUNCT_NOR undefined (and assumed null) at this point.
+SID.v:122: warning: macro ENABLE undefined (and assumed null) at this point.
+_tb.vID.v:123: :16warning: macro ENABLE undefined (and assumed null) at this point.
+ID.v:125: warning: macro EX_HIGH_LOGIC undefined (and assumed null) at this point.
+ID.v:125: warning: macro EX_LOGIC_NOR undefined (and assumed null) at this point.
+:ID.v:129: warning: macro ID_FUNCT_SLL undefined (and assumed null) at this point.
+ synID.v:132: warning: macro ENABLE undefined (and assumed null) at this point.
+taID.v:134: warning: macro EX_HIGH_LOGIC undefined (and assumed null) at this point.
+x erID.v:134: warning: macro EX_LOGIC_SHLEFT undefined (and assumed null) at this point.
+rID.v:138: warning: macro ID_FUNCT_SLLV undefined (and assumed null) at this point.
+oID.v:139: warning: macro ENABLE undefined (and assumed null) at this point.
+r
+../testbench/MIPS_tb.v:16: error: malformed statement
+ID.v:140: warning: macro ENABLE undefined (and assumed null) at this point.
+ID.v:142: warning: macro EX_HIGH_LOGIC undefined (and assumed null) at this point.
+ID.v:142: warning: macro EX_LOGIC_SHLEFT undefined (and assumed null) at this point.
+ID.v:145: warning: macro ID_FUNCT_SRL undefined (and assumed null) at this point.
+ID.v:148: warning: macro ENABLE undefined (and assumed null) at this point.
+ID.v:150: warning: macro EX_HIGH_LOGIC undefined (and assumed null) at this point.
+ID.v:150: warning: macro EX_LOGIC_SHRIGHTLOG undefined (and assumed null) at this point.
+ID.v:154: warning: macro ID_FUNCT_SRLV undefined (and assumed null) at this point.
+ID.v:155: warning: macro ENABLE undefined (and assumed null) at this point.
+ID.v:156: warning: macro ENABLE undefined (and assumed null) at this point.
+ID.v:158: warning: macro EX_HIGH_LOGIC undefined (and assumed null) at this point.
+ID.v:158: warning: macro EX_LOGIC_SHRIGHTLOG undefined (and assumed null) at this point.
+ID.v:161: warning: macro ID_FUNCT_SRA undefined (and assumed null) at this point.
+ID.v:164: warning: macro ENABLE undefined (and assumed null) at this point.
+ID.v:166: warning: macro EX_HIGH_LOGIC undefined (and assumed null) at this point.
+ID.v:166: warning: macro EX_LOGIC_SHRIGHTARI undefined (and assumed null) at this point.
+ID.v:170: warning: macro ID_FUNCT_SRAV undefined (and assumed null) at this point.
+ID.v:171: warning: macro ENABLE undefined (and assumed null) at this point.
+ID.v:172: warning: macro ENABLE undefined (and assumed null) at this point.
+ID.v:174: warning: macro EX_HIGH_LOGIC undefined (and assumed null) at this point.
+ID.v:174: warning: macro EX_LOGIC_SHRIGHTARI undefined (and assumed null) at this point.
+ID.v:178: warning: macro ID_FUNCT_MFHI undefined (and assumed null) at this point.
+ID.v:179: warning: macro EX_HIGH_LOGIC undefined (and assumed null) at this point.
+ID.v:179: warning: macro EX_LOGIC_FROMHI undefined (and assumed null) at this point.
+ID.v:182: warning: macro ID_FUNCT_MFLO undefined (and assumed null) at this point.
+ID.v:183: warning: macro EX_HIGH_LOGIC undefined (and assumed null) at this point.
+ID.v:183: warning: macro EX_LOGIC_FROMLO undefined (and assumed null) at this point.
+ID.v:186: warning: macro ID_FUNCT_MTHI undefined (and assumed null) at this point.
+ID.v:187: warning: macro ENABLE undefined (and assumed null) at this point.
+ID.v:189: warning: macro EX_HIGH_LOGIC undefined (and assumed null) at this point.
+ID.v:189: warning: macro EX_LOGIC_TOHI undefined (and assumed null) at this point.
+ID.v:191: warning: macro ID_FUNCT_MTLO undefined (and assumed null) at this point.
+ID.v:192: warning: macro ENABLE undefined (and assumed null) at this point.
+ALID.v:194: warning: macro EX_HIGH_LOGIC undefined (and assumed null) at this point.
+ID.v:194: warning: macro EX_LOGIC_TOLO undefined (and assumed null) at this point.
+U_ID.v:197: warning: macro ID_FUNCT_ADD undefined (and assumed null) at this point.
+ARID.v:198: warning: macro ENABLE undefined (and assumed null) at this point.
+IID.v:199: warning: macro ENABLE undefined (and assumed null) at this point.
+TH.vID.v:201: warning: macro EX_HIGH_ARITH undefined (and assumed null) at this point.
+ID.v:201: warning: macro EX_ARITH_ADD undefined (and assumed null) at this point.
+:42: syID.v:204: warning: macro ID_FUNCT_ADDU undefined (and assumed null) at this point.
+ntaxID.v:205: warning: macro ENABLE undefined (and assumed null) at this point.
+ ID.v:206: warning: macro ENABLE undefined (and assumed null) at this point.
+ID.v:208: warning: macro EX_HIGH_ARITH undefined (and assumed null) at this point.
+ID.v:208: warning: macro EX_ARITH_ADDU undefined (and assumed null) at this point.
+errorID.v:211: warning: macro ID_FUNCT_SUB undefined (and assumed null) at this point.
+
+ID.v:212: warning: macro ENABLE undefined (and assumed null) at this point.
+ID.v:213: warning: macro ENABLE undefined (and assumed null) at this point.
+ALU_ARITH.v:42: error: malformed statementID.v:215: warning: macro EX_HIGH_ARITH undefined (and assumed null) at this point.
+
+ALU_AID.v:215: warning: macro EX_ARITH_SUB undefined (and assumed null) at this point.
+RID.v:218: warning: macro ID_FUNCT_SUBU undefined (and assumed null) at this point.
+ITID.v:219: warning: macro ENABLE undefined (and assumed null) at this point.
+HID.v:220: warning: macro ENABLE undefined (and assumed null) at this point.
+.v:ID.v:222: warning: macro EX_HIGH_ARITH undefined (and assumed null) at this point.
+43: syntID.v:222: warning: macro EX_ARITH_SUBU undefined (and assumed null) at this point.
+axID.v:225: warning: macro ID_FUNCT_MULT undefined (and assumed null) at this point.
+ ID.v:226: warning: macro ENABLE undefined (and assumed null) at this point.
+errID.v:227: warning: macro ENABLE undefined (and assumed null) at this point.
+or
+ID.v:229: warning: macro EX_HIGH_ARITH undefined (and assumed null) at this point.
+ALU_ARITH.v:43: error: malformed statement
+ALID.v:229: warning: macro EX_ARITH_MULT undefined (and assumed null) at this point.
+U_AID.v:231: warning: macro ID_FUNCT_MULTU undefined (and assumed null) at this point.
+RID.v:232: warning: macro ENABLE undefined (and assumed null) at this point.
+ITH.v:44: ID.v:233: warning: macro ENABLE undefined (and assumed null) at this point.
+syntax ID.v:235: warning: macro EX_HIGH_ARITH undefined (and assumed null) at this point.
+error
+ID.v:235: warning: macro EX_ARITH_MULTU undefined (and assumed null) at this point.
+ID.v:237: warning: macro ID_FUNCT_SLT undefined (and assumed null) at this point.
+ALU_ARITH.v:44: error: malformed statement
+ID.v:238: warning: macro ENABLE undefined (and assumed null) at this point.
+ALID.v:239: warning: macro ENABLE undefined (and assumed null) at this point.
+U_AID.v:241: warning: macro EX_HIGH_ARITH undefined (and assumed null) at this point.
+RITHID.v:241: warning: macro EX_ARITH_SLT undefined (and assumed null) at this point.
+.v:ID.v:244: warning: macro ID_FUNCT_SLTU undefined (and assumed null) at this point.
+4ID.v:245: warning: macro ENABLE undefined (and assumed null) at this point.
+6: ID.v:246: warning: macro ENABLE undefined (and assumed null) at this point.
+ID.v:248: warning: macro EX_HIGH_ARITH undefined (and assumed null) at this point.
+ID.v:248: warning: macro EX_ARITH_SLTU undefined (and assumed null) at this point.
+ID.v:251: syntwarning: macro ID_FUNCT_JR undefined (and assumed null) at this point.
+ax errorID.v:252: 
+warning: macro ENABLE undefined (and assumed null) at this point.
+ID.v:254: warning: macro ENABLE undefined (and assumed null) at this point.
+ALU_ARITH.v:46: error: Incomprehensible case expression.
+ID.v:257: ALU_warning: macro ID_FUNCT_JALR undefined (and assumed null) at this point.
+ARITID.v:258: warning: macro ENABLE undefined (and assumed null) at this point.
+H.vID.v:261: warning: macro EX_HIGH_LOGIC undefined (and assumed null) at this point.
+ID.v:261: warning: macro EX_LOGIC_SELRIGHT undefined (and assumed null) at this point.
+:50ID.v:262: warning: macro REG_RA undefined (and assumed null) at this point.
+:ID.v:264: warning: macro ENABLE undefined (and assumed null) at this point.
+ synID.v:272: warning: macro ID_OPCODE_ORI undefined (and assumed null) at this point.
+tID.v:273: warning: macro ENABLE undefined (and assumed null) at this point.
+aID.v:276: warning: macro EX_HIGH_LOGIC undefined (and assumed null) at this point.
+ID.v:276: warning: macro EX_LOGIC_OR undefined (and assumed null) at this point.
+x erID.v:279: warning: macro ID_OPCODE_XORI undefined (and assumed null) at this point.
+ror
+ID.v:280: warning: macro ENABLE undefined (and assumed null) at this point.
+ALU_ARITH.v:52: sID.v:283: warning: macro EX_HIGH_LOGIC undefined (and assumed null) at this point.
+yntax error
+ALU_ARITH.v:52: ID.v:283: warning: macro EX_LOGIC_XOR undefined (and assumed null) at this point.
+error: malformed statementID.v:286: warning: macro ID_OPCODE_ANDI undefined (and assumed null) at this point.
+
+ID.v:287: warning: macro ENABLE undefined (and assumed null) at this point.
+ALU_ARITH.v:50: error: Incomprehensible case expression.ID.v:290: warning: macro EX_HIGH_LOGIC undefined (and assumed null) at this point.
+ID.v:290: 
+ALU_ARITH.v:warning: macro EX_LOGIC_AND undefined (and assumed null) at this point.
+54: ID.v:293: warning: macro ID_OPCODE_LUI undefined (and assumed null) at this point.
+syntID.v:296: warning: macro EX_HIGH_LOGIC undefined (and assumed null) at this point.
+ax erroID.v:296: warning: macro EX_LOGIC_OR undefined (and assumed null) at this point.
+ID.v:300: warning: macro ID_OPCODE_ADDI undefined (and assumed null) at this point.
+rID.v:301: warning: macro ENABLE undefined (and assumed null) at this point.
+
+ID.v:304: warning: macro EX_HIGH_ARITH undefined (and assumed null) at this point.
+ID.v:304: warning: macro EX_ARITH_ADD undefined (and assumed null) at this point.
+ALU_ARITH.v:54: ID.v:307: warning: macro ID_OPCODE_ADDIU undefined (and assumed null) at this point.
+error: Incomprehensible case expression.
+ALU_ARITH.v:58: syID.v:308: warning: macro ENABLE undefined (and assumed null) at this point.
+ntax error
+ID.v:311: warning: macro EX_HIGH_ARITH undefined (and assumed null) at this point.
+ID.v:311: warning: macro EX_ARITH_ADDU undefined (and assumed null) at this point.
+ALU_ARITH.v:6ID.v:314: warning: macro ID_OPCODE_SLTI undefined (and assumed null) at this point.
+0ID.v:315: warning: macro ENABLE undefined (and assumed null) at this point.
+:ID.v:318: warning: macro EX_HIGH_ARITH undefined (and assumed null) at this point.
+ID.v:318: warning: macro EX_ARITH_SLT undefined (and assumed null) at this point.
+ ID.v:321: warning: macro ID_OPCODE_SLTIU undefined (and assumed null) at this point.
+syntax error
+ALU_ARITH.v:60: ID.v:322: warning: macro ENABLE undefined (and assumed null) at this point.
+ID.v:325: warning: macro EX_HIGH_ARITH undefined (and assumed null) at this point.
+error: malformed statement
+ID.v:325: warning: macro EX_ARITH_SLTU undefined (and assumed null) at this point.
+ALU_ARITH.v:58: ID.v:329: warning: macro ID_OPCODE_J undefined (and assumed null) at this point.
+error: Incomprehensible case expression.
+ALU_ARITH.v:ID.v:330: warning: macro ENABLE undefined (and assumed null) at this point.
+62: ID.v:333: warning: macro ID_OPCODE_JAL undefined (and assumed null) at this point.
+syntax error
+ID.v:336: warning: macro EX_HIGH_LOGIC undefined (and assumed null) at this point.
+ID.v:336: warning: macro EX_LOGIC_OR undefined (and assumed null) at this point.
+ALU_ARITH.v:64ID.v:337: : warning: macro REG_RA undefined (and assumed null) at this point.
+ID.v:339: warning: macro ENABLE undefined (and assumed null) at this point.
+syntax error
+ALU_ARITH.v:64: error: malformed statement
+ALU_ARITH.v:62: error: Incomprehensible case expression.
+ALU_ARITH.v:66ID.v:343: warning: macro ID_OPCODE_BEQ undefined (and assumed null) at this point.
+: syntax error
+ID.v:344: warning: macro ENABLE undefined (and assumed null) at this point.
+ID.v:345: warning: macro ENABLE undefined (and assumed null) at this point.
+ALU_ARITH.v:68: sID.v:350: warning: macro ID_OPCODE_BNE undefined (and assumed null) at this point.
+yID.v:351: warning: macro ENABLE undefined (and assumed null) at this point.
+ntax error
+ALU_ARITH.v:68: error: malformed statement
+ID.v:352: warning: macro ENABLE undefined (and assumed null) at this point.
+ALU_ARITH.v:66: error: Incomprehensible case expression.
+ALU_ARITH.v:70: sID.v:357: warning: macro ID_OPCODE_BGTZ undefined (and assumed null) at this point.
+yID.v:358: warning: macro ENABLE undefined (and assumed null) at this point.
+ntaID.v:363: warning: macro ID_OPCODE_BLEZ undefined (and assumed null) at this point.
+xID.v:364: warning: macro ENABLE undefined (and assumed null) at this point.
+ error
+ID.v:369: warning: macro ID_OPCODE_BRANCH undefined (and assumed null) at this point.
+ALUID.v:371: warning: macro ID_RT_BLTZ undefined (and assumed null) at this point.
+_ARITH.v:7ID.v:372: warning: macro ENABLE undefined (and assumed null) at this point.
+1: syntID.v:377: warning: macro ID_RT_BGEZ undefined (and assumed null) at this point.
+ax ID.v:378: warning: macro ENABLE undefined (and assumed null) at this point.
+error
+ID.v:388: warning: macro ID_OPCODE_LB undefined (and assumed null) at this point.
+ID.v:389: warning: macro ENABLE undefined (and assumed null) at this point.
+ALU_ARITH.v:71: error: malformed statement
+ID.v:391: warning: macro EX_HIGH_MEMACC undefined (and assumed null) at this point.
+ID.v:391: warning: macro EX_MEMACC_LB undefined (and assumed null) at this point.
+AID.v:394: warning: macro ID_OPCODE_LBU undefined (and assumed null) at this point.
+LU_ARITH.v:73: ID.v:395: warning: macro ENABLE undefined (and assumed null) at this point.
+syntax error
+ID.v:397: warning: macro EX_HIGH_MEMACC undefined (and assumed null) at this point.
+ID.v:397: warning: macro EX_MEMACC_LBU undefined (and assumed null) at this point.
+ALU_ARITH.v:73: error: malformed statement
+ID.v:400: warning: macro ID_OPCODE_LH undefined (and assumed null) at this point.
+ALU_ARITH.v:70: error: Incomprehensible case expression.
+ID.v:401: warning: macro ENABLE undefined (and assumed null) at this point.
+ALU_ARITH.v:7ID.v:403: warning: macro EX_HIGH_MEMACC undefined (and assumed null) at this point.
+5: syntax error
+ID.v:403: ALU_ARITH.v:76: swarning: macro EX_MEMACC_LH undefined (and assumed null) at this point.
+yntID.v:406: warning: macro ID_OPCODE_LHU undefined (and assumed null) at this point.
+ax error
+ALU_ARITH.v:76: ID.v:407: warning: macro ENABLE undefined (and assumed null) at this point.
+error: malformed statement
+ID.v:409: warning: macro EX_HIGH_MEMACC undefined (and assumed null) at this point.
+ID.v:409: warning: macro EX_MEMACC_LHU undefined (and assumed null) at this point.
+ALU_ARITH.vID.v:412: warning: macro ID_OPCODE_LW undefined (and assumed null) at this point.
+:ID.v:413: warning: macro ENABLE undefined (and assumed null) at this point.
+78: sID.v:415: warning: macro EX_HIGH_MEMACC undefined (and assumed null) at this point.
+yntax eID.v:415: warning: macro EX_MEMACC_LW undefined (and assumed null) at this point.
+ID.v:419: warning: macro ID_OPCODE_SB undefined (and assumed null) at this point.
+rID.v:420: warning: macro ENABLE undefined (and assumed null) at this point.
+ror
+ID.v:421: warning: macro ENABLE undefined (and assumed null) at this point.
+ID.v:423: ALU_ARITH.v:78: error: malformed statementwarning: macro EX_HIGH_MEMACC undefined (and assumed null) at this point.
+ID.v:423: warning: macro EX_MEMACC_SB undefined (and assumed null) at this point.
+
+ID.v:426: warning: macro ID_OPCODE_SH undefined (and assumed null) at this point.
+ALU_ARITH.v:75: error: Incomprehensible case expression.
+ID.v:427: warning: macro ENABLE undefined (and assumed null) at this point.
+ALID.v:428: warning: macro ENABLE undefined (and assumed null) at this point.
+ID.v:430: warning: macro EX_HIGH_MEMACC undefined (and assumed null) at this point.
+ID.v:430: warning: macro EX_MEMACC_SH undefined (and assumed null) at this point.
+UID.v:433: warning: macro ID_OPCODE_SW undefined (and assumed null) at this point.
+_ARITH.vID.v:434: warning: macro ENABLE undefined (and assumed null) at this point.
+:82: syntax error
+ID.v:435: warning: macro ENABLE undefined (and assumed null) at this point.
+ALU_ARITH.v:82: ID.v:437: warning: macro EX_HIGH_MEMACC undefined (and assumed null) at this point.
+ID.v:437: warning: macro EX_MEMACC_SW undefined (and assumed null) at this point.
+error: malformed statement
+ALU_ARITH.v:83ID_EX.v:8: warning: macro INST_BUS undefined (and assumed null) at this point.
+: sID_EX.v:9: warning: macro EX_OP_BUS undefined (and assumed null) at this point.
+yntax error
+ALU_ARITH.v:83: ID_EX.v:10: warning: macro WORD_BUS undefined (and assumed null) at this point.
+error: malformed statementID_EX.v:11: warning: macro WORD_BUS undefined (and assumed null) at this point.
+
+ID_EX.v:12: ALU_ARITH.v:warning: macro REG_ADDR_BUS undefined (and assumed null) at this point.
+84: syntax error
+ID_EX.v:14: warning: macro INST_BUS undefined (and assumed null) at this point.
+ALU_ARITH.v:84: ID_EX.v:15: warning: macro EX_OP_HIGH_BUS undefined (and assumed null) at this point.
+error: malformed statement
+ID_EX.v:16: ALU_ARITH.v:85: syntwarning: macro EX_OP_LOW_BUS undefined (and assumed null) at this point.
+ax error
+ALU_ARITH.v:85: ID_EX.v:17: warning: macro WORD_BUS undefined (and assumed null) at this point.
+error: malformed statement
+ID_EX.v:18: warning: macro WORD_BUS undefined (and assumed null) at this point.
+ID_EX.v:20: warning: macro MEM_OP_BUS undefined (and assumed null) at this point.
+ID_EX.v:21: warning: macro REG_ADDR_BUS undefined (and assumed null) at this point.
+ID_EX.v:27: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+ID_EX.v:28: warning: macro EX_HIGH_SPECIAL undefined (and assumed null) at this point.
+ID_EX.v:29: warning: macro EX_SPECIAL_NOP undefined (and assumed null) at this point.
+ID_EX.v:30: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+ID_EX.v:31: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+ALU_LOGIC.v:1ID_EX.v:32: warning: macro MEM_OP_NOP undefined (and assumed null) at this point.
+8: syntax error
+ID_EX.v:33: warning: macro REG_ZERO undefined (and assumed null) at this point.
+ALU_LOGIC.v:18: ID_EX.v:34: warning: macro DISABLE undefined (and assumed null) at this point.
+error: malformed statement
+ID_EX.v:37: ALU_LOGIC.v:19: syntax error
+ALU_LOGIC.v:19: error: malformed statement
+warning: macro ZERO_WORD undefined (and assumed null) at this point.
+ID_EX.v:38: warning: macro EX_HIGH_SPECIAL undefined (and assumed null) at this point.
+ALU_LOGIC.v:2ID_EX.v:39: warning: macro EX_SPECIAL_NOP undefined (and assumed null) at this point.
+0: syntax error
+ID_EX.v:40: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+ALU_LOGIC.v:20: ID_EX.v:41: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+error: malformed statement
+ID_EX.v:42: ALU_LOGIC.v:22: syntax error
+warning: macro MEM_OP_NOP undefined (and assumed null) at this point.
+ALU_LOGIC.v:22: error: Incomprehensible case expression.
+ALU_LOGIC.v:23: sID_EX.v:43: warning: macro REG_ZERO undefined (and assumed null) at this point.
+yID_EX.v:44: warning: macro DISABLE undefined (and assumed null) at this point.
+ntax erID_EX.v:51: warning: macro EX_OP_HIGH_BUS undefined (and assumed null) at this point.
+ror
+ID_EX.v:52: warning: macro EX_HIGH_LOGIC undefined (and assumed null) at this point.
+ALU_LOGIC.v:23: ID_EX.v:53: warning: macro MEM_OP_WRITE_REG undefined (and assumed null) at this point.
+ID_EX.v:54: warning: macro ENABLE undefined (and assumed null) at this point.
+error: Incomprehensible case expression.
+ID_EX.v:56: warning: macro EX_HIGH_ARITH undefined (and assumed null) at this point.
+ALU_LOGIC.v:2ID_EX.v:57: warning: macro MEM_OP_WRITE_REG undefined (and assumed null) at this point.
+ID_EX.v:58: warning: macro ENABLE undefined (and assumed null) at this point.
+ID_EX.v:60: 4: syntax error
+warning: macro EX_HIGH_MEMACC undefined (and assumed null) at this point.
+ALU_LOGIC.v:24: error: Incomprehensible case expression.
+ID_EX.v:62: warning: macro DISABLE undefined (and assumed null) at this point.
+ALID_EX.v:65: warning: macro MEM_OP_NOP undefined (and assumed null) at this point.
+U_LOGIC.v:2ID_EX.v:66: warning: macro DISABLE undefined (and assumed null) at this point.
+5: syntax error
+IF_ID.v:9: warning: macro INST_ADDR_BUS undefined (and assumed null) at this point.
+ALU_LOGIC.v:25: error: Incomprehensible case expression.
+AIF_ID.v:10: warning: macro INST_BUS undefined (and assumed null) at this point.
+LU_LOGIC.v:2IF_ID.v:12: warning: macro INST_ADDR_BUS undefined (and assumed null) at this point.
+6: IF_ID.v:13: warning: macro INST_BUS undefined (and assumed null) at this point.
+syntax error
+ALU_LOGIC.v:26: error: Incomprehensible case expression.
+AInstRom.v:5: warning: macro INST_ADDR_BUS undefined (and assumed null) at this point.
+LU_LOGIC.v:2InstRom.v:6: warning: macro INST_BUS undefined (and assumed null) at this point.
+7InstRom.v:9: warning: macro INST_BUS undefined (and assumed null) at this point.
+: syntInstRom.v:14: warning: macro ENABLE undefined (and assumed null) at this point.
+aInstRom.v:15: warning: macro INST_ADDR_HIGH_BUS undefined (and assumed null) at this point.
+xInstRom.v:17: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+ error
+MEM.v:3: ALU_LOGIC.v:27: error: Incomprehensible case expression.
+warning: macro WORD_BUS undefined (and assumed null) at this point.
+ALU_LOGIC.v:2MEM.v:4: warning: macro MEM_LOADOP_BUS undefined (and assumed null) at this point.
+8MEM.v:5: warning: macro MEM_ADDR_LOW_BUS undefined (and assumed null) at this point.
+: syntax error
+MEM.v:6: warning: macro WORD_BUS undefined (and assumed null) at this point.
+MEM.v:8: warning: macro WORD_BUS undefined (and assumed null) at this point.
+MEM.v:11: warning: macro WORD_BUS undefined (and assumed null) at this point.
+ALU_LOGIC.v:28: error: Incomprehensible case expression.
+ALU_LOGIC.v:29: syntax error
+MEM.v:17: ALU_LOGIC.v:29: error: Incomprehensible case expression.
+warning: macro MEM_LOADOP_LB undefined (and assumed null) at this point.
+ALU_LOGIC.v:3MEM.v:25: warning: macro MEM_LOADOP_LBU undefined (and assumed null) at this point.
+0: syntax errMEM.v:33: warning: macro MEM_LOADOP_LH undefined (and assumed null) at this point.
+or
+MEM.v:39: warning: macro MEM_LOADOP_LHU undefined (and assumed null) at this point.
+ALU_LOGIC.v:30: error: Incomprehensible case expression.
+ALMEM.v:45: warning: macro MEM_LOADOP_LW undefined (and assumed null) at this point.
+U_LOMEM.v:46: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+GIC.v:31: MIPS.v:8: warning: macro INST_ADDR_BUS undefined (and assumed null) at this point.
+syntax error
+MIPS.v:11: ALU_LOGIC.v:32: syntax error
+warning: macro MEM_ADDR_BUS undefined (and assumed null) at this point.
+ALU_LOGIC.v:32: error: malformed statement
+MIPS.v:12: warning: macro MEM_SEL_BUS undefined (and assumed null) at this point.
+ALU_LOGIC.v:35: MIPS.v:13: warning: macro WORD_BUS undefined (and assumed null) at this point.
+sMIPS.v:16: warning: macro INST_BUS undefined (and assumed null) at this point.
+yntax error
+ALU_LOGIC.v:35: MIPS.v:19: warning: macro WORD_BUS undefined (and assumed null) at this point.
+error: malformed statement
+ALU_LOGIC.v:31: error: Incomprehensible case expression.
+ALU_LOGIC.v:37: syntax ePCReg.v:8: warning: macro INST_ADDR_BUS undefined (and assumed null) at this point.
+rPCReg.v:10: warning: macro INST_ADDR_BUS undefined (and assumed null) at this point.
+rorPCReg.v:14: warning: macro INST_ADDR_BUS undefined (and assumed null) at this point.
+
+PCReg.v:18: warning: macro DISABLE undefined (and assumed null) at this point.
+PCReg.v:19: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+ALU_LOGIC.v:PCReg.v:20: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+38PCReg.v:22: warning: macro ENABLE undefined (and assumed null) at this point.
+: syntax erRegFile.v:6: warning: macro REG_ADDR_BUS undefined (and assumed null) at this point.
+rRegFile.v:7: warning: macro WORD_BUS undefined (and assumed null) at this point.
+orRegFile.v:10: warning: macro REG_ADDR_BUS undefined (and assumed null) at this point.
+
+ALU_LOGIC.v:38: error: malformed statement
+RegFile.v:11: warning: macro WORD_BUS undefined (and assumed null) at this point.
+ALURegFile.v:14: warning: macro REG_ADDR_BUS undefined (and assumed null) at this point.
+_RegFile.v:15: warning: macro WORD_BUS undefined (and assumed null) at this point.
+LOGIC.v:4RegFile.v:17: warning: macro REG_ADDR_BUS undefined (and assumed null) at this point.
+1: syntax error
+ALU_LOGIC.v:41: error: malformed statement
+RegFile.v:18: warning: macro WORD_BUS undefined (and assumed null) at this point.
+ALU_LOGIC.v:37: error: Incomprehensible case expression.
+RegFile.v:24: warning: macro WORD_BUS undefined (and assumed null) at this point.
+ALU_LOGIC.v:RegFile.v:24: warning: macro REG_NUM undefined (and assumed null) at this point.
+43: syRegFile.v:32: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+ntax error
+RegFile.v:33: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+RegFile.v:34: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+ALU_LOGIC.v:43: error: Incomprehensible case expression.RegFile.v:35: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+
+RegFile.v:36: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+ALU_LOGIC.v:4RegFile.v:37: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+4RegFile.v:38: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+: syntax error
+RegFile.v:39: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+ALU_LOGIC.v:44: error: Incomprehensible case expression.
+RegFile.v:40: ALU_LOGIC.v:45: swarning: macro ZERO_WORD undefined (and assumed null) at this point.
+yntax error
+ALU_LOGIC.v:45: RegFile.v:41: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+error: malformed statement
+RegFile.v:42: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+ALU_LOGIC.v:48: syntax error
+ALU_LOGIC.v:48: error: malformed statement
+RegFile.v:43: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+ALU_LOGIC.v:4RegFile.v:44: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+9: syntax error
+RegFile.v:45: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+ALU_LOGIC.v:49: RegFile.v:46: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+error: malformed statement
+RegFile.v:47: ALU_LOGIC.v:50: syntax error
+ALU_LOGIC.v:50: error: malformed statement
+ALU_LOGIC.v:51warning: macro ZERO_WORD undefined (and assumed null) at this point.
+: RegFile.v:48: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+sRegFile.v:49: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+yntax error
+ALU_LOGIC.v:51: RegFile.v:50: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+error: malformed statementRegFile.v:51: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+
+RegFile.v:52: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+RegFile.v:53: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+RegFile.v:54: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+RegFile.v:55: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+RegFile.v:56: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+RegFile.v:57: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+RegFile.v:58: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+RegFile.v:59: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+RegFile.v:60: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+RegFile.v:61: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+RegFile.v:62: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+RegFile.v:63: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+RegFile.v:65: warning: macro REG_ZERO undefined (and assumed null) at this point.
+RegFile.v:72: warning: macro DISABLE undefined (and assumed null) at this point.
+RegFile.v:74: warning: macro REG_ZERO undefined (and assumed null) at this point.
+RegFile.v:75: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+ALU_MEMACC.v:35: syntax error
+ALU_MEMACC.v:35: error: malformed statement
+RegFile.v:80: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+ALU_MEMACC.v:39: syRegFile.v:81: warning: macro ENABLE undefined (and assumed null) at this point.
+ntax erRegFile.v:89: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+rRegFile.v:94: warning: macro DISABLE undefined (and assumed null) at this point.
+or
+ALU_MEMACC.v:39: error: malformed statement
+RegFile.v:96: warning: macro REG_ZERO undefined (and assumed null) at this point.
+ALU_MERegFile.v:97: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+MACC.vRegFile.v:102: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+:41:RegFile.v:103: warning: macro ENABLE undefined (and assumed null) at this point.
+ syntax error
+RegFile.v:111: warning: macro ZERO_WORD undefined (and assumed null) at this point.
+ALU_MEMACC.v:45: syntax error
+ALU_MEMACC.v:45: error: malformed statement
+ALU_MEMACC.v:45: error: Incomprehensible case expression.
+ALU_MEMACC.v:46: syntax error
+ALU_MEMACC.v:46: error: Incomprehensible case expression.
+ALU_MEMACC.v:50: syntax error
+ALU_MEMACC.v:50: error: Incomprehensible case expression.
+ALU_MEMACC.v:54: syntax error
+ALU_MEMACC.v:54: error: Incomprehensible case expression.
+ALU_MEMACC.v:60: syntax error
+ALU_MEMACC.v:60: error: malformed statement
+ALU_MEMACC.v:61: syntax error
+ALU_MEMACC.v:61: error: malformed statement
+ALU_MEMACC.v:63: syntax error
+ALU_MEMACC.v:63: error: malformed statement
+CPU.v:148: syntax error
+CPU.v:148: error: invalid port connection expression.
+CPU.v:151: syntax error
+CPU.v:151: error: invalid port connection expression.
+CPU.v:180: syntax error
+CPU.v:180: error: invalid port connection expression.
+CPU.v:193: syntax error
+CPU.v:193: error: invalid port connection expression.
+CPU.v:207: syntax error
+CPU.v:207: error: invalid port connection expression.
+CTRL.v:14: syntax error
+CTRL.v:14: error: syntax error in continuous assignment
+CTRL.v:15: syntax error
+CTRL.v:15: error: syntax error in continuous assignment
+CTRL.v:16: syntax error
+CTRL.v:16: error: syntax error in continuous assignment
+CTRL.v:17: syntax error
+CTRL.v:17: error: syntax error in continuous assignment
+CTRL.v:21: syntax error
+CTRL.v:21: error: malformed statement
+CTRL.v:23: syntax error
+CTRL.v:23: error: malformed statement
+CTRL.v:25: syntax error
+CTRL.v:25: error: malformed statement
+CTRL.v:27: syntax error
+CTRL.v:27: error: malformed statement
+DataRam.v:51: syntax error
+DataRam.v:51: error: malformed statement
+EX_MEM.v:29: syntax error
+EX_MEM.v:29: error: syntax error in continuous assignment
+EX_MEM.v:30: syntax error
+EX_MEM.v:30: error: syntax error in continuous assignment
+EX_MEM.v:31: syntax error
+EX_MEM.v:31: error: syntax error in continuous assignment
+EX_MEM.v:32: syntax error
+EX_MEM.v:32: error: syntax error in continuous assignment
+EX_MEM.v:37: syntax error
+EX_MEM.v:37: error: malformed statement
+EX_MEM.v:38: syntax error
+EX_MEM.v:38: error: malformed statement
+EX_MEM.v:40: syntax error
+EX_MEM.v:40: error: malformed statement
+EX_MEM.v:41: syntax error
+EX_MEM.v:41: error: malformed statement
+EX_MEM.v:45: syntax error
+EX_MEM.v:45: error: malformed statement
+EX_MEM.v:46: syntax error
+EX_MEM.v:46: error: malformed statement
+EX_MEM.v:48: syntax error
+EX_MEM.v:48: error: malformed statement
+EX_MEM.v:49: syntax error
+EX_MEM.v:49: error: malformed statement
+HILO.v:15: syntax error
+HILO.v:15: error: malformed statement
+HILO.v:16: syntax error
+HILO.v:16: error: malformed statement
+ID.v:44: syntax error
+ID.v:44: error: syntax error in continuous assignment
+ID.v:45: syntax error
+ID.v:45: error: syntax error in continuous assignment
+ID.v:87: syntax error
+ID.v:87: error: malformed statement
+ID.v:88: syntax error
+ID.v:88: error: malformed statement
+ID.v:89: syntax error
+ID.v:89: error: malformed statement
+ID.v:91: syntax error
+ID.v:91: error: malformed statement
+ID.v:92: syntax error
+ID.v:92: error: malformed statement
+ID.v:94: syntax error
+ID.v:94: error: malformed statement
+ID.v:95: syntax error
+ID.v:95: error: malformed statement
+ID.v:96: syntax error
+ID.v:101: error: malformed statement
+ID.v:102: syntax error
+ID.v:102: error: malformed statement
+ID.v:104: syntax error
+ID.v:104: error: malformed statement
+ID.v:107: syntax error
+ID.v:108: error: invalid module item.
+ID.v:109: syntax error
+ID.v:109: error: Invalid module instantiation
+ID.v:111: error: Invalid module instantiation
+ID.v:112: error: Invalid module instantiation
+ID.v:115: error: invalid module item.
+ID.v:116: syntax error
+ID.v:116: error: Invalid module instantiation
+ID.v:118: error: Invalid module instantiation
+ID.v:119: error: Invalid module instantiation
+ID.v:122: error: invalid module item.
+ID.v:123: syntax error
+ID.v:123: error: Invalid module instantiation
+ID.v:125: error: Invalid module instantiation
+ID.v:126: error: Invalid module instantiation
+ID.v:131: error: invalid module item.
+ID.v:132: syntax error
+ID.v:132: error: Invalid module instantiation
+ID.v:134: error: Invalid module instantiation
+ID.v:135: error: Invalid module instantiation
+ID.v:139: error: invalid module item.
+ID.v:140: syntax error
+ID.v:140: error: Invalid module instantiation
+ID.v:142: error: Invalid module instantiation
+ID.v:143: error: Invalid module instantiation
+ID.v:147: error: invalid module item.
+ID.v:148: syntax error
+ID.v:148: error: Invalid module instantiation
+ID.v:150: error: Invalid module instantiation
+ID.v:151: error: Invalid module instantiation
+ID.v:155: error: invalid module item.
+ID.v:156: syntax error
+ID.v:156: error: Invalid module instantiation
+ID.v:158: error: Invalid module instantiation
+ID.v:159: error: Invalid module instantiation
+ID.v:163: error: invalid module item.
+ID.v:164: syntax error
+ID.v:164: error: Invalid module instantiation
+ID.v:166: error: Invalid module instantiation
+ID.v:167: error: Invalid module instantiation
+ID.v:171: error: invalid module item.
+ID.v:172: syntax error
+ID.v:172: error: Invalid module instantiation
+ID.v:174: error: Invalid module instantiation
+ID.v:175: error: Invalid module instantiation
+ID.v:179: error: invalid module item.
+ID.v:180: syntax error
+ID.v:180: error: Invalid module instantiation
+ID.v:183: error: invalid module item.
+ID.v:184: syntax error
+ID.v:184: error: Invalid module instantiation
+ID.v:187: error: invalid module item.
+ID.v:189: syntax error
+ID.v:189: error: Invalid module instantiation
+ID.v:192: error: invalid module item.
+ID.v:194: syntax error
+ID.v:194: error: Invalid module instantiation
+ID.v:198: error: invalid module item.
+ID.v:199: syntax error
+ID.v:199: error: Invalid module instantiation
+ID.v:201: error: Invalid module instantiation
+ID.v:202: error: Invalid module instantiation
+ID.v:205: error: invalid module item.
+ID.v:206: syntax error
+ID.v:206: error: Invalid module instantiation
+ID.v:208: error: Invalid module instantiation
+ID.v:209: error: Invalid module instantiation
+ID.v:212: error: invalid module item.
+ID.v:213: syntax error
+ID.v:213: error: Invalid module instantiation
+ID.v:215: error: Invalid module instantiation
+ID.v:216: error: Invalid module instantiation
+ID.v:219: error: invalid module item.
+ID.v:220: syntax error
+ID.v:220: error: Invalid module instantiation
+ID.v:222: error: Invalid module instantiation
+ID.v:223: error: Invalid module instantiation
+ID.v:226: error: invalid module item.
+ID.v:227: syntax error
+ID.v:227: error: Invalid module instantiation
+ID.v:229: error: Invalid module instantiation
+ID.v:232: error: invalid module item.
+ID.v:233: syntax error
+ID.v:233: error: Invalid module instantiation
+ID.v:235: error: Invalid module instantiation
+ID.v:238: error: invalid module item.
+ID.v:239: syntax error
+ID.v:239: error: Invalid module instantiation
+ID.v:241: error: Invalid module instantiation
+ID.v:242: error: Invalid module instantiation
+ID.v:245: error: invalid module item.
+ID.v:246: syntax error
+ID.v:246: error: Invalid module instantiation
+ID.v:248: error: Invalid module instantiation
+ID.v:252: error: invalid module item.
+ID.v:254: syntax error
+ID.v:254: error: Invalid module instantiation
+ID.v:255: error: Invalid module instantiation
+ID.v:258: error: invalid module item.
+ID.v:259: syntax error
+ID.v:259: error: Invalid module instantiation
+ID.v:261: error: Invalid module instantiation
+ID.v:262: error: Invalid module instantiation
+ID.v:264: error: Invalid module instantiation
+ID.v:265: error: Invalid module instantiation
+ID.v:273: error: invalid module item.
+ID.v:274: syntax error
+ID.v:274: error: Invalid module instantiation
+ID.v:276: error: Invalid module instantiation
+ID.v:277: error: Invalid module instantiation
+ID.v:280: error: invalid module item.
+ID.v:281: syntax error
+ID.v:281: error: Invalid module instantiation
+ID.v:283: error: Invalid module instantiation
+ID.v:284: error: Invalid module instantiation
+ID.v:287: error: invalid module item.
+ID.v:288: syntax error
+ID.v:288: error: Invalid module instantiation
+ID.v:290: error: Invalid module instantiation
+ID.v:291: error: Invalid module instantiation
+ID.v:294: error: invalid module item.
+ID.v:296: syntax error
+ID.v:296: error: Invalid module instantiation
+ID.v:297: error: Invalid module instantiation
+ID.v:301: error: invalid module item.
+ID.v:302: syntax error
+ID.v:302: error: Invalid module instantiation
+ID.v:304: error: Invalid module instantiation
+ID.v:305: error: Invalid module instantiation
+ID.v:308: error: invalid module item.
+ID.v:309: syntax error
+ID.v:309: error: Invalid module instantiation
+ID.v:311: error: Invalid module instantiation
+ID.v:312: error: Invalid module instantiation
+ID.v:315: error: invalid module item.
+ID.v:316: syntax error
+ID.v:316: error: Invalid module instantiation
+ID.v:318: error: Invalid module instantiation
+ID.v:319: error: Invalid module instantiation
+ID.v:322: error: invalid module item.
+ID.v:323: syntax error
+ID.v:323: error: Invalid module instantiation
+ID.v:325: error: Invalid module instantiation
+ID.v:326: error: Invalid module instantiation
+ID.v:330: error: invalid module item.
+ID.v:331: syntax error
+ID.v:331: error: Invalid module instantiation
+ID.v:334: error: invalid module item.
+ID.v:336: syntax error
+ID.v:336: error: Invalid module instantiation
+ID.v:337: error: Invalid module instantiation
+ID.v:339: error: Invalid module instantiation
+ID.v:340: error: Invalid module instantiation
+ID.v:344: error: invalid module item.
+ID.v:345: syntax error
+ID.v:345: error: Invalid module instantiation
+ID.v:347: error: Invalid module instantiation
+ID.v:348: error: Invalid module instantiation
+ID.v:351: error: invalid module item.
+ID.v:352: syntax error
+ID.v:352: error: Invalid module instantiation
+ID.v:354: error: Invalid module instantiation
+ID.v:355: error: Invalid module instantiation
+ID.v:358: error: invalid module item.
+ID.v:360: syntax error
+ID.v:360: error: Invalid module instantiation
+ID.v:361: error: Invalid module instantiation
+ID.v:364: error: invalid module item.
+ID.v:366: syntax error
+ID.v:366: error: Invalid module instantiation
+ID.v:367: error: Invalid module instantiation
+ID.v:372: error: invalid module item.
+ID.v:374: syntax error
+ID.v:374: error: Invalid module instantiation
+ID.v:375: error: Invalid module instantiation
+ID.v:378: error: invalid module item.
+ID.v:380: syntax error
+ID.v:380: error: Invalid module instantiation
+ID.v:381: error: Invalid module instantiation
+ID.v:389: error: invalid module item.
+ID.v:391: syntax error
+ID.v:391: error: Invalid module instantiation
+ID.v:392: error: Invalid module instantiation
+ID.v:395: error: invalid module item.
+ID.v:397: syntax error
+ID.v:397: error: Invalid module instantiation
+ID.v:398: error: Invalid module instantiation
+ID.v:401: error: invalid module item.
+ID.v:403: syntax error
+ID.v:403: error: Invalid module instantiation
+ID.v:404: error: Invalid module instantiation
+ID.v:407: error: invalid module item.
+ID.v:409: syntax error
+ID.v:409: error: Invalid module instantiation
+ID.v:410: error: Invalid module instantiation
+ID.v:413: error: invalid module item.
+ID.v:415: syntax error
+ID.v:415: error: Invalid module instantiation
+ID.v:416: error: Invalid module instantiation
+ID.v:420: error: invalid module item.
+ID.v:421: syntax error
+ID.v:421: error: Invalid module instantiation
+ID.v:423: error: Invalid module instantiation
+ID.v:424: error: Invalid module instantiation
+ID.v:427: error: invalid module item.
+ID.v:428: syntax error
+ID.v:428: error: Invalid module instantiation
+ID.v:430: error: Invalid module instantiation
+ID.v:431: error: Invalid module instantiation
+ID.v:434: error: invalid module item.
+ID.v:435: syntax error
+ID.v:435: error: Invalid module instantiation
+ID.v:437: error: Invalid module instantiation
+ID.v:438: error: Invalid module instantiation
+ID_EX.v:23: error: invalid module item.
+ID_EX.v:27: syntax error
+ID_EX.v:27: error: malformed statement
+ID_EX.v:28: syntax error
+ID_EX.v:28: error: malformed statement
+ID_EX.v:29: syntax error
+ID_EX.v:29: error: malformed statement
+ID_EX.v:30: syntax error
+ID_EX.v:30: error: malformed statement
+ID_EX.v:31: syntax error
+ID_EX.v:31: error: malformed statement
+ID_EX.v:32: syntax error
+ID_EX.v:32: error: malformed statement
+ID_EX.v:33: syntax error
+ID_EX.v:33: error: malformed statement
+ID_EX.v:34: syntax error
+ID_EX.v:34: error: malformed statement
+ID_EX.v:37: syntax error
+ID_EX.v:37: error: malformed statement
+ID_EX.v:38: syntax error
+ID_EX.v:38: error: malformed statement
+ID_EX.v:39: syntax error
+ID_EX.v:39: error: malformed statement
+ID_EX.v:40: syntax error
+ID_EX.v:40: error: malformed statement
+ID_EX.v:41: syntax error
+ID_EX.v:41: error: malformed statement
+ID_EX.v:42: syntax error
+ID_EX.v:42: error: malformed statement
+ID_EX.v:43: syntax error
+ID_EX.v:43: error: malformed statement
+ID_EX.v:44: syntax error
+ID_EX.v:44: error: malformed statement
+ID_EX.v:51: syntax error
+ID_EX.v:53: error: malformed statement
+ID_EX.v:54: syntax error
+ID_EX.v:54: error: malformed statement
+ID_EX.v:56: syntax error
+ID_EX.v:57: error: malformed statement
+ID_EX.v:58: syntax error
+ID_EX.v:58: error: malformed statement
+ID_EX.v:60: syntax error
+ID_EX.v:61: error: invalid module item.
+ID_EX.v:62: syntax error
+ID_EX.v:62: error: Invalid module instantiation
+ID_EX.v:65: error: invalid module item.
+ID_EX.v:66: syntax error
+ID_EX.v:66: error: Invalid module instantiation
+IF_ID.v:14: error: invalid module item.
+InstRom.v:14: syntax error
+InstRom.v:15: syntax error
+InstRom.v:15: error: malformed statement
+InstRom.v:17: syntax error
+InstRom.v:17: error: malformed statement
+InstRom.v:14: error: Malformed conditional expression.
+MEM.v:17: syntax error
+MEM.v:17: error: Incomprehensible case expression.
+MEM.v:25: syntax error
+MEM.v:25: error: Incomprehensible case expression.
+MEM.v:33: syntax error
+MEM.v:33: error: Incomprehensible case expression.
+MEM.v:39: syntax error
+MEM.v:39: error: Incomprehensible case expression.
+MEM.v:45: syntax error
+MEM.v:45: error: Incomprehensible case expression.
+MEM.v:46: syntax error
+MEM.v:46: error: malformed statement
+PCReg.v:18: syntax error
+PCReg.v:18: error: malformed statement
+PCReg.v:19: syntax error
+PCReg.v:19: error: malformed statement
+PCReg.v:20: syntax error
+PCReg.v:20: error: malformed statement
+PCReg.v:22: syntax error
+PCReg.v:22: error: malformed statement
+RegFile.v:32: syntax error
+RegFile.v:32: error: malformed statement
+RegFile.v:33: syntax error
+RegFile.v:33: error: malformed statement
+RegFile.v:34: syntax error
+RegFile.v:34: error: malformed statement
+RegFile.v:35: syntax error
+RegFile.v:35: error: malformed statement
+RegFile.v:36: syntax error
+RegFile.v:36: error: malformed statement
+RegFile.v:37: syntax error
+RegFile.v:37: error: malformed statement
+RegFile.v:38: syntax error
+RegFile.v:38: error: malformed statement
+RegFile.v:39: syntax error
+RegFile.v:39: error: malformed statement
+RegFile.v:40: syntax error
+RegFile.v:40: error: malformed statement
+RegFile.v:41: syntax error
+RegFile.v:41: error: malformed statement
+RegFile.v:42: syntax error
+RegFile.v:42: error: malformed statement
+RegFile.v:43: syntax error
+RegFile.v:43: error: malformed statement
+RegFile.v:44: syntax error
+RegFile.v:44: error: malformed statement
+RegFile.v:45: syntax error
+RegFile.v:45: error: malformed statement
+RegFile.v:46: syntax error
+RegFile.v:46: error: malformed statement
+RegFile.v:47: syntax error
+RegFile.v:47: error: malformed statement
+RegFile.v:48: syntax error
+RegFile.v:48: error: malformed statement
+RegFile.v:49: syntax error
+RegFile.v:49: error: malformed statement
+RegFile.v:50: syntax error
+RegFile.v:50: error: malformed statement
+RegFile.v:51: syntax error
+RegFile.v:51: error: malformed statement
+RegFile.v:52: syntax error
+RegFile.v:52: error: malformed statement
+RegFile.v:53: syntax error
+RegFile.v:53: error: malformed statement
+RegFile.v:54: syntax error
+RegFile.v:54: error: malformed statement
+RegFile.v:55: syntax error
+RegFile.v:55: error: malformed statement
+RegFile.v:56: syntax error
+RegFile.v:56: error: malformed statement
+RegFile.v:57: syntax error
+RegFile.v:57: error: malformed statement
+RegFile.v:58: syntax error
+RegFile.v:58: error: malformed statement
+RegFile.v:59: syntax error
+RegFile.v:59: error: malformed statement
+RegFile.v:60: syntax error
+RegFile.v:60: error: malformed statement
+RegFile.v:61: syntax error
+RegFile.v:61: error: malformed statement
+RegFile.v:62: syntax error
+RegFile.v:62: error: malformed statement
+RegFile.v:63: syntax error
+RegFile.v:63: error: malformed statement
+RegFile.v:65: syntax error
+RegFile.v:65: error: Malformed conditional expression.
+RegFile.v:72: syntax error
+RegFile.v:72: error: malformed statement
+RegFile.v:74: syntax error
+RegFile.v:75: syntax error
+RegFile.v:75: error: malformed statement
+RegFile.v:80: syntax error
+RegFile.v:80: error: malformed statement
+RegFile.v:81: syntax error
+RegFile.v:81: error: malformed statement
+RegFile.v:74: error: Malformed conditional expression.
+RegFile.v:89: syntax error
+RegFile.v:89: error: malformed statement
+RegFile.v:94: syntax error
+RegFile.v:94: error: malformed statement
+RegFile.v:96: syntax error
+RegFile.v:97: syntax error
+RegFile.v:97: error: malformed statement
+RegFile.v:102: syntax error
+RegFile.v:102: error: malformed statement
+RegFile.v:103: syntax error
+RegFile.v:103: error: malformed statement
+RegFile.v:96: error: Malformed conditional expression.
+RegFile.v:111: syntax error
+RegFile.v:111: error: malformed statement
+make: *** [../tmp/MIPS_tb] Error 68
