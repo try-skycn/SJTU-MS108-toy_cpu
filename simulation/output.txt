@@ -1,0 +1,247 @@
+0
+4
+8
+c
+10
+14
+18
+1c
+c
+10
+14
+18
+1c
+c
+10
+14
+18
+1c
+c
+10
+14
+18
+1c
+20
+24
+28
+2c
+30
+34
+38
+3c
+40
+44
+48
+4c
+30
+34
+38
+3c
+40
+44
+48
+4c
+30
+34
+38
+3c
+40
+44
+48
+50
+54
+58
+5c
+60
+64
+64
+64
+64
+64
+64
+64
+64
+64
+64
+64
+64
+64
+64
+64
+64
+64
+64
+64
+64
+64
+64
+64
+64
+64
+64
+64
+64
+64
+64
+64
+64
+64
+64
+64
+64
+64
+64
+64
+64
+64
+64
+64
+64
+64
+reg	1	0x0
+reg	2	0x4
+reg	3	0x0
+reg	4	0x0
+reg	1	0x4
+reg	3	0x0
+reg	2	0x3
+pause
+pause
+reg	4	0x0
+reg	1	0x8
+reg	3	0x0
+reg	2	0x2
+pause
+pause
+reg	4	0x0
+reg	1	0xc
+reg	3	0x0
+reg	2	0x1
+pause
+pause
+reg	4	0x0
+reg	1	0x10
+reg	3	0x0
+reg	2	0x0
+pause
+mem	0x60	0x0
+reg	4	0x0
+reg	3	0x-10
+reg	2	0x3
+reg	2	0x2
+reg	3	0xffff
+reg	4	0x-1
+reg	5	0xffff
+reg	6	0x-1
+reg	7	0xffff
+pause
+pause
+pause
+reg	2	0x1
+reg	3	0xffff
+reg	4	0x-1
+reg	5	0xffff
+reg	6	0x-1
+reg	7	0xffff
+pause
+pause
+pause
+reg	2	0x0
+reg	3	0xffff
+reg	4	0x-1
+reg	5	0xffff
+reg	6	0x-1
+reg	7	0xffff
+pause
+pause
+reg	2	0x-1
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause

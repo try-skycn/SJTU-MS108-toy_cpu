@@ -138,8 +138,8 @@ module ID(
 		`ID_OPCODE_SLTI:            `EX_OPERAND(1, 0,    seimm,  `EX_HIGH_ARITH, `EX_ARITH_SLT       ,      rt,   0, 0       )
 		`ID_OPCODE_SLTIU:           `EX_OPERAND(1, 0,    seimm,  `EX_HIGH_ARITH, `EX_ARITH_SLTU      ,      rt,   0, 0       )
 		// for jump operations
-		`ID_OPCODE_J:               `EX_OPERAND(0, 0,        0,         4'b0000,  4'b0000            ,       0,   1, jrtarget)
-		`ID_OPCODE_JAL:             `EX_OPERAND(0, 0,      npc,  `EX_HIGH_LOGIC, `EX_LOGIC_OR        , `REG_RA,   1, jrtarget)
+		`ID_OPCODE_J:               `EX_OPERAND(0, 0,        0,         4'b0000,  4'b0000            ,       0,   1,  jtarget)
+		`ID_OPCODE_JAL:             `EX_OPERAND(0, 0,      npc,  `EX_HIGH_LOGIC, `EX_LOGIC_OR        , `REG_RA,   1,  jtarget)
 		// for branch operations
 		`ID_OPCODE_BEQ:             `EX_OPERAND(1, 1,        0,         4'b0000,  4'b0000            ,       0,  eq, btarget )
 		`ID_OPCODE_BNE:             `EX_OPERAND(1, 1,        0,         4'b0000,  4'b0000            ,       0,  ne, btarget )

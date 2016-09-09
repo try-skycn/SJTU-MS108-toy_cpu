@@ -29,38 +29,9 @@ module RegFile(
 
 	always @(posedge clk) begin
 		if (rst) begin
-       			registers[ 0] <= `ZERO_WORD;
-       			registers[ 1] <= `ZERO_WORD;
-       			registers[ 2] <= `ZERO_WORD;
-       			registers[ 3] <= `ZERO_WORD;
-       			registers[ 4] <= `ZERO_WORD;
-       			registers[ 5] <= `ZERO_WORD;
-       			registers[ 6] <= `ZERO_WORD;
-       			registers[ 7] <= `ZERO_WORD;
-       			registers[ 8] <= `ZERO_WORD;
-       			registers[ 9] <= `ZERO_WORD;
-       			registers[10] <= `ZERO_WORD;
-       			registers[11] <= `ZERO_WORD;
-       			registers[12] <= `ZERO_WORD;
-       			registers[13] <= `ZERO_WORD;
-       			registers[14] <= `ZERO_WORD;
-       			registers[15] <= `ZERO_WORD;
-       			registers[16] <= `ZERO_WORD;
-       			registers[17] <= `ZERO_WORD;
-       			registers[18] <= `ZERO_WORD;
-       			registers[19] <= `ZERO_WORD;
-       			registers[20] <= `ZERO_WORD;
-       			registers[21] <= `ZERO_WORD;
-       			registers[22] <= `ZERO_WORD;
-       			registers[23] <= `ZERO_WORD;
-       			registers[24] <= `ZERO_WORD;
-       			registers[25] <= `ZERO_WORD;
-       			registers[26] <= `ZERO_WORD;
-       			registers[27] <= `ZERO_WORD;
-       			registers[28] <= `ZERO_WORD;
-       			registers[29] <= `ZERO_WORD;
-       			registers[30] <= `ZERO_WORD;
-       			registers[31] <= `ZERO_WORD;
+       			for (i = 0; i < `REG_NUM; i = i + 1) begin
+       				registers[i] <= 0;
+       			end
 		end else begin
 			if (writeEnable && writeAddr != `REG_ZERO) begin
 				registers[writeAddr] <= writeResult;
