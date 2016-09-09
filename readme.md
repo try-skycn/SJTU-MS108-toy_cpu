@@ -2,7 +2,7 @@
 
 This repository is a five-stage pipelined CPU based on MIPS instruction set (without implementation of exception reducing and coprocessors, see [this page](https://www.d.umn.edu/~gshute/mips/instruction-coding.xhtml)) written in Verilog language.
 
-# Automatic top-level file generator
+## Automatic top-level file generator
 
 为了连线时的避免麻烦，我设计了一个利用注释自动生成顶层文件的编译器。
 
@@ -68,6 +68,10 @@ endmodule
 
 	python3 ./autowire/comp.py toplevel-source.v DIR > toplevel.v
 
-即可获得编译后的文件。
+即可获得编译后的文件，其中`DIR`为`module`所在的文件夹。
+
+## Test
+
+Test files and simulation (functional) results are under folder `./benchmark`.
 
 

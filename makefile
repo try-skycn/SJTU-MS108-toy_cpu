@@ -4,12 +4,16 @@ TB = $(FILE)_tb
 ROOT = .
 
 TESTBENCHDIR = ./testbench
+BENCHMARKDIR = ./benchmark
 COMPILEDIR = ./compile
 AUTOWIREDIR = ./autowire
 TESTDIR = ./tmp
 SRCDIR = ./src
 
 all: clean comp cpu mips $(ROOT)/dump.vcd
+
+bm_%:
+	cp $(BENCHMARKDIR)/$@.s $(COMPILEDIR)/rom.s
 
 .PHONY: wave
 wave: $(ROOT)/dump.vcd
