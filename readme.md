@@ -74,4 +74,7 @@ endmodule
 
 Test files and simulation (functional) results are under folder `./benchmark`.
 
+## Acknowledgement
+
+[**自己动手写CPU**](http://blog.csdn.net/leishangwen/article/category/5723475/2)
 
