@@ -1,6 +1,6 @@
 # MIPS CPU
 
-This repository is a five-stage pipelined CPU based on MIPS instruction set (without implementation of exception reducing and coprocessors, see [this page](https://www.d.umn.edu/~gshute/mips/instruction-coding.xhtml)) written in Verilog language.
+This repository is a five-stage pipelined CPU based on MIPS instruction set (without implementation of exception reducing and coprocessors, see [this page](https://www.d.umn.edu/~gshute/mips/instruction-coding.xhtml)) written in Verilog HDL.
 
 ## Automatic top-level file generator
 
